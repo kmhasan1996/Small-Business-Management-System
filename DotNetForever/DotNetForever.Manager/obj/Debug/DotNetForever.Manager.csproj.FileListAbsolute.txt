@@ -1,0 +1,34 @@
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Manager.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Manager.pdb
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Model.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Repository.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.DatabaseContext.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\EntityFramework.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Model.pdb
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Repository.pdb
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Repository.dll.config
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.DatabaseContext.pdb
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.DatabaseContext.dll.config
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\bin\Debug\EntityFramework.xml
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csprojAssemblyReference.cache
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csproj.CoreCompileInputs.cache
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csproj.CopyComplete
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Manager.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Manager.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Model.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Repository.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.DatabaseContext.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\EntityFramework.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Model.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Repository.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.Repository.dll.config
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.DatabaseContext.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.DatabaseContext.dll.config
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\EntityFramework.xml
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csprojAssemblyReference.cache
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csproj.CoreCompileInputs.cache
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csproj.CopyComplete
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.pdb

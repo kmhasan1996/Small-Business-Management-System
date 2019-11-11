@@ -1,0 +1,28 @@
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\DotNetForever.DatabaseContext.dll.config
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\DotNetForever.DatabaseContext.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\DotNetForever.DatabaseContext.pdb
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\DotNetForever.Model.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\EntityFramework.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\EntityFramework.SqlServer.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\DotNetForever.Model.pdb
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\EntityFramework.xml
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csprojAssemblyReference.cache
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.CoreCompileInputs.cache
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.CopyComplete
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.dll
+D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\DotNetForever.DatabaseContext.dll.config
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\DotNetForever.DatabaseContext.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\DotNetForever.DatabaseContext.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\DotNetForever.Model.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\EntityFramework.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\EntityFramework.SqlServer.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\DotNetForever.Model.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\EntityFramework.xml
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csprojAssemblyReference.cache
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.CoreCompileInputs.cache
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.CopyComplete
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.pdb

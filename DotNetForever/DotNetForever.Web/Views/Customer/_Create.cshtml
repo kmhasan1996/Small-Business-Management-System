@@ -1,0 +1,92 @@
+﻿@model  DotNetForever.Model.Model.Customer
+
+
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Customer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div id="saveError" class="alert alert-warning" role="alert">
+
+        </div>
+        @*<div id="saveError" class="alert alert-warning alert-dismissible fade show" role="alert">
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>*@
+
+        <form id="customerForm">
+           
+            <div class="form-group">
+                <label>Code</label>
+                <input type="text" class="form-control" name="Code" placeholder="Enter code" >
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" name="Name" placeholder="Enter name" >
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" name="Email" placeholder="Enter email " >
+            </div>
+            <div class="form-group">
+                <label>Contact</label>
+                <input type="text" class="form-control" name="Contact" placeholder="Enter contact no." >
+            </div>
+            <div class="form-group">
+                <label>Loyalty Point</label>
+                <input type="text" class="form-control" name="LoyaltyPoint" placeholder="Enter loyaltyPoint point" >
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                   
+                <textarea class="form-control" name="Address"> </textarea>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button id="saveButton" type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Save</button>
+        <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
+    </div>
+</div>
+
+
+
+
+<script>
+    document.getElementById("saveError").style.display = "none";
+    $("#saveButton").click(function () {
+        document.getElementById("saveError").style.display = "none";
+        $.ajax({
+            type: "POST",
+            url: "/Customer/Create",
+            data: $("#customerForm").serialize()
+
+        })
+            .done(function (response) {
+                if (response.Success) {
+                    //$("#saveError").html(response.Message);
+                    location.reload();
+                } else {
+                    $("#saveError").html(response.Message);
+                }
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
+    });
+
+    $("#closeButton").click(function () {
+        location.reload();
+    });
+</script>

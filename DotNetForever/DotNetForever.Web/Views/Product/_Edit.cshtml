@@ -1,0 +1,95 @@
+﻿
+@model DotNetForever.Model.Model.Product
+
+@if (Model != null)
+{
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div id="saveError" class="alert alert-warning" role="alert">
+
+            </div>
+            @*<div id="saveError" class="alert alert-warning alert-dismissible fade show" role="alert">
+
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>*@
+
+            <form id="productForm">
+                <input type="hidden" name="Id"  value="@Model.Id" />
+                @*<div class="form-group">
+                    <label>Category</label>
+                    <select id="categorySelect" name="CategoryID" class="form-control">
+                        <option>Select One</option>
+                        @foreach (var category in Model)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+
+                    </select>
+
+                </div>*@
+                <div class="form-group">
+                    <label>Code</label>
+                    <input type="text" class="form-control" name="code" value="@Model.Code">
+                </div>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="name" value="@Model.Name">
+                </div>
+                <div class="form-group">
+                    <label>Reorder Level</label>
+                    <input type="text" class="form-control" name="recorderlevel" value="@Model.RecorderLevel">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    @*<input type="text" class="form-control" id="description" placeholder="Enter product description">*@
+                    <textarea type="text" class="form-control" name="description">@Model.Description</textarea>
+                </div>
+
+
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button id="updateButton" type="button" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Update</button>
+            <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
+        </div>
+    </div>
+}
+
+<script>
+    document.getElementById("saveError").style.display = "none";
+    $("#updateButton").click(function () {
+        document.getElementById("saveError").style.display = "none";
+        $.ajax({
+                type: "POST",
+                url: "/Product/Edit",
+                data: $("#productForm").serialize()
+
+            })
+            .done(function(response) {
+                if (response.Success) {
+                    //$("#saveError").html(response.Message);
+                    location.reload();
+                } else {
+                    $("#saveError").html(response.Message);
+                }
+
+            })
+            .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
+    });
+
+    $("#closeButton").click(function() {
+        location.reload();
+    });
+</script>

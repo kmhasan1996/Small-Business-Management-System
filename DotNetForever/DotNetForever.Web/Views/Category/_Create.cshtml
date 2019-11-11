@@ -1,0 +1,74 @@
+﻿@model  DotNetForever.Model.Model.Category
+
+
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div id="saveError" class="alert alert-warning" role="alert">
+
+        </div>
+        @*<div id="saveError" class="alert alert-warning alert-dismissible fade show" role="alert">
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>*@
+
+        <form id="categoryForm">
+           
+            <div class="form-group">
+                <label>Code</label>
+                <input type="text" class="form-control" name="Code" placeholder="Enter category code" >
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" name="Name" placeholder="Enter category name" >
+            </div>
+
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button id="saveButton" type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Save</button>
+        <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
+    </div>
+</div>
+
+
+
+
+<script>
+    document.getElementById("saveError").style.display = "none";
+    $("#saveButton").click(function () {
+        document.getElementById("saveError").style.display = "none";
+        $.ajax({
+            type: "POST",
+            url: "/Category/Create",
+            data: $("#categoryForm").serialize()
+
+        })
+            .done(function (response) {
+                if (response.Success) {
+                    //$("#saveError").html(response.Message);
+                    location.reload();
+                } else {
+                    $("#saveError").html(response.Message);
+                }
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
+    });
+
+    $("#closeButton").click(function () {
+        location.reload();
+    });
+</script>
