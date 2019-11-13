@@ -40,8 +40,7 @@ namespace DotNetForever.Web.Controllers
         {
             CreateProductViewModel model = new CreateProductViewModel();
             model.Categories = _categoryManager.GetAll();
-            model.Product = new Product();
-
+            model.Product=new Product();
             return PartialView("_Create", model);
 
         }
@@ -51,13 +50,16 @@ namespace DotNetForever.Web.Controllers
         {
             JsonResult jason = new JsonResult();
 
-            if (_productManager.Add(product))
+            if (ModelState.IsValid)
             {
-                jason.Data = new {Success = true, Message = "Saved Successfully"};
-            }
-            else
-            {
-                jason.Data = new {Success = true, Message = "Unable to save"};
+                if (_productManager.Add(product))
+                {
+                    jason.Data = new { Success = true, Message = "Saved Successfully" };
+                }
+                else
+                {
+                    jason.Data = new { Success = true, Message = "Unable to save" };
+                }
             }
 
             return jason;

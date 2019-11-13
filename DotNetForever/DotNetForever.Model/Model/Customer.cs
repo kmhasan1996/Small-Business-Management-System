@@ -15,7 +15,7 @@ namespace DotNetForever.Model.Model
         public string Email { get; set; }
         public string Contact { get; set; }
         public int LoyaltyPoint { get; set; }
-        public object CustomerId { get; set; }
-        public object CategoryId { get; set; }
+        public List<Sale> Sales { get; set; }
+       
     }
 }

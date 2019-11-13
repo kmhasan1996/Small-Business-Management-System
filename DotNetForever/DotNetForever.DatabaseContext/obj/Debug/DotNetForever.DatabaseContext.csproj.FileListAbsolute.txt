@@ -26,3 +26,13 @@ D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\De
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.CopyComplete
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.dll
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.InitialCreate.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.GenerateResource.cache
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.requiredmessage.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.requiredmessage1.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AddedPurchaseAndSaleTable.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AddedPurchaseAndSaleTable1.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AddedPurchaseAndSaleTable13.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AddedPurchaseAndSaleTable133.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AddedPurchaseAndSaleTable1333.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AddedPurchaseAndSaleTable13330.resources

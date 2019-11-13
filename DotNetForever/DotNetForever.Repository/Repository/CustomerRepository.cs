@@ -28,14 +28,12 @@ namespace DotNetForever.Repository.Repository
                 if (model != null)
                 {
                     model.Id = customer.Id;
-                    model.CustomerId = customer.CustomerId;
                     model.Code = customer.Code;
                     model.Name = customer.Name;
                     model.Address = customer.Address;
                     model.Email = customer.Email;
                     model.Contact = customer.Contact;
                     model.LoyaltyPoint = customer.LoyaltyPoint;
-                    model.CategoryId = customer.CategoryId;
                 }
 
                 return context.SaveChanges() > 0;

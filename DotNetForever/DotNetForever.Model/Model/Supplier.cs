@@ -15,5 +15,6 @@ namespace DotNetForever.Model.Model
         public string Email { set; get; }
         public string Contact { set; get; }
         public string ContactPerson { set; get; }
+        public List<Purchase> Purchases { get; set; }
     }
 }

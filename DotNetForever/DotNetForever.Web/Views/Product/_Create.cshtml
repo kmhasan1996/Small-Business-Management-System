@@ -1,70 +1,76 @@
 ﻿@model  DotNetForever.Web.ViewModels.CreateProductViewModel
 
 
-@if (Model != null)
-{
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div id="saveError" class="alert alert-warning" role="alert">
+
         </div>
+        @*<div id="saveError" class="alert alert-warning alert-dismissible fade show" role="alert">
 
-        <div class="modal-body">
-            <div id="saveError" class="alert alert-warning" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>*@
 
-            </div>
-            @*<div id="saveError" class="alert alert-warning alert-dismissible fade show" role="alert">
-
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>*@
-
-            <form id="productForm">
-                <div class="form-group">
-                    <label>Category</label>
-                    <select id="categorySelect" name="CategoryID" class="form-control" re>
-                        <option>Select One</option>
-                        @foreach (var category in Model.Categories)
+        <form id="productForm">
+            <div class="form-group">
+                <label>Category</label>
+                <select id="categorySelect" name="CategoryID" class="form-control" re>
+                    <option>Select One</option>
+                    @if (Model.Categories !=null)
+                    {
+                        foreach (var category in Model.Categories)
                         {
                             <option value="@category.Id">@category.Name</option>
                         }
-                       
+                    }
+                   
 
-                    </select>
+                </select>
 
+            </div>
+            <div class="form-group">
+                <label>Code</label>
+                <input type="text" class="form-control" name="Code" placeholder="Enter product code" >
+                @Html.ValidationMessageFor(c=>c.Code)
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" name="Name" placeholder="Enter product name" >
+                @*@Html.ValidationMessageFor(model=>model.Product.Name, "hhhhh", new { @class = "text-danger" })*@
+                @Html.ValidationMessageFor(c=>c.Name)
                 </div>
-                <div class="form-group">
-                    <label>Code</label>
-                    <input type="text" class="form-control" name="Code" placeholder="Enter product code" >
-                </div>
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="form-control" name="Name" placeholder="Enter product name" >
-                    @Html.ValidationMessageFor(model=>model.Product.Name, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label>Reorder Level</label>
-                    <input type="text" class="form-control" name="Recorderlevel" placeholder="Enter product reorderlevel" >
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    @*<input type="text" class="form-control" id="description" placeholder="Enter product description">*@
-                    <textarea class="form-control" name="Description"> </textarea>
-                </div>
+            <div class="form-group">
+                <label>Reorder Level</label>
+                <input type="text" class="form-control" name="Recorderlevel" placeholder="Enter product reorderlevel" >
+                @Html.ValidationMessageFor(c=>c.RecorderLevel)
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                @*<input type="text" class="form-control" id="description" placeholder="Enter product description">*@
+                <textarea class="form-control" name="Description"> </textarea>
+                @Html.ValidationMessageFor(c=>c.Description)
+            </div>
 
-
-            </form>
-        </div>
-
-        <div class="modal-footer">
-            <button id="saveButton" type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Save</button>
-            <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
-        </div>
+        </form>
     </div>
-}
+
+    <div class="modal-footer">
+        <button id="saveButton" type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Save</button>
+        <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
+    </div>
+</div>
+
 
 
 
@@ -73,23 +79,26 @@
     $("#saveButton").click(function () {
         document.getElementById("saveError").style.display = "none";
         $.ajax({
-            type: "POST",
-            url: "/Product/Create",
-            data: $("#productForm").serialize()
+                type: "POST",
+                url: "/Product/Create",
+                data: $("#productForm").serialize()
 
-        })
-            .done(function (response) {
+            })
+            .done(function(response) {
                 if (response.Success) {
                     //$("#saveError").html(response.Message);
+                    
                     location.reload();
                 } else {
                     $("#saveError").html(response.Message);
+                   
                 }
 
             })
-            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Fail");
-            });
+        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Fail");
+            
+        });
     });
 
     $("#closeButton").click(function () {

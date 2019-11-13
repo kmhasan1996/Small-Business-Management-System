@@ -40,14 +40,18 @@ namespace DotNetForever.Web.Controllers
         {
             JsonResult jason = new JsonResult();
 
-            if (_categoryManager.Add(category))
+            if (ModelState.IsValid)
             {
-                jason.Data = new { Success = true, Message = "Saved Successfully" };
+                if (_categoryManager.Add(category))
+                {
+                    jason.Data = new { Success = true, Message = "Saved Successfully" };
+                }
+                else
+                {
+                    jason.Data = new { Success = true, Message = "Unable to save" };
+                }
             }
-            else
-            {
-                jason.Data = new { Success = true, Message = "Unable to save" };
-            }
+            
 
             return jason;
         }

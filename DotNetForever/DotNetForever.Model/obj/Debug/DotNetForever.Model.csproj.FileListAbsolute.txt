@@ -5,7 +5,6 @@ D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNet
 D:\Project-01(Web)\Stock Management System(Web Application)\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.pdb
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\bin\Debug\DotNetForever.Model.dll
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\bin\Debug\DotNetForever.Model.pdb
-D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.csprojAssemblyReference.cache
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.csproj.CoreCompileInputs.cache
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.dll
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.pdb
