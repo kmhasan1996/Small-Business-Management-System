@@ -63,7 +63,7 @@ namespace DotNetForever.Repository.Repository
         {
             using (var context = new SMSDbContext())
             {
-                return context.Categories.ToList();
+                return context.Categories.Include(x=>x.Products).ToList();
 
             }
         }

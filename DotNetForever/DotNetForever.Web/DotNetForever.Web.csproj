@@ -138,13 +138,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Stock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CategoryListViewModel.cs" />
     <Compile Include="ViewModels\CreateProductViewModel.cs" />
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\ProductListViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseDetailsViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseReportViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseViewModel.cs" />
+    <Compile Include="ViewModels\SaleDetailViewModel.cs" />
+    <Compile Include="ViewModels\SaleReportViewModel.cs" />
+    <Compile Include="ViewModels\SaleViewModel.cs" />
     <Compile Include="ViewModels\SideMenuViewModel.cs" />
+    <Compile Include="ViewModels\StockViewModel.cs" />
     <Compile Include="ViewModels\SupplierListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +190,16 @@
     <Content Include="Views\Supplier\_Edit.cshtml" />
     <Content Include="Views\Supplier\_Listing.cshtml" />
     <Content Include="Views\Supplier\Index.cshtml" />
+    <Content Include="Views\Purchase\Index.cshtml" />
+    <Content Include="Views\Purchase\_Listing.cshtml" />
+    <Content Include="Views\Sale\Index.cshtml" />
+    <Content Include="Views\Sale\_Listing.cshtml" />
+    <Content Include="Views\Purchase\Create.cshtml" />
+    <Content Include="Views\Sale\Create.cshtml" />
+    <Content Include="Views\Stock\Index.cshtml" />
+    <Content Include="Views\Shared\_ReportLayout.cshtml" />
+    <Content Include="Views\Report\PurchaseReport.cshtml" />
+    <Content Include="Views\Report\SaleReport.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -191,11 +209,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Purchase\" />
-    <Folder Include="Views\Report\" />
-    <Folder Include="Views\Sale\" />
-    <Folder Include="Views\Stock\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNetForever.Manager\DotNetForever.Manager.csproj">

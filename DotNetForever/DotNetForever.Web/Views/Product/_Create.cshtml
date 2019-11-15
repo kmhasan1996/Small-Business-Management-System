@@ -42,24 +42,24 @@
             <div class="form-group">
                 <label>Code</label>
                 <input type="text" class="form-control" name="Code" placeholder="Enter product code" >
-                @Html.ValidationMessageFor(c=>c.Code)
+                
             </div>
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control" name="Name" placeholder="Enter product name" >
                 @*@Html.ValidationMessageFor(model=>model.Product.Name, "hhhhh", new { @class = "text-danger" })*@
-                @Html.ValidationMessageFor(c=>c.Name)
+               
                 </div>
             <div class="form-group">
                 <label>Reorder Level</label>
                 <input type="text" class="form-control" name="Recorderlevel" placeholder="Enter product reorderlevel" >
-                @Html.ValidationMessageFor(c=>c.RecorderLevel)
+                
             </div>
             <div class="form-group">
                 <label>Description</label>
                 @*<input type="text" class="form-control" id="description" placeholder="Enter product description">*@
                 <textarea class="form-control" name="Description"> </textarea>
-                @Html.ValidationMessageFor(c=>c.Description)
+               
             </div>
 
         </form>
