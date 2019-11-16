@@ -48,7 +48,7 @@ namespace DotNetForever.Repository.Repository
                     model.CategoryId = product.CategoryId;
                     model.Code = product.Code;
                     model.Name = product.Name;
-                    model.RecorderLevel = product.RecorderLevel;
+                    model.ReorderLevel = product.ReorderLevel;
                     model.Description = product.Description;
                 }
                
@@ -101,6 +101,20 @@ namespace DotNetForever.Repository.Repository
             {
                 return context.Products.Count();
             }
+        }
+
+        public string GetLastProductCode()
+        {
+            using (var context = new SMSDbContext())
+            {
+
+                var product = context.Products.OrderByDescending(x => x.Id).FirstOrDefault<Product>();
+                return product.Code;
+
+                //return "0001";
+            }
+
+
         }
 
     }

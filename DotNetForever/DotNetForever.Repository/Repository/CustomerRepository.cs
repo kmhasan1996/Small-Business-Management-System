@@ -2,6 +2,7 @@
 using DotNetForever.Model.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,23 @@ namespace DotNetForever.Repository.Repository
 {
     public class CustomerRepository
     {
+        public bool CheckEmailAvailability(string email)
+        {
+            using (var context = new SMSDbContext())
+            {
+                var customer = context.Customers.Where(x => x.Email.Contains(email) ).ToList();
+
+                if (customer.Count>0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public bool Add(Customer customer)
         {
             using (var context = new SMSDbContext())

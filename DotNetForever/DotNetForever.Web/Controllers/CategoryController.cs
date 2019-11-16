@@ -42,14 +42,7 @@ namespace DotNetForever.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                if (_categoryManager.Add(category))
-                {
-                    jason.Data = new { Success = true, Message = "Saved Successfully" };
-                }
-                else
-                {
-                    jason.Data = new { Success = true, Message = "Unable to save" };
-                }
+                jason.Data = _categoryManager.Add(category) ? new { Success = true, Message = "Saved Successfully" } : new { Success = true, Message = "Unable to Save" };
             }
             
 
@@ -70,16 +63,12 @@ namespace DotNetForever.Web.Controllers
             var existingCategory = _categoryManager.GetById(category.Id);
             existingCategory.Code = category.Code;
             existingCategory.Name = category.Name;
-            
 
-            if (_categoryManager.Update(existingCategory))
+            if (ModelState.IsValid)
             {
-                jason.Data = new { Success = true };
+                jason.Data = _categoryManager.Update(existingCategory) ? new {Success = true, Message = "Updated Successfully" } : new {Success = true, Message = "Unable to Update"};
             }
-            else
-            {
-                jason.Data = new { Success = true, Message = "Unable to update" };
-            }
+           
 
             return jason;
         }

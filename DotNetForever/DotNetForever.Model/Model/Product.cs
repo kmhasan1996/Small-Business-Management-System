@@ -11,19 +11,15 @@ namespace DotNetForever.Model.Model
     public class Product
     {
         public int Id { set; get; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Category is required")]
+        [Required]
         public int CategoryId { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Code is required")]
+        [Required]
         public string Code { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Name is required")]
+        [Required]
         public string Name { get; set; }
-
-        [DisplayName("Recorder Level")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Recorder Level is required")]
-        public int RecorderLevel { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Description is required")]
+        [Required]
+        public int ReorderLevel { get; set; }
+        [Required]
         public string Description { get; set; }
         public virtual Category Category {get; set; }
     }

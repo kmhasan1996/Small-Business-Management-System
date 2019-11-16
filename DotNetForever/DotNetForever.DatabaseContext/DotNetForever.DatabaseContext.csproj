@@ -87,6 +87,30 @@
     <Compile Include="Migrations\201911131424104_AddedPurchaseAndSaleTable13330.Designer.cs">
       <DependentUpon>201911131424104_AddedPurchaseAndSaleTable13330.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911160837209_RemoveAspDotnetValidation.cs" />
+    <Compile Include="Migrations\201911160837209_RemoveAspDotnetValidation.Designer.cs">
+      <DependentUpon>201911160837209_RemoveAspDotnetValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911160904200_RemoveAspDotnetValidation3.cs" />
+    <Compile Include="Migrations\201911160904200_RemoveAspDotnetValidation3.Designer.cs">
+      <DependentUpon>201911160904200_RemoveAspDotnetValidation3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911160906055_RemoveAspDotnetValidation31.cs" />
+    <Compile Include="Migrations\201911160906055_RemoveAspDotnetValidation31.Designer.cs">
+      <DependentUpon>201911160906055_RemoveAspDotnetValidation31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911160906273_RemoveAspDotnetValidation35.cs" />
+    <Compile Include="Migrations\201911160906273_RemoveAspDotnetValidation35.Designer.cs">
+      <DependentUpon>201911160906273_RemoveAspDotnetValidation35.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911161135013_AspDotnetValidation3.cs" />
+    <Compile Include="Migrations\201911161135013_AspDotnetValidation3.Designer.cs">
+      <DependentUpon>201911161135013_AspDotnetValidation3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911161144501_AspDotnetValidation356.cs" />
+    <Compile Include="Migrations\201911161144501_AspDotnetValidation356.Designer.cs">
+      <DependentUpon>201911161144501_AspDotnetValidation356.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -117,6 +141,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911131424104_AddedPurchaseAndSaleTable13330.resx">
       <DependentUpon>201911131424104_AddedPurchaseAndSaleTable13330.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911160837209_RemoveAspDotnetValidation.resx">
+      <DependentUpon>201911160837209_RemoveAspDotnetValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911160904200_RemoveAspDotnetValidation3.resx">
+      <DependentUpon>201911160904200_RemoveAspDotnetValidation3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911160906055_RemoveAspDotnetValidation31.resx">
+      <DependentUpon>201911160906055_RemoveAspDotnetValidation31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911160906273_RemoveAspDotnetValidation35.resx">
+      <DependentUpon>201911160906273_RemoveAspDotnetValidation35.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911161135013_AspDotnetValidation3.resx">
+      <DependentUpon>201911161135013_AspDotnetValidation3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911161144501_AspDotnetValidation356.resx">
+      <DependentUpon>201911161144501_AspDotnetValidation356.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SMS-Dashboard</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Contents/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/Contents/css/simple-sidebar.css" rel="stylesheet" />
+    
+    <script src="~/Contents/js/jquery.min.js"></script>
+    
+    <!--font awesome 5.1.2-->
+    <link href="~/Contents/fontawesome/css/all.min.css" rel="stylesheet" />
+    
+    <!--sweet alert-->
+    <script src="~/Contents/sweetalert/sweetalert2.all.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        @Html.Action("SideMenu", "Home")
+
+        @*<div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Dashboard </div>
+            <div class="list-group list-group-flush">
+                <a href="@Url.Action("Index","Home")" class="list-group-item list-group-item-action bg-light">Home</a>
+
+                <a href="@Url.Action("Index","Product")" class="list-group-item list-group-item-action bg-light d-flex justify-content-between align-items-center">Product <span class="badge badge-primary badge-pill">14</span></a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Category</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Customer</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Supplier</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Purchase</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Sales</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Stock</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light ">Report</a>
+
+            </div>
+        </div>*@
+        <!-- /#sidebar-wrapper navbar-dark bg-dark -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg  border-bottom" style="background: rgb(20, 158, 132); color: white;">
+                <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                @*<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+                        </li>
+
+                    </ul>
+                </div>*@
+            </nav>
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap core JavaScript -->
+
+   
+<script src="~/Contents/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!--jQuery Validation-->
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+    var pathname = window.location.pathname;
+
+    //window.alert(pathname);
+    $('.list-group > a[href="'+pathname+'"]').addClass('active');
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,102 @@
+﻿@model List<DotNetForever.Web.ViewModels.PurchaseReportViewModel>
+
+@{
+    ViewBag.Title = "PurchaseReport";
+    Layout = "~/Views/Shared/_ReportLayout.cshtml";
+}
+<hr/>
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-5">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Start Date</span>
+                    </div>
+                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">End Date</span>
+                    </div>
+                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <button id="addButton" type="submit" class="btn btn-primary float-right"><i class="fas fa-search mr-2"></i>Search</button>
+
+            </div>
+
+
+        </div>
+        <hr />
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+
+</div>
+
+<!--Stock Table-->
+
+<div class="card bg-light overflow-auto" style="height: 425px;">
+    @*@if (Model != null && Model.Count>0)
+        {*@
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">AvailableQty</th>
+                    <th scope="col">CP</th>
+                    <th scope="col">MRP</th>
+                    <th scope="col">Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @*@{
+                        var i = 0;
+                        foreach (var product in Model.PurchaseDetail)
+                        {
+                            i++;
+
+                            <tr>
+                                <td>@i</td>
+                                <td>@product.Category.Name</td>
+                                <td>@product.Code</td>
+                                <td>@product.Name</td>
+                                <td>@product.RecorderLevel</td>
+                                <td>@product.Description</td>
+                                <td>
+                                    <button  type="button" class="editButton btn btn-primary" data-id="@product.Id" data-toggle="modal" data-target="#editModal"><i class="fas fa-pen mr-2"></i>Edit</button>
+                                    <button  type="button" class="deleteButton btn btn-danger" data-id="@product.Id"><i class="fas fa-trash-alt mr-2"></i>Delete</button>
+                                </td>
+
+                            </tr>
+                        }
+
+                    }*@
+
+            </tbody>
+        </table>
+    </div>
+
+    @*}
+        else
+        {
+            <hr/>
+            <div class="alert alert-warning" role="alert">
+                Sorry! No product record found.
+            </div>
+        }*@
+</div>

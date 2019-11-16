@@ -8,3 +8,4 @@ D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\bin\Debug\DotNet
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.csproj.CoreCompileInputs.cache
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.dll
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.csprojAssemblyReference.cache

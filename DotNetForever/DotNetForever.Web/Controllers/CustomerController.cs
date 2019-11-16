@@ -26,6 +26,20 @@ namespace DotNetForever.Web.Controllers
             return View(model);
         }
 
+        public JsonResult CheckEmailAvailability(string email)
+        {
+            if (_customerManager.CheckEmailAvailability(email))
+            {
+                return Json(1);
+            }
+            else
+            {
+                return Json(0);
+            }
+
+        }
+
+
         //public ActionResult Listing()
         //{
         //    var product = _productManager.GetAll();
@@ -46,14 +60,11 @@ namespace DotNetForever.Web.Controllers
         {
             JsonResult jason = new JsonResult();
 
-            if (_customerManager.Add(customer))
+            if (ModelState.IsValid)
             {
-                jason.Data = new { Success = true, Message = "Saved Successfully" };
+                jason.Data = _customerManager.Add(customer) ? new { Success = true, Message = "Saved Successfully" } : new { Success = true, Message = "Unable to Save" };
             }
-            else
-            {
-                jason.Data = new { Success = true, Message = "Unable to save" };
-            }
+           
 
             return jason;
         }
@@ -76,17 +87,12 @@ namespace DotNetForever.Web.Controllers
             existingCustomer.Email = customer.Email;
             existingCustomer.Contact = customer.Contact;
             existingCustomer.LoyaltyPoint = customer.LoyaltyPoint;
+
+            if (ModelState.IsValid)
+            {
+                jason.Data = _customerManager.Update(existingCustomer) ? new { Success = true, Message = "Updated Successfully" } : new { Success = true, Message = "Unable to Update" };
+            }
             
-
-            if (_customerManager.Update(existingCustomer))
-            {
-                jason.Data = new { Success = true };
-            }
-            else
-            {
-                jason.Data = new { Success = true, Message = "Unable to update" };
-            }
-
             return jason;
         }
 

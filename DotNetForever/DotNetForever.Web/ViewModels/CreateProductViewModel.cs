@@ -10,5 +10,6 @@ namespace DotNetForever.Web.ViewModels
     {
         public List<Category> Categories { get; set; }
         public Product Product { get; set; }
+
     }
 }

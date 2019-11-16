@@ -1,0 +1,6 @@
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\bin\Release\DotNetForever.Model.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\bin\Release\DotNetForever.Model.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.csprojAssemblyReference.cache
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.csproj.CoreCompileInputs.cache
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.pdb

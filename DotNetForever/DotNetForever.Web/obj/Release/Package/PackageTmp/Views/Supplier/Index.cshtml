@@ -1,0 +1,56 @@
+﻿@model DotNetForever.Web.ViewModels.SupplierListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col col-lg-12">
+        <h2>Supplier</h2>
+        <hr />
+    </div>
+
+
+    <div class="col col-lg-6 mb-3">
+        <form>
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="search by code or name" value="@Model.Search" required>
+                <div class="input-group-append" id="button-addon4">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search mr-2"></i>Search</button>
+                    <a class="btn btn-secondary" href="@Url.Action("Index","Supplier")"><i class="fas fa-redo-alt mr-2"></i>Reset</a>
+                    <button id="createButton" class="btn btn-success" type="button" data-toggle="modal" data-target="#createModal"><i class="fas fa-plus mr-2"></i>Create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col col-lg-12">
+        @{Html.RenderPartial("_Listing", Model.Suppliers);}
+    </div>
+
+    <!-- Modal Create -->
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+
+        </div>
+    </div>
+</div>
+<script>
+    $("#createButton").click(function() {
+        $.ajax({
+                type: "GET",
+                url: "/Supplier/Create",
+
+            })
+            .done(function (response) {
+                $("#createModal .modal-dialog").html(response);
+
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
+    });
+</script>

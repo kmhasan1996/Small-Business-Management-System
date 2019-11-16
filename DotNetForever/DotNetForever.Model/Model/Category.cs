@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotNetForever.Model.Model
 {
     public class Category
     {
         public int Id { set; get; }
+
+        [Required]
         public string Code { set; get; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Name is required")]
+        [Required]
         public string Name { set; get; }
         public List<Product> Products { set; get; }
     }

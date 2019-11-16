@@ -1,0 +1,17 @@
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\DotNetForever.Repository.dll.config
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\DotNetForever.Repository.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\DotNetForever.Repository.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\DotNetForever.DatabaseContext.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\DotNetForever.Model.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\EntityFramework.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\EntityFramework.SqlServer.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\DotNetForever.DatabaseContext.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\DotNetForever.DatabaseContext.dll.config
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\DotNetForever.Model.pdb
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\EntityFramework.xml
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Release\EntityFramework.SqlServer.xml
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Release\DotNetForever.Repository.csprojAssemblyReference.cache
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Release\DotNetForever.Repository.csproj.CoreCompileInputs.cache
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Release\DotNetForever.Repository.csproj.CopyComplete
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Release\DotNetForever.Repository.dll
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Release\DotNetForever.Repository.pdb

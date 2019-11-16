@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "_ReportLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <a href="@Url.Action("PurchaseReport","Report")" class=" list-group-item list-group-item-action  text-center"><i class="fas fa-file-alt mr-2"></i>PurchaseReport</a>
+    </div>
+    <div class="col-md-6">
+        <a href="@Url.Action("SaleReport","Report")" class="list-group-item list-group-item-action text-center "><i class="fas fa-file-alt mr-2"></i>SaleReport </a>
+    </div>
+
+</div>
+
+
+@RenderBody()
+
+<script>
+
+    var pathname = window.location.pathname;
+
+    //window.alert(pathname);
+    $('a[href="'+pathname+'"]').addClass('active');
+
+</script>

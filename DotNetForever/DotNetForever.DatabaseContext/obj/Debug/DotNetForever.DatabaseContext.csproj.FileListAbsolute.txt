@@ -36,3 +36,9 @@ D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\De
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AddedPurchaseAndSaleTable133.resources
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AddedPurchaseAndSaleTable1333.resources
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AddedPurchaseAndSaleTable13330.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.RemoveAspDotnetValidation.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.RemoveAspDotnetValidation3.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.RemoveAspDotnetValidation31.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.RemoveAspDotnetValidation35.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AspDotnetValidation3.resources
+D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AspDotnetValidation356.resources

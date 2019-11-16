@@ -27,7 +27,23 @@ namespace DotNetForever.Web.Controllers
             model.Search = search;
             return View(model);
         }
+        private string GenerateProductCode()
+        {
+            string lastProductCode = _productManager.GetLastProductCode();
 
+            if (lastProductCode == "")
+            {
+                lastProductCode = "0001";
+            }
+            else
+            {
+                int number = int.Parse(lastProductCode);
+                lastProductCode = (++number).ToString("D" + lastProductCode.Length);
+
+            }
+
+            return lastProductCode;
+        }
         //public ActionResult Listing()
         //{
         //    var product = _productManager.GetAll();
@@ -41,6 +57,7 @@ namespace DotNetForever.Web.Controllers
             CreateProductViewModel model = new CreateProductViewModel();
             model.Categories = _categoryManager.GetAll();
             model.Product=new Product();
+            model.Product.Code = GenerateProductCode();
             return PartialView("_Create", model);
 
         }
@@ -52,14 +69,7 @@ namespace DotNetForever.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                if (_productManager.Add(product))
-                {
-                    jason.Data = new { Success = true, Message = "Saved Successfully" };
-                }
-                else
-                {
-                    jason.Data = new { Success = true, Message = "Unable to save" };
-                }
+                jason.Data = _productManager.Add(product) ? new { Success = true, Message = "Saved Successfully" } : new { Success = true, Message = "Unable to Save" };
             }
 
             return jason;
@@ -79,17 +89,16 @@ namespace DotNetForever.Web.Controllers
             var existingProduct = _productManager.GetById(product.Id);
             existingProduct.Code = product.Code;
             existingProduct.Name = product.Name;
-            existingProduct.RecorderLevel = product.RecorderLevel;
+            existingProduct.ReorderLevel = product.ReorderLevel;
             existingProduct.Description = product.Description;
 
-            if (_productManager.Update(existingProduct))
+            if (ModelState.IsValid)
             {
-                jason.Data = new { Success = true };
+                jason.Data = _productManager.Update(existingProduct)
+                    ? (object) new {Success = true, Message = "Updated Successfully" }
+                    : new {Success = true, Message = "Unable to Update"};
             }
-            else
-            {
-                jason.Data = new { Success = true, Message = "Unable to update" };
-            }
+            
 
             return jason;
         }

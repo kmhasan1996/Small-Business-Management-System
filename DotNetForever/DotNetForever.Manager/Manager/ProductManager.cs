@@ -39,5 +39,10 @@ namespace DotNetForever.Manager.Manager
         {
             return _productRepository.GetCount();
         }
+
+        public string GetLastProductCode()
+        {
+            return _productRepository.GetLastProductCode();
+        }
     }
 }

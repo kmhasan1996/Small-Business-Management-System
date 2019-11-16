@@ -46,14 +46,11 @@ namespace DotNetForever.Web.Controllers
         {
             JsonResult jason = new JsonResult();
 
-            if (_supplierManager.Add(supplier))
+            if (ModelState.IsValid)
             {
-                jason.Data = new { Success = true, Message = "Saved Successfully" };
+                jason.Data = _supplierManager.Add(supplier) ? new { Success = true, Message = "Saved Successfully" } : new { Success = true, Message = "Unable to save" };
             }
-            else
-            {
-                jason.Data = new { Success = true, Message = "Unable to save" };
-            }
+           
 
             return jason;
         }
@@ -77,15 +74,11 @@ namespace DotNetForever.Web.Controllers
             existingSupplier.Contact = supplier.Contact;
             existingSupplier.ContactPerson = supplier.ContactPerson;
 
-
-            if (_supplierManager.Update(existingSupplier))
+            if (ModelState.IsValid)
             {
-                jason.Data = new { Success = true };
+                jason.Data = _supplierManager.Update(existingSupplier) ? new { Success = true, Message = "Updated Successfully" } : new { Success = true, Message = "Unable to update" };
             }
-            else
-            {
-                jason.Data = new { Success = true, Message = "Unable to update" };
-            }
+           
 
             return jason;
         }
