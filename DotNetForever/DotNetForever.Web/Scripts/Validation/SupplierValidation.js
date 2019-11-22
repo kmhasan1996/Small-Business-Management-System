@@ -79,7 +79,7 @@
                 required: "Name is required"
             },
             Email: {
-                required: "Email is required99",
+                required: "Email is required",
                 email: "Enter a valid email"
             },
             Contact: {

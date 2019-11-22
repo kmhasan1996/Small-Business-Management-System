@@ -5,208 +5,204 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
+
     <h4>Purchase Product</h4>
     <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="row col-md-12">
-        <!--Supplier Details -->
-        <div class="col-md-12">
-            <h6>Supplier</h6><hr/>
-             <div class="row">
-                 <div class="col-md-3">
-                     <div class="input-group input-group-sm mb-3">
-                         <div class="input-group-prepend">
-                             <span class="input-group-text" id="inputGroup-sizing-sm">Supplier</span>
-                         </div>
-                         <select id="categorySelect" name="CategoryID" class="form-control" re>
-                             <option>Select One</option>
-                             @if (Model.Suppliers !=null)
-                             {
-                                 foreach (var supplier in Model.Suppliers)
-                                 {
-                                     <option value="@supplier.Id">@supplier.Name</option>
-                                 }
-                             }
-                   
 
-                         </select>
-                     </div>
+    <form id="PurchaseForm">
+        <div class="row col-md-12">
+            <!--Supplier Details -->
+            <div class="col-md-12">
+                <h6>Supplier</h6><hr />
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Supplier</label>
+                            <div class="col-sm-9">
+                                <select id="SupplierId" name="SupplierId" class="form-control" size="1">
+                                    <option value="">Select One</option>
+                                    @if (Model.Suppliers != null)
+                                    {
+                                        foreach (var supplier in Model.Suppliers)
+                                        {
+                                            <option value="@supplier.Id">@supplier.Name</option>
+                                        }
+                                    }
 
-                 </div>
-                 <div class="col-md-3">
-                     <div class="input-group input-group-sm mb-3">
-                         <div class="input-group-prepend">
-                             <span class="input-group-text" id="inputGroup-sizing-sm">Invoice No.</span>
-                         </div>
-                         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                     </div>
-                 </div>
-                 <div class="col-md-3">
-                     <div class="input-group input-group-sm mb-3">
-                         <div class="input-group-prepend">
-                             <span class="input-group-text" id="inputGroup-sizing-sm">Code</span>
-                         </div>
-                         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                     </div>
 
-                 </div>
-                 <div class="col-md-3">
-                     <div class="input-group input-group-sm mb-3">
-                         <div class="input-group-prepend">
-                             <span class="input-group-text" id="inputGroup-sizing-sm">Date</span>
-                         </div>
-                         <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                     </div>
-
-                 </div>
-
-             </div>
-            <hr />
-        </div>
-       
-        <!--Product Details -->
-        <div class="col-md-12">
-            <h6>Product</h6><hr />
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Category</span>
+                                </select>
+                            </div>
                         </div>
-                        <select id="categorySelect" name="CategoryID" class="form-control" re>
-                            <option>Select One</option>
-                            @if (Model.Categories !=null)
-                            {
-                                foreach (var category in Model.Categories)
-                                {
-                                    <option value="@category.Id">@category.Name</option>
-                                }
-                            }
-                   
 
-                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Invoice No.</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="InvoiceNo" name="InvoiceNo" placeholder="Enter invoice no.">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Code</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Code" name="Code">
+                            </div>
+                        </div>
                     </div>
 
-
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Product</span>
+                    <div class="col-md-3">
+                        <div class="form-group row ml-2">
+                            <label class="col-sm-2 col-form-label">Date</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" id="DateTime" name="DateTime">
+                            </div>
                         </div>
-                        <select id="categorySelect" name="CategoryID" class="form-control" re>
-                            <option>Select One</option>
-                            @if (Model.Products !=null)
-                            {
-                                foreach (var product in Model.Products)
-                                {
-                                    <option value="@product.Id.">@product.Name</option>
-                                }
-                            }
-               
-
-                        </select>
-                    </div>
-
-
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Code</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
                     </div>
 
                 </div>
-                <div class="col-md-3">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Ava Qty</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-
-
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Manufactured Date</span>
-                        </div>
-                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Expire Date</span>
-                        </div>
-                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-
-                </div>
-                <div class="col-md-3">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Quantity</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-
-
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Unit Price(Tk)</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Total Price(Tk)</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Pre. Unit Price</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-
-
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">MRP(Tk)</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Previous MRP(Tk)</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    
-                    
-                </div>
-                
-
-                <div class="input-group col-md-9">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Remarks</span>
-                    </div>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
-                </div>
-               
-                <div class="col-md-3">
-                    <button id="addButton" type="submit" class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Add</button>
-                </div>
-
+                <hr />
             </div>
-           
-            <hr/>
-        </div>
 
-    </div>
-}
+            <!--Product Details -->
+            <div class="col-md-12">
+                <h6>Product</h6><hr />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Category</label>
+                            <div class="col-sm-8">
+                                <select id="categoryId" name="categoryId" class="form-control" size="1">
+                                    <option value="">Select One</option>
+                                    @if (Model.Categories != null)
+                                    {
+                                        foreach (var category in Model.Categories)
+                                        {
+                                            <option value="@category.Id">@category.Name</option>
+                                        }
+                                    }
+
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Product</label>
+                            <div class="col-sm-8">
+                                <select id="ProductId" name="ProductId" class="form-control" size="1">
+                                    <option value="" >Select One</option>
+                                    @*@if (Model.Products != null)
+                                    {
+                                        foreach (var product in Model.Products)
+                                        {
+                                            <option value="@product.Id.">@product.Name</option>
+                                        }
+                                    }*@
+
+
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Code</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="ProductCode" name="ProductCode" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Available Qty</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="AvailableQty" name="AvailableQty" disabled>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Manuf. Date</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="ManufacturedDateTime" name="ManufacturedDateTime">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Expire Date</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="ExpireDate" name="ExpireDate">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Quantity</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="Quantity" name="Quantity" placeholder="Enter quantity">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Unit Price(Tk)</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="UnitPrice" name="UnitPrice" placeholder="Enter unit price">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Total Price(Tk)</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="TotalPrice" name="TotalPrice" disabled>
+                                <span id="NameError"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Pre. Unit Price</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="PreviousUnitPrice" name="PreviousUnitPrice" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">MRP(Tk)</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="MRP" name="MRP" placeholder="Enter MRP">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Pre. MRP(Tk)</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="PreviousMRP" name="PreviousMRP" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        @*<div class="input-group-prepend">
+                            <span class="input-group-text">Remarks</span>
+                        </div>
+                        <textarea class="form-control" aria-label="With textarea" id="Remarks" name="Remarks"></textarea>*@
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Remarks</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" aria-label="With textarea" id="Remarks" name="Remarks"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <button id="addButton" type="button" class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Add</button>
+                    </div>
+
+                </div>
+
+                <hr />
+            </div>
+
+        </div>
+    </form>
 
 <div class="card bg-light overflow-auto" style="height: 425px;">
     @*@if (Model != null && Model.Count>0)
@@ -265,3 +261,259 @@
     }*@
 </div>
 
+
+<script>
+    $(document).ready(function () {
+
+
+        function GetTodayDate() {
+            var tdate = new Date();
+            var dd = tdate.getDate(); //yields day
+            var MM = tdate.getMonth(); //yields month
+            var yyyy = tdate.getFullYear(); //yields year
+            var currentDate= dd + "-" +( MM+1) + "-" + yyyy;
+
+           // return currentDate;
+            //var d = new Date();
+            //var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+
+            //return strDate;
+        }
+
+        var d = new Date();
+        var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+        $('#DateTime').val(strDate);
+
+        $('#TotalPrice').val("0");
+        $('#MRP').val("0");
+        //category changes
+        $("#categoryId").on("change",
+            function () {
+
+                //disable supplier details
+                $("#SupplierId").prop("disabled", true);
+                $("#InvoiceNo").prop("disabled", true);
+                $("#Code").prop("disabled", true);
+                $("#DateTime").prop("disabled", true);
+
+                var categoryId = $('#categoryId').val();
+                var jsonData = { categoryId: categoryId };
+
+
+                $('#ProductId').empty();
+
+                if (categoryId <= 0) {
+                    //alert("hi");
+                    var defaultValue = '<option value=0 > Select One</option>';
+                    $('#ProductId').append(defaultValue);
+                }
+                else {
+                    var defaultValue1 = '<option value=0 > Select One</option>';
+                    $('#ProductId').append(defaultValue1);
+                    $.ajax({
+                        type: "POST",
+                        url: "/Product/GetProductByCategoryId/",
+                        data: JSON.stringify(jsonData),
+                        //data: {
+                        //    categoryId:$("#categoryId").val()
+                        //} ,
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            $.each(data, function (key, category) {
+                                var optionText = "<option value='" + category.Id + "' >" + category.Name + "</option>";
+                                $('#ProductId').append(optionText);
+                            });
+                        }
+                    });
+                }
+
+            });
+
+        //function Clear Available Product Details
+        function clearAvailableProductDetails() {
+            $('#ProductCode').val("0");
+            $('#AvailableQty').val("0");
+            $('#PreviousUnitPrice').val("0");
+            $('#PreviousMRP').val("0");
+
+            //current purchase product
+            $('#UnitPrice').val("0");
+            $('#MRP').val("0");
+        }
+
+        clearAvailableProductDetails();
+        //product changes
+        $("#ProductId").on("change",
+            function () {
+                var productId = $('#ProductId').val();
+                var jsonData = { productId: productId };
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Purchase/GetPurchaseDetailByProductId/",
+                    data: JSON.stringify(jsonData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+
+                        clearAvailableProductDetails();
+                        if (response != null) {
+                            //set the values to input field by id
+                            $('#ProductCode').val(response.ProductCode);
+                            $('#AvailableQty').val(response.AvailableQty);
+                            $('#PreviousUnitPrice').val(response.PreviousUnitPrice);
+                            $('#PreviousMRP').val(response.PreviousMRP);
+
+                            //current purchase product
+                            $('#UnitPrice').val(response.PreviousUnitPrice);
+                            $('#MRP').val(response.PreviousMRP);
+
+                        }
+
+                    }
+                });
+
+            });
+
+
+        $('input[name="MRP"]').keyup(function (e) {
+
+            //input field accept numeric value
+            if (/\D/g.test(this.value)) {
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+            }
+
+            
+        });
+
+
+        $('input[name="Quantity"]').keyup(function (e) {
+
+            //input field accept numeric value
+            if (/\D/g.test(this.value)) {
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+            }
+
+            var qty = $('#Quantity').val();
+            var unitPrice = $('#UnitPrice').val();
+            $('#TotalPrice').val(qty * unitPrice);
+        });
+
+        $('input[name="UnitPrice"]').keyup(function (e) {
+
+            //input field accept numeric value
+            if (/\D/g.test(this.value)) {
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+            }
+
+            var qty = $('#Quantity').val();
+            var unitPrice = $('#UnitPrice').val();
+
+            var totalPrice = qty * unitPrice;
+
+            $('#TotalPrice').val(totalPrice);
+
+            $('#MRP').val(parseInt(unitPrice) + parseInt(unitPrice * 25 / 100));
+
+
+            if (isNaN($('#MRP').val())) {
+                $('#MRP').val("0");
+            }
+
+        });
+
+
+        $('#PurchaseForm').validate({
+            rules: {
+                SupplierId: {
+                    required: true
+                },
+                InvoiceNo: {
+                    required: true
+                },
+                Code: {
+                    required: true
+                },
+                DateTime: {
+                    required: true,
+                    date:true
+                },
+                categoryId: {
+                    required: true
+                },
+                ProductId: {
+                    required: true
+                },
+                ManufacturedDateTime: {
+                    required: true
+                },
+                ExpireDate: {
+                    required: true
+                },
+                Quantity: {
+                    required: true
+                },
+                UnitPrice: {
+                    required: true
+                },
+                MRP: {
+                    required: true
+                },
+                Remarks:{
+                    required: true
+                }
+
+            },
+            messages: {
+                SupplierId: {
+
+                },
+                InvoiceNo: {
+
+                },
+                Code: {
+
+                },
+                DateTime: {
+
+                },
+                categoryId: {
+
+                },
+                ProductId: {
+
+                },
+                ManufacturedDateTime: {
+
+                },
+                ExpireDate: {
+
+                },
+                Quantity: {
+
+                },
+                UnitPrice: {
+
+                },
+                MRP: {
+
+                },
+                Remarks:{
+
+                 }
+            }
+        });
+
+
+        $("#addButton").click(function () {
+            //alert("hi");
+            if ($("#PurchaseForm").valid()) {
+                alert("valid");
+            }
+        });
+    });
+
+</script>

@@ -13,9 +13,9 @@
     
     <form id="productForm">
     <div class="modal-body">
-        <div id="saveError" class="alert alert-warning" role="alert">
+        @*<div id="saveError" class="alert alert-warning" role="alert">
 
-        </div>
+        </div>*@
         @*<div id="saveError" class="alert alert-warning alert-dismissible fade show" role="alert">
 
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -51,7 +51,8 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="Name" placeholder="Enter name">
+                <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter name">
+               <span id="NameError"></span>
             </div>
         </div>
       

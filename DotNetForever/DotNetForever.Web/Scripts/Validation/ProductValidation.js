@@ -20,24 +20,8 @@
             this.value = this.value.replace(/\D/g, '');
         }
     });
-    //$.validator.setDefaults({
-    //    errorClass: "help-block",
-    //    highlight: function (element) {
-    //        $(element)
-    //        .closest(".form-control")
-    //        //.closest('.form-control')
-    //        .addClass("has-error");
-    //    },
-    //    unhighlight: function (element) {
-    //        $(element)
-    //        .closest(".form-control")
-    //        //.closest('.form-control')
-    //        .removeClass("has-error");
-    //    }
-    //});
 
    
-
     $("#productForm").validate({
         rules: {
             CategoryID: {
@@ -50,6 +34,30 @@
             },
             Name: {
                 required: true
+                //remote:false
+                //remote: function () {
+                    
+                //    return  {
+                //        url: "Product/UniqueName1",
+                //        type: "POST",
+                //        contentType: "application/json; charset=utf-8",
+                //        dataType: "json",
+                //        data: "{'Name': '" + $("#Name").val() + "'}",
+                //        dataFilter: function (response) {
+                //            alert(response);
+                //            if (response == "True") {
+                //                alert("inside true");
+                //                return true;
+                //            } else {
+                //                alert("inside false");
+                //                return false;
+                //            }
+
+                //        }
+                        
+                //    }
+                //}
+
             }, 
             ReorderLevel: {
                 required: true
@@ -69,7 +77,8 @@
                 maxlength: "Maximum 4 character allowed"
             },
             Name: {
-                required:"Name is required"
+                required: "Name is required"
+               //remote:"Name is required"
             },
             ReorderLevel: {
                 required: "Reorder level is required"
@@ -80,10 +89,13 @@
         }
     });
 
-    document.getElementById("saveError").style.display = "none";
+
+
+
+    //document.getElementById("saveError").style.display = "none";
     $("#saveButton").click(function () {
 
-        document.getElementById("saveError").style.display = "none";
+        //document.getElementById("saveError").style.display = "none";
 
         if ($("#productForm").valid()) {
             $.ajax({
@@ -122,14 +134,14 @@
         
     });
 
-    $("#closeButton").click(function () {
-        location.reload();
-    });
+    //$("#closeButton").click(function () {
+    //    location.reload();
+    //});
 
 
    
     $("#updateButton").click(function () {
-        document.getElementById("saveError").style.display = "none";
+        //document.getElementById("saveError").style.display = "none";
         if ($("#productForm").valid()) {
             $.ajax({
                     type: "POST",

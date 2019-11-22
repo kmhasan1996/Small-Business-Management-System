@@ -33,7 +33,7 @@
             Code: {
                 required: true,
                 minlength:4,
-                maxlength: 4,
+                maxlength: 4
             },
             Name: {
                 required: true
@@ -52,9 +52,9 @@
         }
     });
 
-    document.getElementById("saveError").style.display = "none";
+    //document.getElementById("saveError").style.display = "none";
     $("#saveButton").click(function () {
-        document.getElementById("saveError").style.display = "none";
+        //document.getElementById("saveError").style.display = "none";
 
         if ($("#categoryForm").valid()) {
             $.ajax({
@@ -68,7 +68,7 @@
                     swal({
                             title: "Saved Successfully",
                             //text: "Once deleted, you will not be able to recover this imaginary file!",
-                            icon: "warning",
+                            icon: "success",
                             buttons: true,
                             dangerMode: true
 
@@ -96,7 +96,8 @@
     });
 
     $("#updateButton").click(function () {
-        document.getElementById("saveError").style.display = "none";
+        //document.getElementById("saveError").style.display = "none";
+        alert("hi");
         if ($("#categoryForm").valid()) {
             $.ajax({
                     type: "POST",

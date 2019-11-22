@@ -90,7 +90,7 @@
                 required:"Name is required"
             },
             Email: {
-                required: "Email is required999",
+                required: "Email is required",
                 email: "Enter a valid email"
                 //remote: "This email address is already registered."
             },

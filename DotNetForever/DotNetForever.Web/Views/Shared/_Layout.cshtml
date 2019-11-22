@@ -16,14 +16,17 @@
 
     <!-- Custom styles for this template -->
     <link href="~/Contents/css/simple-sidebar.css" rel="stylesheet" />
-    
+
     <script src="~/Contents/js/jquery.min.js"></script>
-    
+
     <!--font awesome 5.1.2-->
     <link href="~/Contents/fontawesome/css/all.min.css" rel="stylesheet" />
-    
+
     <!--sweet alert-->
     <script src="~/Contents/sweetalert/sweetalert2.all.min.js"></script>
+    @*<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>*@
+    
+
     <style>
         .error {
             color: red;
@@ -48,6 +51,23 @@
                 <a href="#" class="list-group-item list-group-item-action bg-light">Sales</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Stock</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light ">Report</a>
+
+            </div>
+        </div>*@
+
+        @*<div class=" border-right" id="sidebar-wrapper" style="background: rgb(37, 37, 38)">
+            <div class="sidebar-heading" style="background: rgb(0, 64, 64);color: white"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard </div>
+            <div class="list-group list-group-flush" style="background-color: rgb(37, 37, 38);">
+                <a href="@Url.Action("Index","Home")" class="list-group-item list-group-item-action"><i class="fas fa-home mr-2"></i>Home</a>
+
+                <a href="@Url.Action("Index","Category")" class="list-group-item list-group-item-action  "><i class="fas fa-folder mr-2"></i>Category</a>
+                <a href="@Url.Action("Index","Product")" class="list-group-item list-group-item-action  "><i class="fas fa-boxes mr-2"></i>Product </a>
+                <a href="@Url.Action("Index","Customer")" class="list-group-item list-group-item-action  "><i class="fas fa-users mr-2"></i>Customer</a>
+                <a href="@Url.Action("Index","Supplier")" class="list-group-item list-group-item-action  "><i class="fas fa-users mr-2"></i>Supplier</a>
+                <a href="@Url.Action("Index","Purchase")" class="list-group-item list-group-item-action "><i class="fas fa-money-bill-wave mr-2"></i>Purchase</a>
+                <a href="@Url.Action("Index","Sale")" class="list-group-item list-group-item-action "><i class="fas fa-shopping-cart mr-2"></i>Sales</a>
+                <a href="@Url.Action("Index","Stock")" class="list-group-item list-group-item-action "><i class="fas fa-box-open mr-2"></i>Stock</a>
+                <a href="@Url.Action("PurchaseReport","Report")" class="list-group-item list-group-item-action  "><i class="fas fa-file-alt mr-2"></i>Report</a>
 
             </div>
         </div>*@

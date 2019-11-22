@@ -15,6 +15,7 @@ namespace DotNetForever.Web.Controllers
        private SupplierManager _supplierManager = new SupplierManager();
        private CategoryManager _categoryManager = new CategoryManager();
        private ProductManager _productManager = new ProductManager();
+       private PurchaseDetailsManager _purchaseDetailsManager=new PurchaseDetailsManager();
 
         // GET: Category
         public ActionResult Index(string search)
@@ -36,6 +37,34 @@ namespace DotNetForever.Web.Controllers
             };
             return View(model);
         }
+
+
+        //from purchasedetails
+        public JsonResult GetPurchaseDetailByProductId(int productId)
+        {
+            JsonResult jason = new JsonResult();
+            //var products = _productManager.GetProductByCategoryId(productId)
+            //    .Select(x => new { Code = x.Id, AvailableQuantity = x });
+            var productDetails = _purchaseDetailsManager.GetPurchaseDetailByProductId(productId);
+            var product = _productManager.GetById(productId);
+
+            jason.Data = null;
+            if (productDetails !=null && product !=null)
+            {
+                jason.Data = new
+                {
+                    ProductCode = product.Code,
+                    AvailableQty = productDetails.Quantity,
+                    PreviousUnitPrice = productDetails.UnitPrice,
+                    PreviousMRP = productDetails.MRP
+                };
+
+            }
+
+            //return Json(jason, JsonRequestBehavior.AllowGet);
+            return jason;
+        }
+
 
 
     }

@@ -26,6 +26,22 @@ namespace DotNetForever.Repository.Repository
 
         #endregion
 
+        public bool UniqueName(string name)
+        {
+            using (var context = new SMSDbContext())
+            {
+                var customer = context.Products.Where(x => x.Name.Contains(name)).ToList();
+
+                if (customer.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
         public bool Add(Product product)
         {
             using (var context=new SMSDbContext())
@@ -108,13 +124,27 @@ namespace DotNetForever.Repository.Repository
             using (var context = new SMSDbContext())
             {
 
-                var product = context.Products.OrderByDescending(x => x.Id).FirstOrDefault<Product>();
-                return product.Code;
+               
+                if (context.Products.Any())
+                {
+                    var product = context.Products.OrderByDescending(x => x.Id).FirstOrDefault<Product>();
+                    return product.Code;
+                }
 
-                //return "0001";
+
+                return "0001";
             }
 
 
+        }
+
+        public List<Product> GetProductByCategoryId(int categoryId)
+        {
+            using (var context = new SMSDbContext())
+            {
+                return context.Products.Where(x => x.Category.Id == categoryId).ToList();
+                //return context.Products.Where(x=>x.Id>9).Include(x=>x.Category).ToList();
+            }
         }
 
     }

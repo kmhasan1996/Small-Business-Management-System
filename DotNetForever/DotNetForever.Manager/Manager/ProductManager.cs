@@ -6,7 +6,14 @@ namespace DotNetForever.Manager.Manager
 {
     public class ProductManager
     {
-        readonly ProductRepository _productRepository =new ProductRepository();
+        readonly ProductRepository _productRepository = new ProductRepository();
+
+
+        public bool UniqueName(string name)
+        {
+            return _productRepository.UniqueName(name);
+        }
+
         public bool Add(Product product)
         {
             return _productRepository.Add(product);
@@ -21,10 +28,12 @@ namespace DotNetForever.Manager.Manager
         {
             return _productRepository.Delete(id);
         }
+
         public Product GetById(int id)
         {
             return _productRepository.GetById(id);
         }
+
         public List<Product> GetAll()
         {
             return _productRepository.GetAll();
@@ -43,6 +52,11 @@ namespace DotNetForever.Manager.Manager
         public string GetLastProductCode()
         {
             return _productRepository.GetLastProductCode();
+        }
+
+        public List<Product> GetProductByCategoryId(int categoryId)
+        {
+            return _productRepository.GetProductByCategoryId(categoryId);
         }
     }
 }

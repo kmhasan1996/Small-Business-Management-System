@@ -42,7 +42,7 @@ namespace DotNetForever.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                jason.Data = _categoryManager.Add(category) ? new { Success = true, Message = "Saved Successfully" } : new { Success = true, Message = "Unable to Save" };
+                jason.Data = _categoryManager.Add(category) ? new { Success = true, Message = "Saved Successfully" } : new { Success = false, Message = "Unable to Save" };
             }
             
 

@@ -27,29 +27,62 @@ namespace DotNetForever.Web.Controllers
             model.Search = search;
             return View(model);
         }
+
+        public ActionResult UniqueName(string name)
+        {
+            JsonResult jason = new JsonResult();
+            jason.Data = _productManager.UniqueName(name) ? new { Success = true, Message = "Name is exist" } : new { Success = false, Message = "Name is available" };
+            //if (_productManager.UniqueName(name))
+            //{
+            //    jason.Data = new { Success = true };
+            //}
+            //else
+            //{
+            //    jason.Data = new { Success = false };
+            //}
+
+            return jason;
+
+        }
+        public bool UniqueName1(string name)
+        {
+            JsonResult jason = new JsonResult();
+            if (_productManager.UniqueName(name))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
         private string GenerateProductCode()
         {
             string lastProductCode = _productManager.GetLastProductCode();
 
-            if (lastProductCode == "")
-            {
-                lastProductCode = "0001";
-            }
-            else
-            {
+            //if (lastProductCode == "")
+            //{
+            //    lastProductCode = "0001";
+            //}
+            //else
+            //{
                 int number = int.Parse(lastProductCode);
                 lastProductCode = (++number).ToString("D" + lastProductCode.Length);
 
-            }
+            //}
 
             return lastProductCode;
         }
-        //public ActionResult Listing()
-        //{
-        //    var product = _productManager.GetAll();
 
-        //    return PartialView("_Listing", product);
-        //}
+        public JsonResult GetProductByCategoryId(int categoryId)
+        {
+            var products = _productManager.GetProductByCategoryId(categoryId)
+                .Select(x => new {Id = x.Id, Name = x.Name});
+
+            return Json(products, JsonRequestBehavior.AllowGet);
+        }
+        
 
         [HttpGet]
         public ActionResult Create()
