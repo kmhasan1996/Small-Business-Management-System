@@ -49,6 +49,7 @@
     <Compile Include="Model\PurchaseDetail.cs" />
     <Compile Include="Model\Sale.cs" />
     <Compile Include="Model\SaleDetail.cs" />
+    <Compile Include="Model\Stock.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

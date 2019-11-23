@@ -16,5 +16,10 @@ namespace DotNetForever.Manager.Manager
         {
             return _purchaseDetailsRepository.GetPurchaseDetailByProductId(productId);
         }
+
+        public List<PurchaseDetail> GetAllPurchaseDetailByPurchaseId(int purchaseId)
+        {
+            return _purchaseDetailsRepository.GetAllPurchaseDetailByPurchaseId(purchaseId);
+        }
     }
 }

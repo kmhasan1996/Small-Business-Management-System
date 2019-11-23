@@ -51,115 +51,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\SMSDbContext.cs" />
-    <Compile Include="Migrations\201911091258020_InitialCreate.cs" />
-    <Compile Include="Migrations\201911091258020_InitialCreate.Designer.cs">
-      <DependentUpon>201911091258020_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201911231616263_InitialCreate.cs" />
+    <Compile Include="Migrations\201911231616263_InitialCreate.Designer.cs">
+      <DependentUpon>201911231616263_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911131128286_requiredmessage.cs" />
-    <Compile Include="Migrations\201911131128286_requiredmessage.Designer.cs">
-      <DependentUpon>201911131128286_requiredmessage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911131207138_requiredmessage1.cs" />
-    <Compile Include="Migrations\201911131207138_requiredmessage1.Designer.cs">
-      <DependentUpon>201911131207138_requiredmessage1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911131357434_AddedPurchaseAndSaleTable.cs" />
-    <Compile Include="Migrations\201911131357434_AddedPurchaseAndSaleTable.Designer.cs">
-      <DependentUpon>201911131357434_AddedPurchaseAndSaleTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911131359595_AddedPurchaseAndSaleTable1.cs" />
-    <Compile Include="Migrations\201911131359595_AddedPurchaseAndSaleTable1.Designer.cs">
-      <DependentUpon>201911131359595_AddedPurchaseAndSaleTable1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911131401301_AddedPurchaseAndSaleTable13.cs" />
-    <Compile Include="Migrations\201911131401301_AddedPurchaseAndSaleTable13.Designer.cs">
-      <DependentUpon>201911131401301_AddedPurchaseAndSaleTable13.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911131411541_AddedPurchaseAndSaleTable133.cs" />
-    <Compile Include="Migrations\201911131411541_AddedPurchaseAndSaleTable133.Designer.cs">
-      <DependentUpon>201911131411541_AddedPurchaseAndSaleTable133.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911131419581_AddedPurchaseAndSaleTable1333.cs" />
-    <Compile Include="Migrations\201911131419581_AddedPurchaseAndSaleTable1333.Designer.cs">
-      <DependentUpon>201911131419581_AddedPurchaseAndSaleTable1333.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911131424104_AddedPurchaseAndSaleTable13330.cs" />
-    <Compile Include="Migrations\201911131424104_AddedPurchaseAndSaleTable13330.Designer.cs">
-      <DependentUpon>201911131424104_AddedPurchaseAndSaleTable13330.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911160837209_RemoveAspDotnetValidation.cs" />
-    <Compile Include="Migrations\201911160837209_RemoveAspDotnetValidation.Designer.cs">
-      <DependentUpon>201911160837209_RemoveAspDotnetValidation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911160904200_RemoveAspDotnetValidation3.cs" />
-    <Compile Include="Migrations\201911160904200_RemoveAspDotnetValidation3.Designer.cs">
-      <DependentUpon>201911160904200_RemoveAspDotnetValidation3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911160906055_RemoveAspDotnetValidation31.cs" />
-    <Compile Include="Migrations\201911160906055_RemoveAspDotnetValidation31.Designer.cs">
-      <DependentUpon>201911160906055_RemoveAspDotnetValidation31.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911160906273_RemoveAspDotnetValidation35.cs" />
-    <Compile Include="Migrations\201911160906273_RemoveAspDotnetValidation35.Designer.cs">
-      <DependentUpon>201911160906273_RemoveAspDotnetValidation35.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911161135013_AspDotnetValidation3.cs" />
-    <Compile Include="Migrations\201911161135013_AspDotnetValidation3.Designer.cs">
-      <DependentUpon>201911161135013_AspDotnetValidation3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911161144501_AspDotnetValidation356.cs" />
-    <Compile Include="Migrations\201911161144501_AspDotnetValidation356.Designer.cs">
-      <DependentUpon>201911161144501_AspDotnetValidation356.cs</DependentUpon>
+    <Compile Include="Migrations\201911231632156_addedTypeinPurchaseDetails.cs" />
+    <Compile Include="Migrations\201911231632156_addedTypeinPurchaseDetails.Designer.cs">
+      <DependentUpon>201911231632156_addedTypeinPurchaseDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911091258020_InitialCreate.resx">
-      <DependentUpon>201911091258020_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911131128286_requiredmessage.resx">
-      <DependentUpon>201911131128286_requiredmessage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911131207138_requiredmessage1.resx">
-      <DependentUpon>201911131207138_requiredmessage1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911131357434_AddedPurchaseAndSaleTable.resx">
-      <DependentUpon>201911131357434_AddedPurchaseAndSaleTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911131359595_AddedPurchaseAndSaleTable1.resx">
-      <DependentUpon>201911131359595_AddedPurchaseAndSaleTable1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911131401301_AddedPurchaseAndSaleTable13.resx">
-      <DependentUpon>201911131401301_AddedPurchaseAndSaleTable13.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911131411541_AddedPurchaseAndSaleTable133.resx">
-      <DependentUpon>201911131411541_AddedPurchaseAndSaleTable133.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911131419581_AddedPurchaseAndSaleTable1333.resx">
-      <DependentUpon>201911131419581_AddedPurchaseAndSaleTable1333.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911131424104_AddedPurchaseAndSaleTable13330.resx">
-      <DependentUpon>201911131424104_AddedPurchaseAndSaleTable13330.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911160837209_RemoveAspDotnetValidation.resx">
-      <DependentUpon>201911160837209_RemoveAspDotnetValidation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911160904200_RemoveAspDotnetValidation3.resx">
-      <DependentUpon>201911160904200_RemoveAspDotnetValidation3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911160906055_RemoveAspDotnetValidation31.resx">
-      <DependentUpon>201911160906055_RemoveAspDotnetValidation31.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911160906273_RemoveAspDotnetValidation35.resx">
-      <DependentUpon>201911160906273_RemoveAspDotnetValidation35.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911161135013_AspDotnetValidation3.resx">
-      <DependentUpon>201911161135013_AspDotnetValidation3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911161144501_AspDotnetValidation356.resx">
-      <DependentUpon>201911161144501_AspDotnetValidation356.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNetForever.Model\DotNetForever.Model.csproj">
@@ -170,6 +71,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911231616263_InitialCreate.resx">
+      <DependentUpon>201911231616263_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911231632156_addedTypeinPurchaseDetails.resx">
+      <DependentUpon>201911231632156_addedTypeinPurchaseDetails.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

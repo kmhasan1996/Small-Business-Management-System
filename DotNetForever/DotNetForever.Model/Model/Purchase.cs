@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace DotNetForever.Model.Model
         [Required]
         public int SupplierId { get; set; }
         [Required]
+        [Column(TypeName = "Date")]
         public DateTime DateTime { get; set; }
         [Required]
         public string InvoiceNo { get; set; }

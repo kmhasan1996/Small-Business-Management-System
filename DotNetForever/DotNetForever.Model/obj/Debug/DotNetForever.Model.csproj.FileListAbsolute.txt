@@ -9,3 +9,8 @@ D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNet
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.csproj.CoreCompileInputs.cache
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.dll
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.pdb
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\bin\Debug\DotNetForever.Model.dll
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\bin\Debug\DotNetForever.Model.pdb
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.csproj.CoreCompileInputs.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.dll
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Debug\DotNetForever.Model.pdb

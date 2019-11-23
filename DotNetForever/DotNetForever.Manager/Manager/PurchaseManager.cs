@@ -15,5 +15,10 @@ namespace DotNetForever.Manager.Manager
         {
             return _purchaseRepository.GetAll();
         }
+
+        public bool Add(Purchase purchase)
+        {
+            return _purchaseRepository.Add(purchase);
+        }
     }
 }

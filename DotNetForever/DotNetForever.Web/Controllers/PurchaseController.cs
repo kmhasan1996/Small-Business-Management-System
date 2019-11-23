@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using DotNetForever.Manager.Manager;
 using DotNetForever.Model.Model;
@@ -32,14 +29,29 @@ namespace DotNetForever.Web.Controllers
             {
                 Suppliers = _supplierManager.GetAll(),
                 Categories = _categoryManager.GetAll(),
-                Products = _productManager.GetAll(),
                 PurchaseDetail = new PurchaseDetail()
             };
             return View(model);
         }
 
+        [HttpPost]
+        public ActionResult Create(Purchase purchase)
+        {
 
-        //from purchasedetails
+            JsonResult jason = new JsonResult();
+
+            if (ModelState.IsValid)
+            {
+                jason.Data = _purchaseManager.Add(purchase)
+                    ? new {Success = true, Message = "Saved Successfully"}
+                    : new {Success = true, Message = "Unable to Save"};
+            }
+
+
+            return RedirectToAction("Index");
+        }
+
+        //from purchase details
         public JsonResult GetPurchaseDetailByProductId(int productId)
         {
             JsonResult jason = new JsonResult();
@@ -66,6 +78,12 @@ namespace DotNetForever.Web.Controllers
         }
 
 
+        public ActionResult PurchaseDetails(int purchaseId)
+        {
+            List<PurchaseDetail> purchaseDetail = _purchaseDetailsManager.GetAllPurchaseDetailByPurchaseId(purchaseId);
+
+            return PartialView("_PurchaseDetails", purchaseDetail);
+        }
 
     }
 }

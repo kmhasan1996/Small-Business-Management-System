@@ -26,12 +26,12 @@ namespace DotNetForever.Web.Controllers
             return View(model);
         }
 
-        //public ActionResult Listing()
-        //{
-        //    var product = _productManager.GetAll();
+        public ActionResult SupplierDetails(int id)
+        {
+            var supplier = _supplierManager.GetById(id);
 
-        //    return PartialView("_Listing", product);
-        //}
+            return PartialView("_SupplierDetails", supplier);
+        }
 
         [HttpGet]
         public ActionResult Create()
