@@ -15,7 +15,7 @@ namespace DotNetForever.Repository.Repository
         {
             using (var context = new SMSDbContext())
             {
-                return context.PurchaseDetails.Where(x=>x.ProductId==productId).OrderByDescending(x => x.Id).FirstOrDefault<PurchaseDetail>();
+                return context.PurchaseDetails.Where(x=>x.ProductId==productId).Include(x=>x.Product).OrderByDescending(x => x.Id).FirstOrDefault<PurchaseDetail>();
             }
         }
 

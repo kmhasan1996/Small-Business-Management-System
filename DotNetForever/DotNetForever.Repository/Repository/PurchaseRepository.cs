@@ -55,5 +55,18 @@ namespace DotNetForever.Repository.Repository
             return total;
 
         }
+
+
+        public int GetPurchaseProductQtyByIdAndDate(int productId, DateTime startDate)
+        {
+            int total = 0;
+            using (var context = new SMSDbContext())
+            {
+
+                total = context.PurchaseDetails.Where(x => x.Product.Id == productId && x.Purchase.DateTime <= startDate).Select(c => c.Quantity).DefaultIfEmpty(0).Sum();
+            }
+
+            return total;
+        }
     }
 }

@@ -51,5 +51,10 @@ namespace DotNetForever.Manager.Manager
             return _customerRepository.GetCount();
         }
 
+        public int GetLoyaltyPointById(int customerId)
+        {
+            return _customerRepository.GetLoyaltyPointById(customerId);
+        }
+
     }
 }

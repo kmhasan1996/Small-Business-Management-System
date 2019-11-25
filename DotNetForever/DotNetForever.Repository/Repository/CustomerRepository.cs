@@ -99,5 +99,19 @@ namespace DotNetForever.Repository.Repository
             }
         }
 
+        public int GetLoyaltyPointById(int customerId)
+        {
+            int loyaltyPoint = 0;
+            using (var context=new SMSDbContext())
+            {
+                loyaltyPoint = context.Customers
+                                .Where(x => x.Id == customerId)
+                                .Select(x => x.LoyaltyPoint)
+                                .FirstOrDefault();
+            }
+
+            return loyaltyPoint;
+        }
+
     }
 }

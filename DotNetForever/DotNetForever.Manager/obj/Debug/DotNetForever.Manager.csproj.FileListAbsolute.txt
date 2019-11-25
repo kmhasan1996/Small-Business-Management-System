@@ -44,8 +44,8 @@ E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotN
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.DatabaseContext.pdb
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\DotNetForever.DatabaseContext.dll.config
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\bin\Debug\EntityFramework.xml
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csprojAssemblyReference.cache
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csproj.CoreCompileInputs.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csproj.CopyComplete
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.dll
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.pdb
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csprojAssemblyReference.cache
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Manager\obj\Debug\DotNetForever.Manager.csproj.CopyComplete

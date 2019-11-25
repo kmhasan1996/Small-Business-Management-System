@@ -15,5 +15,10 @@ namespace DotNetForever.Manager.Manager
         {
             return _saleRepository.GetAll();
         }
+
+        public int GetSoldProductQtyByIdAndDate(int productId, DateTime soldDate)
+        {
+            return _saleRepository.GetSoldProductQtyByIdAndDate(productId, soldDate);
+        }
     }
 }

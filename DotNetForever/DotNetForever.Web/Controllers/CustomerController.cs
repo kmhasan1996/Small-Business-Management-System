@@ -102,5 +102,17 @@ namespace DotNetForever.Web.Controllers
             _customerManager.Delete(id);
             return RedirectToAction("Index");
         }
+
+        public JsonResult GetLoyaltyPointById(int customerId)
+        {
+            JsonResult jason = new JsonResult();
+
+            jason.Data = new
+            {
+                loyaltyPoint=_customerManager.GetLoyaltyPointById(customerId)
+            };
+            return jason;
+        }
+
     }
 }

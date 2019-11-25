@@ -39,6 +39,10 @@
         return currentDate;
     }
 
+
+    //$("#startDate").val(getTodayDate());
+    //$("#endDate").val(getTodayDate());
+
     // alert(getTodayDate());
     //$("#startDate").val(getTodayDate());
     //$("#endDate").val(getTodayDate());
@@ -48,12 +52,13 @@
     //    alert("ds");
     //    $.ajax({
     //        type: "get",
-    //        url: "/Stock/Listing",
+    //        url: "/Stock/Search",
     //        data: $("#stockForm").serialize()
 
     //    })
     //    .done(function (response) {
     //        if (response) {
+    //            $("list").html(response);
     //            swal({
     //                    title: "search Successfully",
     //                    //text: "Once deleted, you will not be able to recover this imaginary file!",
@@ -76,7 +81,6 @@
     //    .fail(function (XMLHttpRequest, textStatus, errorThrown) {
     //        alert("Fail");
     //    });
-
 
     //});
 

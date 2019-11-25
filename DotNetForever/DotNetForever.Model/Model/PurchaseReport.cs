@@ -1,11 +1,8 @@
 ﻿
 
-using System;
-using System.Collections.Generic;
-
 namespace DotNetForever.Web.ViewModels
 {
-    public class PurchaseReportViewModel
+    public class PurchaseReport
     {
         public string Code { get; set; }
         public string Product { get; set; }
@@ -14,10 +11,5 @@ namespace DotNetForever.Web.ViewModels
         public double CP { get; set; }
         public double MRP { get; set; }
         public double Profit { get; set; }
-
-        public static explicit operator PurchaseReportViewModel(List<PurchaseReport> v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

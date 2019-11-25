@@ -20,5 +20,10 @@ namespace DotNetForever.Manager.Manager
         {
             return _purchaseRepository.Add(purchase);
         }
+
+        public int GetPurchaseProductQtyByIdAndDate(int productId, DateTime startDate)
+        {
+            return _purchaseRepository.GetPurchaseProductQtyByIdAndDate(productId, startDate);
+        }
     }
 }

@@ -4,7 +4,8 @@
     ViewBag.Title = "PurchaseReport";
     Layout = "~/Views/Shared/_ReportLayout.cshtml";
 }
-<hr/>
+
+<hr />
 <div class="row">
     <div class="col-md-3">
 
@@ -22,7 +23,7 @@
             </div>
 
             <div class="col-md-6">
-                
+
                 <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">End Date</span>
@@ -64,28 +65,27 @@
                 </tr>
             </thead>
             <tbody>
-                @*@{
-                        var i = 0;
-                        foreach (var product in Model.PurchaseDetail)
-                        {
-                            i++;
+                @{
+                    var i = 0;
+                    foreach (var report in Model)
+                    {
 
-                            <tr>
-                                <td>@i</td>
-                                <td>@product.Category.Name</td>
-                                <td>@product.Code</td>
-                                <td>@product.Name</td>
-                                <td>@product.RecorderLevel</td>
-                                <td>@product.Description</td>
-                                <td>
-                                    <button  type="button" class="editButton btn btn-primary" data-id="@product.Id" data-toggle="modal" data-target="#editModal"><i class="fas fa-pen mr-2"></i>Edit</button>
-                                    <button  type="button" class="deleteButton btn btn-danger" data-id="@product.Id"><i class="fas fa-trash-alt mr-2"></i>Delete</button>
-                                </td>
+                        i++;
 
-                            </tr>
-                        }
+                        <tr>
+                            <td>@i</td>
+                            <td>@report.Code</td>
+                            <td>@report.Product</td>
+                            <td>@report.Category</td>
+                            <td>@report.AvailableQty</td>
+                            <td>@report.CP</td>
+                            <td>@report.MRP</td>
+                            <td>@report.Profit</td>
 
-                    }*@
+                        </tr>
+                    }
+
+                }
 
             </tbody>
         </table>
@@ -100,3 +100,4 @@
             </div>
         }*@
 </div>
+

@@ -242,8 +242,8 @@ E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.Repository.dll.config
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.DatabaseContext.pdb
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.DatabaseContext.dll.config
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csprojAssemblyReference.cache
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csproj.CoreCompileInputs.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csproj.CopyComplete
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.dll
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.pdb
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csprojAssemblyReference.cache
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csproj.CopyComplete

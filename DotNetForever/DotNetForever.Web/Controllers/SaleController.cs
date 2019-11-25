@@ -11,10 +11,12 @@ namespace DotNetForever.Web.Controllers
 {
     public class SaleController : Controller
     {
-        SaleManager _saleManager=new SaleManager();
-       CustomerManager _customerManager=new CustomerManager();
+        private SaleManager _saleManager =new SaleManager();
+        private CustomerManager _customerManager =new CustomerManager();
         private CategoryManager _categoryManager = new CategoryManager();
         private ProductManager _productManager = new ProductManager();
+        private PurchaseManager _purchaseManager=new PurchaseManager();
+        private PurchaseDetailsManager _purchaseDetailsManager = new PurchaseDetailsManager();
 
         public ActionResult Index(string search)
         {
@@ -33,6 +35,20 @@ namespace DotNetForever.Web.Controllers
                 SaleDetail = new SaleDetail()
             };
             return View(model);
+        }
+
+        public JsonResult GetAvailableProductQtyByIdAndDate(DateTime saleDateTime, int productId)
+        {
+            JsonResult jason = new JsonResult();
+            var productDetails= _purchaseDetailsManager.GetPurchaseDetailByProductId(productId);
+
+            jason.Data = new
+            {
+                availableProduct = _purchaseManager.GetPurchaseProductQtyByIdAndDate(productId,saleDateTime) - _saleManager.GetSoldProductQtyByIdAndDate(productId,saleDateTime),
+                currentMRP=productDetails.MRP,
+                reorderLevel=productDetails.Product.ReorderLevel
+            };
+            return jason;
         }
 
     }

@@ -1,15 +1,14 @@
 ﻿$(document).ready(function () {
 
 
-    //$("#DateTime").DateTime();
-
     function getTodayDate() {
         var date = new Date();
         var currentDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
         return currentDate;
     }
 
-    //$("#DateTime")
+
+    $("#purchaseDate").val(getTodayDate());
 
     $('#TotalPrice').val("0");
     $('#MRP').val("0");
@@ -21,7 +20,7 @@
             $("#SupplierId").prop("disabled", true);
             $("#InvoiceNo").prop("disabled", true);
             $("#Code").prop("disabled", true);
-            $("#DateTime").prop("disabled", true);
+            $("#purchaseDate").prop("disabled", true);
 
             var categoryId = $('#categoryId').val();
             var jsonData = { categoryId: categoryId };
@@ -164,7 +163,7 @@
             Code: {
                 required: true
             },
-            DateTime: {
+            purchaseDate: {
                 required: true,
                 date:true
             },
@@ -204,7 +203,7 @@
             Code: {
 
             },
-            DateTime: {
+            purchaseDate: {
 
             },
             categoryId: {
@@ -239,7 +238,6 @@
 
     var index = 0;
 
-   
     $("#addButton").click(function () {
 
         if ($("#PurchaseForm").valid()) {
@@ -315,7 +313,7 @@
         $("#SupplierId").prop("disabled", false);
         $("#InvoiceNo").prop("disabled", false);
         $("#Code").prop("disabled", false);
-        $("#DateTime").prop("disabled", false);
+        $("#purchaseDate").prop("disabled", false);
 
         if ($("#PurchaseForm").valid()) {
             $.ajax({

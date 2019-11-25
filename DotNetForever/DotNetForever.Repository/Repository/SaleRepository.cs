@@ -20,5 +20,17 @@ namespace DotNetForever.Repository.Repository
 
             }
         }
+
+        public int GetSoldProductQtyByIdAndDate(int productId, DateTime soldDate)
+        {
+            int total = 0;
+            using (var context = new SMSDbContext())
+            {
+
+                total = context.SaleDetails.Where(x => x.Product.Id == productId && x.Sale.DateTime <= soldDate).Select(c => c.Quantity).DefaultIfEmpty(0).Sum();
+            }
+
+            return total;
+        }
     }
 }

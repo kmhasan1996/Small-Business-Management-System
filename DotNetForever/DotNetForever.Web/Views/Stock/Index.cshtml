@@ -11,7 +11,7 @@
 
     </div>
     <div class="col-md-7">
-        <form id="stockForm">
+        <form id="stockForm" method="post">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group row">
@@ -49,14 +49,14 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Start Date</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" id="startDate" name="startDate">
+                            <input type="date" class="form-control" id="startDate" name="startDate" @*value="@Model.StartDate"*@>
                         </div>
                     </div>
                     
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">End Date</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" id="endDate" name="endDate">
+                            <input type="date" class="form-control" id="endDate" name="endDate" @*value="@Model.EndDate"*@>
                         </div>
                     </div>
 
@@ -76,48 +76,99 @@
 
 </div>
 
-@{
-    //Html.RenderAction("Listing");
+<div id="hideList">
+    
+    @{
+        //Html.RenderAction("Listing");
 
-    Html.RenderPartial("_Listing",Model.Stocks);
-} 
+        Html.RenderPartial("_Listing",Model.Stocks);
+    } 
+</div>
+<div id="showList">
+
+</div>
+
 
 <script src="~/Scripts/Validation/Stock.js"></script>
 <script>
     $("#searchButton").click(function () {
         //document.getElementById("saveError").style.display = "none";
-        alert("ds");
         $.ajax({
-                type: "POSt",
-                url: "/Stock/Search/",
-                data: $("#stockForm").serialize()
+            type: "POST",
+            url: "/Stock/Search",
+            data: $("#stockForm").serialize()
 
         })
-        .done(function (response) {
-            if (response) {
-                swal({
-                        title: "search Successfully",
-                        //text: "Once deleted, you will not be able to recover this imaginary file!",
-                        icon: "success",
-                        buttons: true,
-                        dangerMode: true
+            .done(function (response) {
+                $("#hideList").hide();
+                $("#showList").html(response);
 
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.location.reload();
-                    }
-                });
 
-            } else {
+                //if (response) {
+                //    swal({
+                //            title: "search Successfully",
+                //            //text: "Once deleted, you will not be able to recover this imaginary file!",
+                //            icon: "success",
+                //            buttons: true,
+                //            dangerMode: true
 
-            }
+                //    })
+                //    .then((willDelete) => {
+                //        if (willDelete) {
+                //            //window.location.reload();
+                //        }
+                //    });
 
-        })
+                //} else {
+
+                //}
+
+            })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Fail");
         });
 
 
     });
+
+
+    $("#categoryId").on("change",
+        function() {
+
+            $.ajax({
+                    type: "POST",
+                    url: "/Stock/Search",
+                    data: $("#stockForm").serialize()
+
+                })
+                .done(function (response) {
+                    $("#hideList").hide();
+                    $("#showList").html(response);
+
+
+                    //if (response) {
+                    //    swal({
+                    //            title: "search Successfully",
+                    //            //text: "Once deleted, you will not be able to recover this imaginary file!",
+                    //            icon: "success",
+                    //            buttons: true,
+                    //            dangerMode: true
+
+                    //    })
+                    //    .then((willDelete) => {
+                    //        if (willDelete) {
+                    //            //window.location.reload();
+                    //        }
+                    //    });
+
+                    //} else {
+
+                    //}
+
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Fail");
+                });
+
+        });
 </script>
