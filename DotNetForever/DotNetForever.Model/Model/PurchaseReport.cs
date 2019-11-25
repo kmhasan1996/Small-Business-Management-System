@@ -1,6 +1,6 @@
 ﻿
 
-namespace DotNetForever.Web.ViewModels
+namespace DotNetForever.Model.Model
 {
     public class PurchaseReport
     {

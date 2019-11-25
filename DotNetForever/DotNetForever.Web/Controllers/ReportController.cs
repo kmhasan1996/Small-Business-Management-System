@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DotNetForever.Manager.Manager;
+using DotNetForever.Model.Model;
 using DotNetForever.Web.ViewModels;
 
 namespace DotNetForever.Web.Controllers
@@ -14,19 +15,26 @@ namespace DotNetForever.Web.Controllers
         // GET: Report
         public ActionResult PurchaseReport()
         {
-            List<PurchaseReportViewModel> model=new List<PurchaseReportViewModel>();
+            //List<PurchaseReportViewModel> model=new List<PurchaseReportViewModel>();
 
-            //DateTime startDate = new DateTime(2019, 11, 22, 0, 0, 0);
-            //DateTime endDate = new DateTime(2019, 11, 30, 0, 0, 0);
+            List<PurchaseReport> model=new List<PurchaseReport>();
 
-            //model = _sharedManager.GetPurchaseReport(startDate, endDate);
+            DateTime startDate = DateTime.Today.Date;
+            DateTime endDate = DateTime.Today.Date;
+
+            model = _sharedManager.GetPurchaseReport(startDate, endDate);
 
             return View(model);
         }
 
         public ActionResult SaleReport()
         {
-            List<SaleReportViewModel> model = new List<SaleReportViewModel>();
+            List<SaleReport> model = new List<SaleReport>();
+
+            DateTime startDate = DateTime.Today.Date;
+            DateTime endDate = DateTime.Today.Date;
+
+            model = _sharedManager.GetSalesReport(startDate, endDate);
 
             return View(model);
         }

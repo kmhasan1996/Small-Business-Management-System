@@ -8,7 +8,7 @@
     //}
 
 
-    //$("#purchaseDate").val(getTodayDate());
+    //$("#dateTime").val(getTodayDate());
 
     $('#TotalPrice').val("0");
     $('#MRP').val("0");
@@ -20,7 +20,7 @@
             $("#SupplierId").prop("disabled", true);
             $("#InvoiceNo").prop("disabled", true);
             $("#Code").prop("disabled", true);
-            $("#purchaseDate").prop("disabled", true);
+            $("#dateTime").prop("disabled", true);
 
             var categoryId = $('#categoryId').val();
             var jsonData = { categoryId: categoryId };
@@ -72,7 +72,9 @@
     $("#ProductId").on("change",
         function () {
             var productId = $('#ProductId').val();
-            var jsonData = { productId: productId };
+            var dateTime = $("#dateTime").val();
+
+            var jsonData = { productId: productId, purchaseDateTime:dateTime};
 
             $.ajax({
                 type: "POST",
@@ -163,7 +165,7 @@
             Code: {
                 required: true
             },
-            purchaseDate: {
+            dateTime: {
                 required: true,
                 date:true
             },
@@ -203,7 +205,7 @@
             Code: {
 
             },
-            purchaseDate: {
+            dateTime: {
 
             },
             categoryId: {
@@ -313,7 +315,7 @@
         $("#SupplierId").prop("disabled", false);
         $("#InvoiceNo").prop("disabled", false);
         $("#Code").prop("disabled", false);
-        $("#purchaseDate").prop("disabled", false);
+        $("#dateTime").prop("disabled", false);
 
         if ($("#PurchaseForm").valid()) {
             $.ajax({

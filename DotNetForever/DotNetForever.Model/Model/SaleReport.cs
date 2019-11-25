@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using DotNetForever.Web.Models;
 
-namespace DotNetForever.Web.ViewModels
+namespace DotNetForever.Model.Model
 {
     public class SaleReport
     {

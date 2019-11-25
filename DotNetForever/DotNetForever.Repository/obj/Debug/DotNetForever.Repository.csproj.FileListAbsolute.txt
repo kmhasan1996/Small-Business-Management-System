@@ -32,6 +32,8 @@ D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\D
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\DotNetForever.Repository.csproj.CopyComplete
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\DotNetForever.Repository.dll
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\DotNetForever.Repository.pdb
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\DotNetForever.Repository.csprojAssemblyReference.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\DotNetForever.Repository.csproj.CoreCompileInputs.cache
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Debug\DotNetForever.Repository.dll.config
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Debug\DotNetForever.Repository.dll
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Debug\DotNetForever.Repository.pdb
@@ -44,8 +46,6 @@ E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Debug\D
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Debug\DotNetForever.Model.pdb
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Debug\EntityFramework.xml
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\bin\Debug\EntityFramework.SqlServer.xml
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\DotNetForever.Repository.csprojAssemblyReference.cache
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\DotNetForever.Repository.csproj.CoreCompileInputs.cache
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\DotNetForever.Repository.csproj.CopyComplete
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\DotNetForever.Repository.dll
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Repository\obj\Debug\DotNetForever.Repository.pdb

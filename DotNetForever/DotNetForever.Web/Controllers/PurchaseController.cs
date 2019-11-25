@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using DotNetForever.Manager.Manager;
 using DotNetForever.Model.Model;
@@ -13,6 +14,7 @@ namespace DotNetForever.Web.Controllers
        private CategoryManager _categoryManager = new CategoryManager();
        private ProductManager _productManager = new ProductManager();
        private PurchaseDetailsManager _purchaseDetailsManager=new PurchaseDetailsManager();
+       SaleManager _saleManager=new SaleManager();
 
         // GET: Category
         public ActionResult Index(string search)
@@ -52,7 +54,7 @@ namespace DotNetForever.Web.Controllers
         }
 
         //from purchase details
-        public JsonResult GetPurchaseDetailByProductId(int productId)
+        public JsonResult GetPurchaseDetailByProductId(int productId,DateTime purchaseDateTime)
         {
             JsonResult jason = new JsonResult();
             //var products = _productManager.GetProductByCategoryId(productId)
@@ -66,7 +68,7 @@ namespace DotNetForever.Web.Controllers
                 jason.Data = new
                 {
                     ProductCode = product.Code,
-                    AvailableQty = productDetails.Quantity,
+                    AvailableQty = _purchaseManager.GetPurchaseProductQtyByIdAndDate(productId, purchaseDateTime) - _saleManager.GetSoldProductQtyByIdAndDate(productId, purchaseDateTime),
                     PreviousUnitPrice = productDetails.UnitPrice,
                     PreviousMRP = productDetails.MRP
                 };

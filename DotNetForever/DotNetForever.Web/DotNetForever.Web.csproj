@@ -168,10 +168,8 @@
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\ProductListViewModel.cs" />
     <Compile Include="ViewModels\PurchaseDetailsViewModel.cs" />
-    <Compile Include="ViewModels\PurchaseReportViewModel.cs" />
     <Compile Include="ViewModels\PurchaseViewModel.cs" />
     <Compile Include="ViewModels\SaleDetailViewModel.cs" />
-    <Compile Include="ViewModels\SaleReportViewModel.cs" />
     <Compile Include="ViewModels\SaleViewModel.cs" />
     <Compile Include="ViewModels\SideMenuViewModel.cs" />
     <Compile Include="ViewModels\StockViewModel.cs" />

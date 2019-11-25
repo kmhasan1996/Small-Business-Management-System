@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DotNetForever.Web.ViewModels.SaleReportViewModel>
+﻿@model IEnumerable<DotNetForever.Model.Model.SaleReport>
 
 @{
     ViewBag.Title = "SaleReport";
@@ -64,28 +64,26 @@
                 </tr>
             </thead>
             <tbody>
-                @*@{
+                @{
                         var i = 0;
-                        foreach (var product in Model.PurchaseDetail)
+                        foreach (var report in Model)
                         {
                             i++;
 
                             <tr>
                                 <td>@i</td>
-                                <td>@product.Category.Name</td>
-                                <td>@product.Code</td>
-                                <td>@product.Name</td>
-                                <td>@product.RecorderLevel</td>
-                                <td>@product.Description</td>
-                                <td>
-                                    <button  type="button" class="editButton btn btn-primary" data-id="@product.Id" data-toggle="modal" data-target="#editModal"><i class="fas fa-pen mr-2"></i>Edit</button>
-                                    <button  type="button" class="deleteButton btn btn-danger" data-id="@product.Id"><i class="fas fa-trash-alt mr-2"></i>Delete</button>
-                                </td>
+                                <td>@report.Code</td>
+                                <td>@report.Product</td>
+                                <td>@report.Category</td>
+                                <td>@report.SoldQty</td>
+                                <td>@report.CP</td>
+                                <td>@report.MRP</td>
+                                <td>@report.Profit</td>
 
                             </tr>
                         }
 
-                    }*@
+                    }
 
             </tbody>
         </table>

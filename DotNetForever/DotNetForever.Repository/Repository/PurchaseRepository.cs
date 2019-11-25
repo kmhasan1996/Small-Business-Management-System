@@ -68,5 +68,34 @@ namespace DotNetForever.Repository.Repository
 
             return total;
         }
+
+
+        public double GetTotalCostPriceByIdAndStartAndEndDate(int productId, DateTime startDate, DateTime endDate)
+        {
+
+            double total = 0;
+            using (var context = new SMSDbContext())
+            {
+
+                total = context.PurchaseDetails.Where(x => x.Product.Id == productId && x.Purchase.DateTime >= startDate && x.Purchase.DateTime <= endDate).Select(c => (c.Quantity * c.UnitPrice)).DefaultIfEmpty(0).Sum();
+            }
+
+            return total;
+
+        }
+
+        public double GetTotalProfitByIdAndStartAndEndDate(int productId, DateTime startDate, DateTime endDate)
+        {
+
+            double total = 0;
+            using (var context = new SMSDbContext())
+            {
+
+                total = context.PurchaseDetails.Where(x => x.Product.Id == productId && x.Purchase.DateTime >= startDate && x.Purchase.DateTime <= endDate).Select(c => c.Quantity * c.MRP).DefaultIfEmpty(0).Sum();
+            }
+
+            return total;
+
+        }
     }
 }

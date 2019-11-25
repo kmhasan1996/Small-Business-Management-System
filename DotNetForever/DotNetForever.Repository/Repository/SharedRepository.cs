@@ -5,14 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DotNetForever.DatabaseContext.DatabaseContext;
+using DotNetForever.Model.Model;
 using DotNetForever.Web.Models;
-using DotNetForever.Web.ViewModels;
+
 
 namespace DotNetForever.Repository.Repository
 {
     public class SharedRepository
     {
         PurchaseRepository _purchaseRepository=new PurchaseRepository();
+        PurchaseDetailsRepository _purchaseDetailsRepository=new PurchaseDetailsRepository();
         SaleRepository _saleRepository=new SaleRepository();
         SaleDetailsRepository _saledetailsRepository=new SaleDetailsRepository();
 
@@ -30,21 +32,21 @@ namespace DotNetForever.Repository.Repository
                     int purchaseQty = _purchaseRepository.GetTotalProductByIdAndDate(productId, startDate);
                     int salesQty = _saledetailsRepository.GetTotalProductByIdAndDate(productId, startDate);
 
-                    int inQty = _purchaseRepository.GetTotalProductByIdAndStartAndEndDate(productId, startDate,
-                        endDate);
-                    int outQty =
-                        _saledetailsRepository.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
+                    int inQty = _purchaseRepository.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
+                    int outQty = _saledetailsRepository.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
                     PurchaseReport model=new PurchaseReport();
 
                     model.Code = product.Code;
                     model.Product = product.Name;
                     model.Category = product.Category.Name;
-                    model.AvailableQty = product.ReorderLevel;
-                    model.CP = purchaseQty - salesQty;
-                    model.MRP = inQty;
-                    model.Profit = outQty;
+                    model.AvailableQty = (purchaseQty - salesQty) + inQty - outQty;
+                    var pDetails= _purchaseDetailsRepository.GetPurchaseDetailByProductId(productId);
+                    model.MRP = model.AvailableQty*pDetails.MRP;
+                    model.CP = model.AvailableQty * pDetails.UnitPrice;
 
-                    purchaseReportViewModels.Add(model);
+                    model.Profit = model.AvailableQty * model.MRP - model.CP;
+
+                        purchaseReportViewModels.Add(model);
 
                 }
 
@@ -61,10 +63,43 @@ namespace DotNetForever.Repository.Repository
         //}
 
 
-        //public List<SalesReportViewModel> GetSalesReport()
-        //{
+        public List<SaleReport> GetSalesReport(DateTime startDate, DateTime endDate)
+        {
+            List<SaleReport> saleReports = new List<SaleReport>();
 
-        //}
+            using (var context = new SMSDbContext())
+            {
+                var allProduct = context.Products.Include(x => x.Category).ToList();
+
+                foreach (var product in allProduct)
+                {
+                    int productId = product.Id;
+                    //int purchaseQty = _purchaseRepository.GetTotalProductByIdAndDate(productId, startDate);
+                    //int salesQty = _saledetailsRepository.GetTotalProductByIdAndDate(productId, startDate);
+
+                    //int inQty = _purchaseRepository.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
+                    int outQty = _saledetailsRepository.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
+                    SaleReport model = new SaleReport();
+
+                    model.Code = product.Code;
+                    model.Product = product.Name;
+                    model.Category = product.Category.Name;
+                    model.SoldQty = outQty;
+                    var pDetails = _purchaseDetailsRepository.GetPurchaseDetailByProductId(productId);
+                    model.MRP = model.SoldQty*pDetails.MRP;
+                    model.CP = model.SoldQty * pDetails.UnitPrice;
+
+                    model.Profit = model.MRP - model.CP;
+
+                    saleReports.Add(model);
+
+                }
+
+
+            }
+
+            return saleReports;
+        }
 
         //public List<SalesReportViewModel> SearchSalesReportByDate(string startDate, string endDate)
         //{
@@ -114,7 +149,7 @@ namespace DotNetForever.Repository.Repository
                     model.OpeningBalance = purchaseQty - salesQty;
                     model.In = inQty;
                     model.Out = outQty;
-                    model.ClosingBalance = model.OpeningBalance+inQty+outQty;
+                    model.ClosingBalance = model.OpeningBalance + inQty - outQty; 
 
                     stocks.Add(model);
 

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DotNetForever.Model.Model;
 using DotNetForever.Repository.Repository;
 using DotNetForever.Web.Models;
-using DotNetForever.Web.ViewModels;
+
 
 namespace DotNetForever.Manager.Manager
 {
@@ -21,6 +22,11 @@ namespace DotNetForever.Manager.Manager
         public List<PurchaseReport> GetPurchaseReport(DateTime startDate, DateTime endDate)
         {
             return _sharedRepository.GetPurchaseReport(startDate, endDate);
+        }
+
+        public List<SaleReport> GetSalesReport(DateTime startDate, DateTime endDate)
+        {
+            return _sharedRepository.GetSalesReport(startDate, endDate);
         }
     }
 }
