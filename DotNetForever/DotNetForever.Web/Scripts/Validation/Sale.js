@@ -30,7 +30,7 @@ $("#categoryId").on("change",
     function () {
 
 
-        $("#saleDateTime").prop("disabled", true);
+        $("#dateTime").prop("disabled", true);
         $("#saleCode").prop("disabled", true);
         $("#customerId").prop("disabled", true);
 
@@ -68,6 +68,12 @@ $("#categoryId").on("change",
     });
 
 
+function getTodayDate() {
+    var date = new Date();
+    var currentDate = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+    return currentDate;
+}
+
 var reorderLevel;
 //product changes
 $("#productId").on("change",
@@ -75,12 +81,21 @@ $("#productId").on("change",
 
         //clear the field
         $("#quantity").val("");
-        $("#totalMRP").val("");
+        $("#totalPrice").val("");
 
         //get the sending data
-        var saleDateTime = $("#saleDateTime").val();
+        var dateTime = $("#dateTime").val();
         var productId = $("#productId").val();
-        var jsonData = { productId: productId,saleDateTime: saleDateTime};
+
+        //alert(dateTime);
+
+        //if (dateTime == "") {
+        //    dateTime = getTodayDate();
+        //}
+
+        //alert(dateTime);
+        
+        var jsonData = { productId: productId,saleDateTime: dateTime};
 
         $.ajax({
             type: "POST",
@@ -153,7 +168,7 @@ $('input[name="quantity"]').keyup(function (e) {
 
    
     var unitPrice = $('#mrp').val();
-    $('#totalMRP').val(sellQty * unitPrice);
+    $('#totalPrice').val(sellQty * unitPrice);
 });
 
 $('input[name="mrp"]').keyup(function (e) {
@@ -169,7 +184,7 @@ $('input[name="mrp"]').keyup(function (e) {
 
     var totalPrice = sellQty * unitPrice;
 
-    $('#totalMRP').val(totalPrice);
+    $('#totalPrice').val(totalPrice);
 });
 
 
@@ -201,8 +216,8 @@ function getResultData() {
     var productName = $("#productId  option:selected").text();
     var quantity = $("#quantity").val();
     var mrp = $("#mrp").val();
-    var totalMrp = $("#totalMRP").val();
-    return { ProductId: productId, ProductName: productName, Quantity: quantity, MRP: mrp, TotalMrp: totalMrp }
+    var totalPrice = $("#totalPrice").val();
+    return { ProductId: productId, ProductName: productName, Quantity: quantity, MRP: mrp, TotalPrice: totalPrice }
 }
 
 var sl = index;
@@ -211,7 +226,7 @@ function gerResultRow(result) {
     //var productNameHidden = "<input type='hidden' name='PurchaseDetails[" + index + "].ProductName' value='" + result.ProductName + "'></div>";
     var quantityHidden = "<input type='hidden' name='SaleDetails[" + index + "].Quantity' value='" + result.Quantity + "'></div>";
     var mrpHidden = "<input type='hidden' name='SaleDetails[" + index + "].MRP' value='" + result.MRP + "'></div>";
-    var totalMrpHidden = "<input type='hidden' name='SaleDetails[" + index + "].TotalMrp' value='" + result.TotalMrp + "'></div>";
+    var totalPriceHidden = "<input type='hidden' name='SaleDetails[" + index + "].TotalPrice' value='" + result.TotalPrice + "'></div>";
    
 
     var startTr = "<tr>";
@@ -221,11 +236,11 @@ function gerResultRow(result) {
     var productNameCell = "<td class='text-success'>" + result.ProductName + "</td>";
     var quantityCell = "<td class='text-success'>" + quantityHidden + result.Quantity + "</td>";
     var mrpCell = "<td class='text-success'>" + mrpHidden + result.MRP + "</td>";
-    var totalMrpCell = "<td class='text-success'>" + totalMrpHidden + result.TotalMrp + "</td>";
+    var totalPriceCell = "<td class='text-success'>" + totalPriceHidden + result.TotalPrice + "</td>";
 
     var endTr = "</tr>";
 
-    return (startTr + slCell + productIdCell + productNameCell + quantityCell + mrpCell + totalMrpCell + endTr);
+    return (startTr + slCell + productIdCell + productNameCell + quantityCell + mrpCell + totalPriceCell + endTr);
 
 }
 
@@ -233,15 +248,15 @@ function gerResultRow(result) {
 $("#submitButton").click(function () {
     //document.getElementById("saveError").style.display = "none";
 
-    $("#saleDateTime").prop("disabled", false);
+    $("#dateTime").prop("disabled", false);
     $("#saleCode").prop("disabled", false);
     $("#customerId").prop("disabled", false);
 
-    if ($("#PurchaseForm").valid()) {
+    //if ($("#PurchaseForm").valid()) {
         $.ajax({
             type: "POST",
-            url: "/Purchase/Create",
-            data: $("#PurchaseForm").serialize()
+            url: "/Sale/Create",
+            data: $("#saleForm").serialize()
 
         })
             .done(function (response) {
@@ -256,7 +271,7 @@ $("#submitButton").click(function () {
                 })
                     .then((willDelete) => {
                         if (willDelete) {
-                            window.location.reload();
+                         //   window.location.reload();
                         }
                     });
 
@@ -268,6 +283,6 @@ $("#submitButton").click(function () {
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Fail");
             });
-    };
+    //};
 
 });

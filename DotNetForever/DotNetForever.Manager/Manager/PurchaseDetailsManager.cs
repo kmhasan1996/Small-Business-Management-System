@@ -21,5 +21,7 @@ namespace DotNetForever.Manager.Manager
         {
             return _purchaseDetailsRepository.GetAllPurchaseDetailByPurchaseId(purchaseId);
         }
+
+
     }
 }

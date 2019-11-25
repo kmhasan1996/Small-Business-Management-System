@@ -1,9 +1,11 @@
 ﻿using DotNetForever.DatabaseContext.DatabaseContext;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DotNetForever.Model.Model;
 
 namespace DotNetForever.Repository.Repository
 {
@@ -34,6 +36,14 @@ namespace DotNetForever.Repository.Repository
 
             return total;
 
+        }
+
+        public List<SaleDetail> GetAllSaleDetailBySaleId(int saleId)
+        {
+            using (var context = new SMSDbContext())
+            {
+                return context.SaleDetails.Where(x => x.SaleId == saleId).Include(x => x.Product).ToList();
+            }
         }
     }
 }

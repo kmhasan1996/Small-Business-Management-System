@@ -17,7 +17,7 @@ namespace DotNetForever.Web.Controllers
         private ProductManager _productManager = new ProductManager();
         private PurchaseManager _purchaseManager=new PurchaseManager();
         private PurchaseDetailsManager _purchaseDetailsManager = new PurchaseDetailsManager();
-
+        private SaleDetailsManager _saleDetailsManager=new SaleDetailsManager();
         public ActionResult Index(string search)
         {
             SaleViewModel model = new SaleViewModel {Sales = _saleManager.GetAll(), Search = search};
@@ -36,6 +36,22 @@ namespace DotNetForever.Web.Controllers
             };
             return View(model);
         }
+        [HttpPost]
+        public ActionResult Create(Sale sale)
+        {
+
+            JsonResult jason = new JsonResult();
+
+            if (ModelState.IsValid)
+            {
+                jason.Data = _saleManager.Add(sale)
+                    ? new { Success = true, Message = "Saved Successfully" }
+                    : new { Success = true, Message = "Unable to Save" };
+            }
+
+
+            return RedirectToAction("Index");
+        }
 
         public JsonResult GetAvailableProductQtyByIdAndDate(DateTime saleDateTime, int productId)
         {
@@ -49,6 +65,12 @@ namespace DotNetForever.Web.Controllers
                 reorderLevel=productDetails.Product.ReorderLevel
             };
             return jason;
+        }
+        public ActionResult SaleDetails(int saleId)
+        {
+            List<SaleDetail> saleDetails = _saleDetailsManager.GetAllSaleDetailBySaleId(saleId);
+
+            return PartialView("_SaleDetails", saleDetails);
         }
 
     }

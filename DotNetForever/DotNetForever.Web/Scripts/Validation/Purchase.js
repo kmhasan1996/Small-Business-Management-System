@@ -1,14 +1,14 @@
 ﻿$(document).ready(function () {
 
 
-    function getTodayDate() {
-        var date = new Date();
-        var currentDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-        return currentDate;
-    }
+    //function getTodayDate() {
+    //    var date = new Date();
+    //    var currentDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+    //    return currentDate;
+    //}
 
 
-    $("#purchaseDate").val(getTodayDate());
+    //$("#purchaseDate").val(getTodayDate());
 
     $('#TotalPrice').val("0");
     $('#MRP').val("0");
@@ -334,7 +334,7 @@
                             })
                             .then((willDelete) => {
                                 if (willDelete) {
-                                    window.location.reload();
+                                    //window.location.reload();
                                 }
                             });
 

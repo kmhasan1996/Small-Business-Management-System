@@ -144,6 +144,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Sale\_SaleDetails.cshtml" />
     <None Include="Views\Shared\ctreate.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>

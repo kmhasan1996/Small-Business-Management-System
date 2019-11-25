@@ -12,6 +12,15 @@ namespace DotNetForever.Repository.Repository
 {
     public class SaleRepository
     {
+        public bool Add(Sale sale)
+        {
+            using (var context = new SMSDbContext())
+            {
+                context.Sales.Add(sale);
+                return context.SaveChanges() > 0;
+            }
+        }
+
         public List<Sale> GetAll()
         {
             using (var context = new SMSDbContext())

@@ -11,7 +11,13 @@ namespace DotNetForever.Manager.Manager
     public class SaleManager
     {
        SaleRepository _saleRepository=new SaleRepository();
-        public List<Sale> GetAll()
+
+       public bool Add(Sale sale)
+       {
+           return _saleRepository.Add(sale);
+       }
+
+       public List<Sale> GetAll()
         {
             return _saleRepository.GetAll();
         }

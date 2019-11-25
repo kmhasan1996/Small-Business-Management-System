@@ -7,27 +7,31 @@
 
 <h4>Sale Product</h4>
 <hr />
-<div class="row col-md-12">
+<form id="saleForm">
+    <div class="row col-md-12">
+
     <!--Supplier Details -->
-    <div class="col-md-3">
+    <div class="col-md-4">
 
         @*<h5>Sale Info</h5><hr />*@
         <fieldset>
             @*<legend>Sale Info</legend>*@
             <h6>Sale Info</h6>
             <div class="row">
-
-                <div class="form-group row ml-2">
-                    <label class="col-sm-2 col-form-label">Date</label>
-                    <div class="col-sm-10">
-                        <input type="date" class="form-control" id="saleDateTime" name="saleDateTime">
-                    </div>
-                </div>
                 <div class="col-md-12">
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Code</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="saleCode" name="saleCode">
+                        <label class="col-sm-4 col-form-label">Date</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="dateTime" name="dateTime">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Code</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="Code" name="Code">
                         </div>
                     </div>
 
@@ -43,8 +47,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Customer</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 col-form-label">Customer</label>
+                        <div class="col-sm-8">
                             <select id="customerId" name="customerId" class="form-control" size="1">
                                 <option value="">Select One</option>
                                 @if (Model.Customers != null)
@@ -61,14 +65,16 @@
                     </div>
 
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Loyalty</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="loyaltyPoint" name="loyaltyPoint" disabled>
+                <div class="col-md-12">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Loyalty</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="loyaltyPoint" name="loyaltyPoint" disabled>
 
+                        </div>
                     </div>
                 </div>
-                
+
             </div>
         </fieldset>
         @*<hr />*@
@@ -136,10 +142,10 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Total MRP</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="totalMRP" name="totalMRP" disabled>
+                            <input type="text" class="form-control" id="totalPrice" name="totalPrice" disabled>
                         </div>
                     </div>
-                    <button id="addButton" type="submit" class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Add</button>
+                    <button id="addButton" type="button" class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Add</button>
 
                 </div>
 
@@ -147,68 +153,69 @@
             <hr />
         </fieldset>
     </div>
-    <div class="col-md-9">
-        <div class="card bg-light overflow-auto" style="height: 425px;">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">MRP</th>
-                            <th scope="col">Total MRP</th>
-                            @*<th scope="col">Action</th>*@
-                        </tr>
-                    </thead>
-                    <tbody id="ProductListTable">
-                        
 
-                    </tbody>
-                </table>
+    <div class="col-md-8">
+            <div class="card bg-light overflow-auto" style="height: 425px;">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">MRP</th>
+                                <th scope="col">Total MRP</th>
+                                @*<th scope="col">Action</th>*@
+                            </tr>
+                        </thead>
+                        <tbody id="ProductListTable"></tbody>
+                    </table>
+                </div>
             </div>
+            <!-- end table--><hr />
+
+            <div class="row">
+                <div class="col-md-5">
+
+                    <div class="form-group row">
+                        <label class="col-sm-6 col-form-label">Grand Total (Tk)</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="grandTotal" name="grandTotal" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-6 col-form-label">Discount (%)</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="discount" name="discount" disabled>
+                        </div>
+                    </div>
+
+                    <button id="submitButton" type="button" class="btn btn-primary float-left"><i class="fas fa-database mr-2"></i>Submit</button>
+                </div>
+                <div class="col-md-5 ">
+
+                    <div class="form-group row">
+                        <label class="col-sm-6 col-form-label">Discount Amount (Tk)</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="discountAmount" name="discountAmount" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-6 col-form-label">Payable Amount (Tk)</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="payableAmount" name="payableAmount" disabled>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
-        <!-- end table--><hr />
 
-        <div class="row">
-            <div class="col-md-5">
 
-                <div class="form-group row">
-                    <label class="col-sm-6 col-form-label">Grand Total (Tk)</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" id="grandTotal" name="grandTotal" disabled>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-6 col-form-label">Discount (%)</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" id="discount" name="discount" disabled>
-                    </div>
-                </div>
-
-                <button id="submitButton" type="submit" class="btn btn-primary float-left"><i class="fas fa-database mr-2"></i>Submit</button>
-            </div>
-            <div class="col-md-5 ">
-
-                <div class="form-group row">
-                    <label class="col-sm-6 col-form-label">Discount Amount (Tk)</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" id="discountAmount" name="discountAmount" disabled>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-6 col-form-label">Payable Amount (Tk)</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" id="payableAmount" name="payableAmount" disabled>
-                    </div>
-                </div>
-
-            </div>
-        </div>
 
     </div>
-
-</div>
+</form>
 <script src="~/Scripts/Validation/Sale.js"></script>
 
 
