@@ -192,10 +192,14 @@ $('input[name="mrp"]').keyup(function (e) {
 
 var index = 0;
 
+
+
 $("#addButton").click(function () {
 
     //if ($("#PurchaseForm").valid()) {
         //enable the submit button
+
+        //var grandTotal=$
         $("#submitButton").prop("disabled", false);
         var result = getResultData();
 
@@ -227,7 +231,8 @@ function gerResultRow(result) {
     var quantityHidden = "<input type='hidden' name='SaleDetails[" + index + "].Quantity' value='" + result.Quantity + "'></div>";
     var mrpHidden = "<input type='hidden' name='SaleDetails[" + index + "].MRP' value='" + result.MRP + "'></div>";
     var totalPriceHidden = "<input type='hidden' name='SaleDetails[" + index + "].TotalPrice' value='" + result.TotalPrice + "'></div>";
-   
+
+    //var grandTotal = grandTotal + result.TotalPrice;
 
     var startTr = "<tr>";
     var slCell = "<td class='text-success'>" + (++sl) + "</td>";
@@ -245,8 +250,17 @@ function gerResultRow(result) {
 }
 
 
+var saleDetails = $("#SaleDetails[2]").val();
+
 $("#submitButton").click(function () {
     //document.getElementById("saveError").style.display = "none";
+
+    //alert("fgdf");
+    //for (var i = 1/*, len = saleDetails.length, text = ""*/; i < 2; i++) {
+    //    alert(saleDetails[i]);
+    //}
+
+    alert(saleDetails);
 
     $("#dateTime").prop("disabled", false);
     $("#saleCode").prop("disabled", false);

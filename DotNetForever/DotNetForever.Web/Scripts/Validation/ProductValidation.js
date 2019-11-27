@@ -1,4 +1,34 @@
 ﻿$(function () {
+
+
+    $('input[name="Name"]').focusout(function () {
+       
+        var name = $('#Name').val();
+        var jsonData = { name: name };
+
+        $.ajax({
+            type: "POST",
+            url: "/Product/UniqueName/",
+            data: JSON.stringify(jsonData),
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                if (data=="true") {
+                    document.getElementById("NameError").innerHTML = "Name Exist !";
+                    document.getElementById("NameError").style.color = "red";
+                } else {
+                    document.getElementById("NameError").innerHTML = "Name Available !";
+                    document.getElementById("NameError").style.color = "green";
+                }
+            },
+            error: function() {
+                alert("Failed");
+            }
+        });
+
+    });
+
+
+
     //alert("hi");
     $('input[name="Code"]').keyup(function (e) {
         if (/\D/g.test(this.value)) {
@@ -22,72 +52,72 @@
     });
 
    
-    $("#productForm").validate({
-        rules: {
-            CategoryID: {
-                required:true
-            },
-            Code: {
-                required: true,
-                minlength:4,
-                maxlength: 4
-            },
-            Name: {
-                required: true
-                //remote:false
-                //remote: function () {
+    //$("#productForm").validate({
+    //    rules: {
+    //        CategoryID: {
+    //            required:true
+    //        },
+    //        Code: {
+    //            required: true,
+    //            minlength:4,
+    //            maxlength: 4
+    //        },
+    //        Name: {
+    //            required: true
+    //            //remote:false
+    //            //remote: function () {
                     
-                //    return  {
-                //        url: "Product/UniqueName1",
-                //        type: "POST",
-                //        contentType: "application/json; charset=utf-8",
-                //        dataType: "json",
-                //        data: "{'Name': '" + $("#Name").val() + "'}",
-                //        dataFilter: function (response) {
-                //            alert(response);
-                //            if (response == "True") {
-                //                alert("inside true");
-                //                return true;
-                //            } else {
-                //                alert("inside false");
-                //                return false;
-                //            }
+    //            //    return  {
+    //            //        url: "Product/UniqueName1",
+    //            //        type: "POST",
+    //            //        contentType: "application/json; charset=utf-8",
+    //            //        dataType: "json",
+    //            //        data: "{'Name': '" + $("#Name").val() + "'}",
+    //            //        dataFilter: function (response) {
+    //            //            alert(response);
+    //            //            if (response == "True") {
+    //            //                alert("inside true");
+    //            //                return true;
+    //            //            } else {
+    //            //                alert("inside false");
+    //            //                return false;
+    //            //            }
 
-                //        }
+    //            //        }
                         
-                //    }
-                //}
+    //            //    }
+    //            //}
 
-            }, 
-            ReorderLevel: {
-                required: true
-            },
-            Description: {
-                required: true
-            }
-        },
-        messages: {
-            CategoryID: {
-                required: "Select a category"
-            },
-            Code: {
-                required: "Code is required",
-                minlength:"Minimum 4 character required",
-                //minlength: jQuery.validator.format("At least {0} characters required!"),
-                maxlength: "Maximum 4 character allowed"
-            },
-            Name: {
-                required: "Name is required"
-               //remote:"Name is required"
-            },
-            ReorderLevel: {
-                required: "Reorder level is required"
-            },
-            Description: {
-                required: "Description is required"
-            }
-        }
-    });
+    //        }, 
+    //        ReorderLevel: {
+    //            required: true
+    //        },
+    //        Description: {
+    //            required: true
+    //        }
+    //    },
+    //    messages: {
+    //        CategoryID: {
+    //            required: "Select a category"
+    //        },
+    //        Code: {
+    //            required: "Code is required",
+    //            minlength:"Minimum 4 character required",
+    //            //minlength: jQuery.validator.format("At least {0} characters required!"),
+    //            maxlength: "Maximum 4 character allowed"
+    //        },
+    //        Name: {
+    //            required: "Name is required"
+    //           //remote:"Name is required"
+    //        },
+    //        ReorderLevel: {
+    //            required: "Reorder level is required"
+    //        },
+    //        Description: {
+    //            required: "Description is required"
+    //        }
+    //    }
+    //});
 
 
 

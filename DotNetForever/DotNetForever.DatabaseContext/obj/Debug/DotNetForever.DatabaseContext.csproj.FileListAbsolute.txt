@@ -52,9 +52,6 @@ E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\De
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\EntityFramework.xml
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Debug\EntityFramework.SqlServer.xml
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csprojAssemblyReference.cache
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.InitialCreate.resources
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.addedTypeinPurchaseDetails.resources
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.GenerateResource.cache
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.CoreCompileInputs.cache
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.CopyComplete
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.dll

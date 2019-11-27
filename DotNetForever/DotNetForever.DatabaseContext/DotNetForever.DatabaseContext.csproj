@@ -51,15 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\SMSDbContext.cs" />
-    <Compile Include="Migrations\201911231616263_InitialCreate.cs" />
-    <Compile Include="Migrations\201911231616263_InitialCreate.Designer.cs">
-      <DependentUpon>201911231616263_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911231632156_addedTypeinPurchaseDetails.cs" />
-    <Compile Include="Migrations\201911231632156_addedTypeinPurchaseDetails.Designer.cs">
-      <DependentUpon>201911231632156_addedTypeinPurchaseDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,14 +62,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911231616263_InitialCreate.resx">
-      <DependentUpon>201911231616263_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911231632156_addedTypeinPurchaseDetails.resx">
-      <DependentUpon>201911231632156_addedTypeinPurchaseDetails.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

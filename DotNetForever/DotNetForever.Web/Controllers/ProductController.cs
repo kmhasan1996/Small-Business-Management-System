@@ -28,20 +28,23 @@ namespace DotNetForever.Web.Controllers
             return View(model);
         }
 
-        public ActionResult UniqueName(string name)
+        public JsonResult UniqueName(string name)
         {
-            JsonResult jason = new JsonResult();
-            jason.Data = _productManager.UniqueName(name) ? new { Success = true, Message = "Name is exist" } : new { Success = false, Message = "Name is available" };
-            //if (_productManager.UniqueName(name))
-            //{
-            //    jason.Data = new { Success = true };
-            //}
+            //JsonResult jason = new JsonResult();
+            var Data = "false";
+            //jason.Data = _productManager.UniqueName(name) ? new { Success = true, Message = "Name is exist" } : new { Success = false, Message = "Name is available" };
+
+            if (_productManager.UniqueName(name))
+            {
+                Data = "true";
+            }
             //else
             //{
-            //    jason.Data = new { Success = false };
+            //    //jason.Data = new { Success = false };
+            //    Data="false"
             //}
 
-            return jason;
+            return Json(Data, JsonRequestBehavior.AllowGet);
 
         }
         public bool UniqueName1(string name)
