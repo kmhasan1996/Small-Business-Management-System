@@ -44,7 +44,7 @@ namespace DotNetForever.Repository.Repository
                     model.MRP = model.AvailableQty*pDetails.MRP;
                     model.CP = model.AvailableQty * pDetails.UnitPrice;
 
-                    model.Profit = model.AvailableQty * model.MRP - model.CP;
+                    model.Profit =model.MRP - model.CP;
 
                         purchaseReportViewModels.Add(model);
 
@@ -122,7 +122,7 @@ namespace DotNetForever.Repository.Repository
                     allProduct = context.Products.Include(x => x.Category).Where(x=>x.CategoryId==categoryId).ToList();
                 }
 
-                if (categoryId.HasValue && productId.HasValue)
+                if ( productId != null && productId != 0)
                 {
                     allProduct = context.Products.Include(x => x.Category).Where(x=>x.CategoryId==categoryId && x.Id==productId).ToList();
                 }

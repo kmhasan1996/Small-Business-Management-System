@@ -31,12 +31,12 @@ namespace DotNetForever.Web.Controllers
         public JsonResult UniqueName(string name)
         {
             //JsonResult jason = new JsonResult();
-            var Data = "false";
+            var data = "false";
             //jason.Data = _productManager.UniqueName(name) ? new { Success = true, Message = "Name is exist" } : new { Success = false, Message = "Name is available" };
 
             if (_productManager.UniqueName(name))
             {
-                Data = "true";
+                data = "true";
             }
             //else
             //{
@@ -44,7 +44,7 @@ namespace DotNetForever.Web.Controllers
             //    Data="false"
             //}
 
-            return Json(Data, JsonRequestBehavior.AllowGet);
+            return Json(data, JsonRequestBehavior.AllowGet);
 
         }
         public bool UniqueName1(string name)
@@ -60,24 +60,7 @@ namespace DotNetForever.Web.Controllers
             }
 
         }
-        private string GenerateProductCode()
-        {
-            string lastProductCode = _productManager.GetLastProductCode();
-
-            //if (lastProductCode == "")
-            //{
-            //    lastProductCode = "0001";
-            //}
-            //else
-            //{
-                int number = int.Parse(lastProductCode);
-                lastProductCode = (++number).ToString("D" + lastProductCode.Length);
-
-            //}
-
-            return lastProductCode;
-        }
-
+       
         public JsonResult GetProductByCategoryId(int categoryId)
         {
             var products = _productManager.GetProductByCategoryId(categoryId)
@@ -90,10 +73,30 @@ namespace DotNetForever.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+
+            string code = _productManager.GetLastProductCode();
+
+
+            if (code == null)
+            {
+                code = "0001";
+            }
+            else
+            {
+                int number = int.Parse(code);
+                code = (++number).ToString("D" + code.Length);
+
+            }
+
+
+            //dynamic model = new System.Dynamic.ExpandoObject();
+
+            //model.code = code;
+
             CreateProductViewModel model = new CreateProductViewModel();
             model.Categories = _categoryManager.GetAll();
             model.Product=new Product();
-            model.Product.Code = GenerateProductCode();
+            model.Product.Code = code;
             return PartialView("_Create", model);
 
         }

@@ -56,5 +56,10 @@ namespace DotNetForever.Manager.Manager
             return _customerRepository.GetLoyaltyPointById(customerId);
         }
 
+        public string GetLastCustomerCode()
+        {
+            return _customerRepository.GetLastCustomerCode();
+        }
+
     }
 }

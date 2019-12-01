@@ -11,8 +11,8 @@ namespace DotNetForever.Web.ViewModels
     {
         public List<Category> Categories { get; set; }
         public List<Stock> Stocks { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        //public DateTime StartDate { get; set; }
+        //public DateTime EndDate { get; set; }
        
     }
 }

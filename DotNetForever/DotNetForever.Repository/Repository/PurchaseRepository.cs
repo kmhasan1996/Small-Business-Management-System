@@ -97,5 +97,17 @@ namespace DotNetForever.Repository.Repository
             return total;
 
         }
+
+        public string GetLastPurchaseCode()
+        {
+            string code = "";
+            using (var context = new SMSDbContext())
+            {
+                code = context.Purchases.OrderByDescending(x => x.Id).Select(x => x.Code).FirstOrDefault();
+            }
+
+            return code;
+        }
+
     }
 }

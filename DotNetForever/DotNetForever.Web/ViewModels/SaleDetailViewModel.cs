@@ -12,5 +12,6 @@ namespace DotNetForever.Web.ViewModels
         public List<Product> Products { get; set; }
         public List<Category> Categories { get; set; }
         public SaleDetail SaleDetail { get; set; }
+        public string Code { get; set; }
     }
 }

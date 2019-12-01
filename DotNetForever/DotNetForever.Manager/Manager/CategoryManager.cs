@@ -45,5 +45,10 @@ namespace DotNetForever.Manager.Manager
         {
             return _categoryRepository.GetCount();
         }
+
+        public string GetLastCategoryCode()
+        {
+            return _categoryRepository.GetLastCategoryCode();
+        }
     }
 }

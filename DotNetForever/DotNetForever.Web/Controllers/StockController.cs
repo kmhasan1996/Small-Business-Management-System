@@ -16,18 +16,32 @@ namespace DotNetForever.Web.Controllers
 
       
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(DateTime? startDate, DateTime? endDate)
         {
             StockViewModel model = new StockViewModel();
 
-            DateTime startDate = DateTime.Today.Date;
-            DateTime endDate = DateTime.Today.Date;
+            //DateTime startDate = DateTime.Today.Date;
+            //DateTime endDate = DateTime.Today.Date;
 
             model.Categories = _categoryManager.GetAll();
-            model.Stocks = _sharedManager.GetStockReport(null,null,startDate, endDate);
-            model.StartDate = startDate;
-            model.EndDate = endDate;
+            if (startDate == null && endDate == null)
+            {
+                 startDate = DateTime.Today.Date;
+                 endDate = DateTime.Today.Date;
+
+                 model.Stocks = _sharedManager.GetStockReport(null, null, (DateTime) startDate, (DateTime) endDate);
+                 //model.StartDate = (DateTime) startDate;
+                 //model.EndDate = (DateTime)endDate;
+            }
+            else
+            {
+                model.Stocks = _sharedManager.GetStockReport(null, null, (DateTime)startDate, (DateTime)endDate);
+                //model.StartDate = (DateTime)startDate;
+                //model.EndDate = (DateTime)endDate;
+            }
+
            
+
             return View(model);
         }
         [HttpPost]

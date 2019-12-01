@@ -27,12 +27,31 @@ namespace DotNetForever.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            string code = _saleManager.GetLastSaleCode();
+
+
+            string year = DateTime.Parse(DateTime.Now.ToString()).Year.ToString();
+            if (code == null)
+            {
+                code = year + "-0001";
+            }
+            else
+            {
+                string[] afterSplit = code.Split('-');
+
+                string serialNo = afterSplit[afterSplit.Length - 1];
+                int number = int.Parse(serialNo);
+                code = year + "-" + (++number).ToString("D" + serialNo.Length);
+            }
+
+
             SaleDetailViewModel model = new SaleDetailViewModel
             {
                 Customers = _customerManager.GetAll(),
                 Categories = _categoryManager.GetAll(),
                 Products = _productManager.GetAll(),
-                SaleDetail = new SaleDetail()
+                SaleDetail = new SaleDetail(),
+                Code = code
             };
             return View(model);
         }

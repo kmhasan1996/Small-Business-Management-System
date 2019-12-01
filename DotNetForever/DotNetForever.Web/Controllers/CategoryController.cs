@@ -29,7 +29,26 @@ namespace DotNetForever.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            Category model=new Category();
+            //Category model=new Category();
+
+
+            string code = _categoryManager.GetLastCategoryCode();
+
+            if (code == null)
+            {
+                code = "0001";
+            }
+            else
+            {
+                int number = int.Parse(code);
+                code = (++number).ToString("D" + code.Length);
+
+            }
+
+
+            dynamic model = new System.Dynamic.ExpandoObject();
+
+            model.Code = code;
 
             return PartialView("_Create", model);
 

@@ -10,7 +10,8 @@ namespace DotNetForever.Manager.Manager
 {
     public class PurchaseManager
     {
-        PurchaseRepository _purchaseRepository=new PurchaseRepository();    
+        PurchaseRepository _purchaseRepository = new PurchaseRepository();
+
         public List<Purchase> GetAll()
         {
             return _purchaseRepository.GetAll();
@@ -25,5 +26,11 @@ namespace DotNetForever.Manager.Manager
         {
             return _purchaseRepository.GetPurchaseProductQtyByIdAndDate(productId, startDate);
         }
+
+        public string GetLastPurchaseCode()
+        {
+            return _purchaseRepository.GetLastPurchaseCode();
+        }
     }
 }
+

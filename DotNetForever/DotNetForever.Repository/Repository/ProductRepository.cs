@@ -123,16 +123,8 @@ namespace DotNetForever.Repository.Repository
         {
             using (var context = new SMSDbContext())
             {
+                return context.Products.OrderByDescending(x => x.Id).Select(x => x.Code).FirstOrDefault();
 
-               
-                if (context.Products.Any())
-                {
-                    var product = context.Products.OrderByDescending(x => x.Id).FirstOrDefault<Product>();
-                    return product.Code;
-                }
-
-
-                return "0001";
             }
 
 

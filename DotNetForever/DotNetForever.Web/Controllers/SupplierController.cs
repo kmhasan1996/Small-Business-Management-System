@@ -36,7 +36,26 @@ namespace DotNetForever.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            Supplier model = new Supplier();
+            //Supplier model = new Supplier();
+
+            string code = _supplierManager.GetLastSupplierCode();
+
+            if (code == "")
+            {
+                code = "0001";
+            }
+            else
+            {
+                int number = int.Parse(code);
+                code = (++number).ToString("D" + code.Length);
+
+            }
+
+
+            dynamic model = new System.Dynamic.ExpandoObject();
+
+            model.Code = code;
+
             return PartialView("_Create", model);
 
         }

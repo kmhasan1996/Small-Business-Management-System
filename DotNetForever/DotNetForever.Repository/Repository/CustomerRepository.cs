@@ -113,5 +113,15 @@ namespace DotNetForever.Repository.Repository
             return loyaltyPoint;
         }
 
+        public string GetLastCustomerCode()
+        {
+            using (var context = new SMSDbContext())
+            {
+                return context.Customers.OrderByDescending(x => x.Id).Select(x => x.Code).DefaultIfEmpty("").FirstOrDefault();
+
+            }
+
+
+        }
     }
 }

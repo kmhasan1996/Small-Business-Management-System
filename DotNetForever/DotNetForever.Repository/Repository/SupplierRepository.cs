@@ -84,5 +84,16 @@ namespace DotNetForever.Repository.Repository
                 return context.Suppliers.Count();
             }
         }
+
+        public string GetLastSupplierCode()
+        {
+            using (var context = new SMSDbContext())
+            {
+                return context.Suppliers.OrderByDescending(x => x.Id).Select(x => x.Code).DefaultIfEmpty("").FirstOrDefault();
+
+            }
+
+
+        }
     }
 }

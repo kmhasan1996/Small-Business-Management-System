@@ -50,7 +50,22 @@ namespace DotNetForever.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-           Customer model=new Customer();
+
+
+            string code = _customerManager.GetLastCustomerCode();
+
+            if (code == "")
+            {
+                code = "0001";
+            }
+            else
+            {
+                int number = int.Parse(code);
+                code = (++number).ToString("D" + code.Length);
+
+            }
+            dynamic model = new System.Dynamic.ExpandoObject();
+            model.Code = code;
             return PartialView("_Create", model);
 
         }

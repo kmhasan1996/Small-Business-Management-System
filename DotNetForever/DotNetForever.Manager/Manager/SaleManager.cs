@@ -26,5 +26,10 @@ namespace DotNetForever.Manager.Manager
         {
             return _saleRepository.GetSoldProductQtyByIdAndDate(productId, soldDate);
         }
+
+        public string GetLastSaleCode()
+        {
+            return _saleRepository.GetLastSaleCode();
+        }
     }
 }

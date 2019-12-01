@@ -5,217 +5,233 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@*<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">*@
+@*<link href="~/Contents/Scripts/jquery-ui.min.css" rel="stylesheet" />*@
+
 <h4>Sale Product</h4>
 <hr />
+
+
 <form id="saleForm">
-    <div class="row col-md-12">
+<div class="row col-md-12">
 
+<!--Supplier Details -->
+<div class="col-md-4">
+
+    @*<h5>Sale Info</h5><hr />*@
+    <fieldset>
+        @*<legend>Sale Info</legend>*@
+        <h6>Sale Info</h6>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Date</label>
+                    <div class="col-sm-8">
+                        <input @*type="date"*@ class="form-control" id="dateTime" name="dateTime">
+                        @*@Html.TextBoxFor(m => m.DateTime, "{0:MM/dd/yyyy}", new { maxlength = "12", @class = "date-picker form-control auto-focus" })*@
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Code</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="Code" name="Code" value="@Model.Code" disabled>
+                    </div>
+                </div>
+
+            </div>
+            @*<hr />*@
+        </div>
+    </fieldset>
+    @*<hr />*@
     <!--Supplier Details -->
-    <div class="col-md-4">
-
-        @*<h5>Sale Info</h5><hr />*@
-        <fieldset>
-            @*<legend>Sale Info</legend>*@
-            <h6>Sale Info</h6>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Date</label>
-                        <div class="col-sm-8">
-                            <input type="date" class="form-control" id="dateTime" name="dateTime">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Code</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="Code" name="Code">
-                        </div>
-                    </div>
-
-                </div>
-                @*<hr />*@
-            </div>
-        </fieldset>
-        @*<hr />*@
-        <!--Supplier Details -->
-        <fieldset>
-            @*<legend>Customer</legend>*@
-            <h6>Customer</h6>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Customer</label>
-                        <div class="col-sm-8">
-                            <select id="customerId" name="customerId" class="form-control" size="1">
-                                <option value="">Select One</option>
-                                @if (Model.Customers != null)
+    <fieldset>
+        @*<legend>Customer</legend>*@
+        <h6>Customer</h6>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Customer</label>
+                    <div class="col-sm-8">
+                        <select id="customerId" name="customerId" class="form-control" size="1">
+                            <option value="">Select One</option>
+                            @if (Model.Customers != null)
+                            {
+                                foreach (var customer in Model.Customers)
                                 {
-                                    foreach (var customer in Model.Customers)
-                                    {
-                                        <option value="@customer.Id">@customer.Name</option>
-                                    }
+                                    <option value="@customer.Id">@customer.Name</option>
                                 }
+                            }
 
 
-                            </select>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Loyalty</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="loyaltyPoint" name="loyaltyPoint" disabled>
-
-                        </div>
+                        </select>
                     </div>
                 </div>
 
             </div>
-        </fieldset>
-        @*<hr />*@
-        <!--Product Details -->
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Loyalty</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="loyaltyPoint" name="loyaltyPoint" disabled>
 
-        <fieldset>
-            @*<legend>Product Details</legend>*@
-            <h6>Product Details</h6>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Category</label>
-                        <div class="col-sm-8">
-                            <select id="categoryId" name="categoryId" class="form-control" size="1">
-                                <option value="">Select One</option>
-                                @if (Model.Categories != null)
-                                {
-                                    foreach (var category in Model.Categories)
-                                    {
-                                        <option value="@category.Id">@category.Name</option>
-                                    }
-                                }
-
-
-                            </select>
-                        </div>
                     </div>
-
-
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Product</label>
-                        <div class="col-sm-8">
-                            <select id="productId" name="productId" class="form-control" size="1">
-                                <option value="">Select One</option>
-
-                            </select>
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Available Quantity</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="availableQty" name="availableQty" disabled>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Quantity</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="quantity" name="quantity">
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">MRP(Tk)</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="mrp" name="mrp">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Total MRP</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="totalPrice" name="totalPrice" disabled>
-                        </div>
-                    </div>
-                    <button id="addButton" type="button" class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Add</button>
-
-                </div>
-
-            </div>
-            <hr />
-        </fieldset>
-    </div>
-
-    <div class="col-md-8">
-            <div class="card bg-light overflow-auto" style="height: 425px;">
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">MRP</th>
-                                <th scope="col">Total MRP</th>
-                                @*<th scope="col">Action</th>*@
-                            </tr>
-                        </thead>
-                        <tbody id="ProductListTable"></tbody>
-                    </table>
-                </div>
-            </div>
-            <!-- end table--><hr />
-
-            <div class="row">
-                <div class="col-md-5">
-
-                    <div class="form-group row">
-                        <label class="col-sm-6 col-form-label">Grand Total (Tk)</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="grandTotal" name="grandTotal" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-6 col-form-label">Discount (%)</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="discount" name="discount" disabled>
-                        </div>
-                    </div>
-
-                    <button id="submitButton" type="button" class="btn btn-primary float-left"><i class="fas fa-database mr-2"></i>Submit</button>
-                </div>
-                <div class="col-md-5 ">
-
-                    <div class="form-group row">
-                        <label class="col-sm-6 col-form-label">Discount Amount (Tk)</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="discountAmount" name="discountAmount" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-6 col-form-label">Payable Amount (Tk)</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="payableAmount" name="payableAmount" disabled>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
         </div>
+    </fieldset>
+    @*<hr />*@
+    <!--Product Details -->
+
+    <fieldset>
+        @*<legend>Product Details</legend>*@
+        <h6>Product Details</h6>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Category</label>
+                    <div class="col-sm-8">
+                        <select id="categoryId" name="categoryId" class="form-control" size="1">
+                            <option value="">Select One</option>
+                            @if (Model.Categories != null)
+                            {
+                                foreach (var category in Model.Categories)
+                                {
+                                    <option value="@category.Id">@category.Name</option>
+                                }
+                            }
+
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Product</label>
+                    <div class="col-sm-8">
+                        <select id="productId" name="productId" class="form-control" size="1">
+                            <option value="">Select One</option>
+
+                        </select>
+                    </div>
+                </div>
 
 
 
+            </div>
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Available Quantity</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="availableQty" name="availableQty" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Quantity</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="quantity" name="quantity">
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">MRP(Tk)</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="mrp" name="mrp">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Total MRP</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="totalPrice" name="totalPrice" disabled>
+                    </div>
+                </div>
+                <button id="addButton" type="button" class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Add</button>
+
+            </div>
+
+        </div>
+        <hr />
+    </fieldset>
+</div>
+
+<div class="col-md-8">
+    <div class="card bg-light overflow-auto" style="height: 425px;">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">MRP</th>
+                    <th scope="col">Total MRP</th>
+                    @*<th scope="col">Action</th>*@
+                </tr>
+                </thead>
+                <tbody id="ProductListTable"></tbody>
+            </table>
+        </div>
     </div>
-</form>
-<script src="~/Scripts/Validation/Sale.js"></script>
+    <!-- end table--><hr />
 
+    <div class="row">
+        <div class="col-md-5">
+
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Grand Total (Tk)</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="grandTotal" name="grandTotal" disabled>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Discount (%)</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="discountPercentage" name="discountPercentage" disabled>
+                </div>
+            </div>
+
+            <button id="submitButton" type="button" class="btn btn-primary float-left"><i class="fas fa-database mr-2"></i>Submit</button>
+        </div>
+        <div class="col-md-5 ">
+
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Discount Amount (Tk)</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="discountAmount" name="discountAmount" disabled>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Payable Amount (Tk)</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="payableAmount" name="payableAmount" disabled>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+</div>
+</form>
+<script src="~/Contents/CustomValidation/Sale.js"></script>
+<script>
+    function getTodayDate() {
+        var date = new Date();
+        var currentDate = (date.getMonth() + 1) + "/" + date.getDate()+ "/" + date.getFullYear();
+        return currentDate;
+    }
+
+    $("#dateTime").datepicker();
+
+    $("#dateTime").val(getTodayDate());
+</script>
 

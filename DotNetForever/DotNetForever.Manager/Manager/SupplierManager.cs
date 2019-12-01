@@ -43,5 +43,10 @@ namespace DotNetForever.Manager.Manager
         {
             return _supplierRepository.GetCount();
         }
+
+        public string GetLastSupplierCode()
+        {
+            return _supplierRepository.GetLastSupplierCode();
+        }
     }
 }

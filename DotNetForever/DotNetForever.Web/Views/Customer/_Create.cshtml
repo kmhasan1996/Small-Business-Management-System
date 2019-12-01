@@ -1,4 +1,4 @@
-﻿@model  DotNetForever.Model.Model.Customer
+﻿@model  dynamic
 
 
 
@@ -27,7 +27,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Code</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="Code" placeholder="Enter code">
+                        <input type="text" class="form-control" name="Code" value="@Model.Code">
                     </div>
                 </div>
 
@@ -77,53 +77,4 @@
 </div>
 
 
-<script src="~/Scripts/Validation/CustomerValidation.js"></script>
-
-<script>
-   //// document.getElementById("saveError").style.display = "none";
-   // $("#saveButton").click(function () {
-   //     //document.getElementById("saveError").style.display = "none";
-   //     $.ajax({
-   //         type: "POST",
-   //         url: "/Customer/Create",
-   //         data: $("#customerForm").serialize()
-
-   //     })
-   //         .done(function (response) {
-   //             if (response.Success) {
-   //                 //$("#saveError").html(response.Message);
-   //                 location.reload();
-   //             } else {
-   //                 $("#saveError").html(response.Message);
-   //             }
-
-   //         })
-   //         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-   //             alert("Fail");
-   //         });
-   // });
-
-   // $("#closeButton").click(function () {
-   //     location.reload();
-   // });
-
-
-   @*function UserCheck() {
-     
-       $.post("@Url.Action("CheckEmailAvailability", "Customer")",
-           {
-               email: $("#email").val()
-           },
-           function (data) {
-               if (data == 0) {
-                   $("#Status").html('<font color="Green">Available !. you can take it.</font>');
-                   $("#email").css("border-color", "Green");
-
-               }
-               else {
-                   $("#Status").html('<font color="Red">That name is taken.Try Another.</font>');
-                   $("#email").css("border-color", "Red");
-               }
-           });
-   }*@
-</script>
+<script src="~/Contents/CustomValidation/Customer.js"></script>

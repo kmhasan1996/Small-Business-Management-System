@@ -10,6 +10,7 @@ namespace DotNetForever.Web.ViewModels
     {
         public List<Supplier> Suppliers { get; set; }
         public List<Category> Categories { get; set; }
-       public PurchaseDetail PurchaseDetail { get; set; }
+        public PurchaseDetail PurchaseDetail { get; set; }
+        public string Code { get; set; }
     }
 }

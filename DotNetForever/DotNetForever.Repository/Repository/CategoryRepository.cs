@@ -83,5 +83,16 @@ namespace DotNetForever.Repository.Repository
                 return context.Categories.Count();
             }
         }
+
+        public string GetLastCategoryCode()
+        {
+            using (var context = new SMSDbContext())
+            {
+                return context.Categories.OrderByDescending(x => x.Id).Select(x => x.Code).FirstOrDefault();
+
+            }
+
+
+        }
     }
 }

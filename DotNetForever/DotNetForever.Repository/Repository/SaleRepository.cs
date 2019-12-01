@@ -41,5 +41,16 @@ namespace DotNetForever.Repository.Repository
 
             return total;
         }
+
+        public string GetLastSaleCode()
+        {
+            string code = "";
+            using (var context=new SMSDbContext())
+            {
+                code = context.Sales.OrderByDescending(x => x.Id).Select(x => x.Code).FirstOrDefault();
+            }
+
+            return code;
+        }
     }
 }
