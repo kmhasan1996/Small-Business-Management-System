@@ -13,6 +13,7 @@ namespace DotNetForever.DatabaseContext.DatabaseContext
         public DbSet<PurchaseDetail> PurchaseDetails { get; set; }
         public  DbSet<Sale> Sales { get; set; }
         public DbSet<SaleDetail> SaleDetails { get; set; }
+
         
     }
 }

@@ -47,16 +47,25 @@ namespace DotNetForever.Web.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
 
         }
+        [HttpPost]
+        public virtual JsonResult IsValidContent(string name)
+        {
+            return new JsonResult
+            {
+                Data = true
+            };
+        }
+
         public bool UniqueName1(string name)
         {
             JsonResult jason = new JsonResult();
             if (_productManager.UniqueName(name))
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
 
         }

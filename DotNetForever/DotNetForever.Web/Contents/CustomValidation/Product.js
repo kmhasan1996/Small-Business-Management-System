@@ -36,6 +36,11 @@
             //    maxlength: 4
             //},
             Name: {
+                remote: {
+                    url: "Product/IsValidContent",
+                    timeout:2000,
+                    type: "POST"
+                },
                 required: true
                 //remote:false
                 //remote: function () {
@@ -74,7 +79,8 @@
                 required: "Select a category"
             },
             Name: {
-                required: "Name is required"
+                required: "Name is required",
+                remote:"Name is available"
             },
             ReorderLevel: {
                 required: "Reorder level is required"

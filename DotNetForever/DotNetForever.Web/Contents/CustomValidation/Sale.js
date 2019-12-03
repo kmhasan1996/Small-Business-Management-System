@@ -85,7 +85,7 @@ $(function() {
             if ($("#customerId").valid() /*&& val !== ""*/) {
 
                 $("#dateTime").prop("disabled", true);
-                $("#saleCode").prop("disabled", true);
+                $("#Code").prop("disabled", true);
                 $("#customerId").prop("disabled", true);
 
                 var jsonData = { categoryId: categoryId };
@@ -357,7 +357,7 @@ $(function() {
     $("#submitButton").click(function() {
 
         $("#dateTime").prop("disabled", false);
-        $("#saleCode").prop("disabled", false);
+        $("#Code").prop("disabled", false);
         $("#customerId").prop("disabled", false);
 
         //if ($("#PurchaseForm").valid()) {
