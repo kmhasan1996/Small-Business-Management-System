@@ -1,8 +1,6 @@
 ﻿@model  DotNetForever.Web.ViewModels.CreateProductViewModel
 
 
-
-
 <div class="modal-content">
     <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
@@ -13,16 +11,6 @@
     
     <form id="productForm">
     <div class="modal-body">
-        <div id="saveError" class="alert alert-warning" role="alert">
-
-        </div>
-        @*<div id="saveError" class="alert alert-warning alert-dismissible fade show" role="alert">
-
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>*@
-
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Category</label>
             <div class="col-sm-10">
@@ -51,7 +39,8 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="Name" placeholder="Enter name">
+                <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter name">
+               @*<span id="NameError"></span>*@
             </div>
         </div>
       
@@ -72,53 +61,11 @@
     </div>
 
     <div class="modal-footer">
-        <button id="saveButton" type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Save</button>
+        <button id="saveButton" type="button" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Save</button>
         <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
     </div>
     </form>
 </div>
 
 
-<script src="~/Scripts/Validation/ProductValidation.js"></script>
-
-<script>
-
-    //function UserCheck() {
-    //    var val = $("#categorySelect").val();
-    //    alert(val);
-    //    if (val.localeCompare("22")) {
-    //        alert("Select a category");
-            
-    //    }
-    //};
-
-    //document.getElementById("saveError").style.display = "none";
-    //$("#saveButton").click(function () {
-    //    document.getElementById("saveError").style.display = "none";
-    //    $.ajax({
-    //            type: "POST",
-    //            url: "/Product/Create",
-    //            data: $("#productForm").serialize()
-
-    //        })
-    //        .done(function(response) {
-    //            if (response.Success) {
-    //                //$("#saveError").html(response.Message);
-                    
-    //                location.reload();
-    //            } else {
-    //                $("#saveError").html(response.Message);
-                   
-    //            }
-
-    //        })
-    //        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-    //            alert("Fail");
-            
-    //        });
-    //});
-
-    //$("#closeButton").click(function () {
-    //    location.reload();
-    //});
-</script>
+<script src="~/Contents/CustomValidation/Product.js"></script>

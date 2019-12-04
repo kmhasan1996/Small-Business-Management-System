@@ -1,4 +1,7 @@
 ﻿$(function () {
+
+
+
     //alert("hi");
     $('input[name="Code"]').keyup(function (e) {
         if (/\D/g.test(this.value)) {
@@ -20,36 +23,49 @@
             this.value = this.value.replace(/\D/g, '');
         }
     });
-    //$.validator.setDefaults({
-    //    errorClass: "help-block",
-    //    highlight: function (element) {
-    //        $(element)
-    //        .closest(".form-control")
-    //        //.closest('.form-control')
-    //        .addClass("has-error");
-    //    },
-    //    unhighlight: function (element) {
-    //        $(element)
-    //        .closest(".form-control")
-    //        //.closest('.form-control')
-    //        .removeClass("has-error");
-    //    }
-    //});
 
    
-
     $("#productForm").validate({
         rules: {
             CategoryID: {
                 required:true
             },
-            Code: {
-                required: true,
-                minlength:4,
-                maxlength: 4
-            },
+            //Code: {
+            //    required: true,
+            //    minlength:4,
+            //    maxlength: 4
+            //},
             Name: {
+                remote: {
+                    url: "Product/IsValidContent",
+                    timeout:2000,
+                    type: "POST"
+                },
                 required: true
+                //remote:false
+                //remote: function () {
+                    
+                //    return  {
+                //        url: "Product/UniqueName1",
+                //        type: "POST",
+                //        contentType: "application/json; charset=utf-8",
+                //        dataType: "json",
+                //        data: "{'Name': '" + $("#Name").val() + "'}",
+                //        dataFilter: function (response) {
+                //            alert(response);
+                //            if (response == "True") {
+                //                alert("inside true");
+                //                return true;
+                //            } else {
+                //                alert("inside false");
+                //                return false;
+                //            }
+
+                //        }
+                        
+                //    }
+                //}
+
             }, 
             ReorderLevel: {
                 required: true
@@ -62,14 +78,9 @@
             CategoryID: {
                 required: "Select a category"
             },
-            Code: {
-                required: "Code is required",
-                minlength:"Minimum 4 character required",
-                //minlength: jQuery.validator.format("At least {0} characters required!"),
-                maxlength: "Maximum 4 character allowed"
-            },
             Name: {
-                required:"Name is required"
+                required: "Name is required",
+                remote:"Name is available"
             },
             ReorderLevel: {
                 required: "Reorder level is required"
@@ -80,12 +91,11 @@
         }
     });
 
-    document.getElementById("saveError").style.display = "none";
+
     $("#saveButton").click(function () {
 
-        document.getElementById("saveError").style.display = "none";
-
         if ($("#productForm").valid()) {
+            //alert("Inside save");
             $.ajax({
                     type: "POST",
                     url: "/Product/Create",
@@ -109,12 +119,12 @@
                     });
 
                 } else {
-                    $("#saveError").html(response.Message);
+                    alert("Failed");
 
                 }
 
             })
-            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            .fail(function (xmlHttpRequest, textStatus, errorThrown) {
                 alert("Fail");
 
             });
@@ -122,14 +132,14 @@
         
     });
 
-    $("#closeButton").click(function () {
-        location.reload();
-    });
+    //$("#closeButton").click(function () {
+    //    location.reload();
+    //});
 
 
    
     $("#updateButton").click(function () {
-        document.getElementById("saveError").style.display = "none";
+        //document.getElementById("saveError").style.display = "none";
         if ($("#productForm").valid()) {
             $.ajax({
                     type: "POST",
@@ -153,11 +163,11 @@
                             } 
                         });
                 } else {
-                    $("#saveError").html(response.Message);
+                   
                 }
 
             })
-            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            .fail(function (xmlHttpRequest, textStatus, errorThrown) {
                 alert("Fail");
             });
         };

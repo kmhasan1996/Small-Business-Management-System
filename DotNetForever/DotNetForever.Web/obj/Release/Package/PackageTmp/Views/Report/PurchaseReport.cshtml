@@ -1,102 +1,69 @@
-﻿@model List<DotNetForever.Web.ViewModels.PurchaseReportViewModel>
+﻿@model List<DotNetForever.Model.Model.PurchaseReport>
 
 @{
     ViewBag.Title = "PurchaseReport";
     Layout = "~/Views/Shared/_ReportLayout.cshtml";
 }
-<hr/>
-<div class="row">
-    <div class="col-md-3">
 
-    </div>
-    <div class="col-md-5">
-        <div class="row">
-            <div class="col-md-6">
-
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Start Date</span>
-                    </div>
-                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">End Date</span>
-                    </div>
-                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <button id="addButton" type="submit" class="btn btn-primary float-right"><i class="fas fa-search mr-2"></i>Search</button>
-
-            </div>
-
+<hr />
+<form id="purchaseReportForm">
+    <div class="row">
+        <div class="col-md-2">
 
         </div>
-        <hr />
-    </div>
-
-    <div class="col-md-3">
-
-    </div>
-
-</div>
-
-<!--Stock Table-->
-
-<div class="card bg-light overflow-auto" style="height: 425px;">
-    @*@if (Model != null && Model.Count>0)
-        {*@
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Code</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">AvailableQty</th>
-                    <th scope="col">CP</th>
-                    <th scope="col">MRP</th>
-                    <th scope="col">Profit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @*@{
-                        var i = 0;
-                        foreach (var product in Model.PurchaseDetail)
-                        {
-                            i++;
-
-                            <tr>
-                                <td>@i</td>
-                                <td>@product.Category.Name</td>
-                                <td>@product.Code</td>
-                                <td>@product.Name</td>
-                                <td>@product.RecorderLevel</td>
-                                <td>@product.Description</td>
-                                <td>
-                                    <button  type="button" class="editButton btn btn-primary" data-id="@product.Id" data-toggle="modal" data-target="#editModal"><i class="fas fa-pen mr-2"></i>Edit</button>
-                                    <button  type="button" class="deleteButton btn btn-danger" data-id="@product.Id"><i class="fas fa-trash-alt mr-2"></i>Delete</button>
-                                </td>
-
-                            </tr>
-                        }
-
-                    }*@
-
-            </tbody>
-        </table>
-    </div>
-
-    @*}
-        else
-        {
-            <hr/>
-            <div class="alert alert-warning" role="alert">
-                Sorry! No product record found.
+        <div class="col-md-3">
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Start Date</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="startDate" name="startDate">
+                </div>
             </div>
-        }*@
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">End Date</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="endDate" name="endDate">
+                </div>
+            </div>
+
+            <button id="searchButton" type="button" class="btn btn-primary float-right ml-4"><i class="fas fa-search mr-2"></i>Search</button>
+            <a href="@Url.Action("PurchaseReport", "Report")" class="btn btn-primary float-right"><i class="fas fa-redo-alt mr-2"></i>Reset</a>
+        </div>
+        <hr />
+       
+        @*<div class="col-md-3">
+            <button id="searchButton" type="button" class="btn btn-primary float-right ml-4"><i class="fas fa-search mr-2"></i>Search</button>
+            <a href="@Url.Action("PurchaseReport", "Report")" class="btn btn-primary float-right"><i class="fas fa-redo-alt mr-2"></i>Reset</a>
+        </div>*@
+
+    </div>
+</form>
+<!--Purchase Report Table-->
+<div id="showPurchaseReportListing" class="mt-3">
+    
 </div>
+
+<script src="~/Contents/CustomValidation/PurchaseReport.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+
+        //default load the data on page load 
+        $.ajax({
+            type: "POST",
+            url: "/Report/SearchPurchaseReport",
+            data: $("#purchaseReportForm").serialize()
+
+        })
+        .done(function (response) {
+            $("#showPurchaseReportListing").html(response);
+        })
+        .fail(function (xmlHttpRequest, textStatus, errorThrown) {
+            alert("Fail");
+        });
+
+    })
+</script>

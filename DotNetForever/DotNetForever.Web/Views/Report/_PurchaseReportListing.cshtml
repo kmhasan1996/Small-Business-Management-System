@@ -1,0 +1,53 @@
+﻿@model List<DotNetForever.Model.Model.PurchaseReport>
+
+@if (Model != null && Model.Count>0)
+{
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Code</th>
+            <th scope="col">Product</th>
+            <th scope="col">Category</th>
+            <th scope="col">AvailableQty</th>
+            <th scope="col">CP</th>
+            <th scope="col">MRP</th>
+            <th scope="col">Profit</th>
+        </tr>
+        </thead>
+        <tbody>
+        @{
+            var i = 0;
+            foreach (var report in Model)
+            {
+
+                i++;
+
+                <tr>
+                    <td>@i</td>
+                    <td>@report.Code</td>
+                    <td>@report.Product</td>
+                    <td>@report.Category</td>
+                    <td>@report.AvailableQty</td>
+                    <td>@report.CP</td>
+                    <td>@report.MRP</td>
+                    <td>@report.Profit</td>
+
+                </tr>
+            }
+
+        }
+
+        </tbody>
+    </table>
+</div>
+
+}
+else
+{
+    <hr/>
+    <div class="alert alert-warning" role="alert">
+        Sorry! No product record found.
+    </div>
+}

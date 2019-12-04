@@ -1,4 +1,4 @@
-﻿@model  DotNetForever.Model.Model.Supplier
+﻿@model  dynamic
 
 
 
@@ -12,21 +12,11 @@
 
     <form id="supplierForm">
         <div class="modal-body">
-            @*<div id="saveError" class="alert alert-warning" role="alert">
-
-            </div>*@
-            @*<div id="saveError" class="alert alert-warning alert-dismissible fade show" role="alert">
-
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>*@
-
             
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Code</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="Code" placeholder="Enter code">
+                    <input type="text" class="form-control" name="Code" value="@Model.Code">
                 </div>
             </div>
 
@@ -73,33 +63,4 @@
 </div>
 
 
-<script src="~/Scripts/Validation/SupplierValidation.js"></script>
-
-<script>
-    //document.getElementById("saveError").style.display = "none";
-    //$("#saveButton").click(function () {
-    //   // document.getElementById("saveError").style.display = "none";
-    //    $.ajax({
-    //        type: "POST",
-    //        url: "/Supplier/Create",
-    //        data: $("#supplierForm").serialize()
-
-    //    })
-    //        .done(function (response) {
-    //            if (response.Success) {
-    //                //$("#saveError").html(response.Message);
-    //                location.reload();
-    //            } else {
-    //                $("#saveError").html(response.Message);
-    //            }
-
-    //        })
-    //        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-    //            alert("Fail");
-    //        });
-    //});
-
-    //$("#closeButton").click(function () {
-    //    location.reload();
-    //});
-</script>
+<script src="~/Contents/CustomValidation/Supplier.js"></script>

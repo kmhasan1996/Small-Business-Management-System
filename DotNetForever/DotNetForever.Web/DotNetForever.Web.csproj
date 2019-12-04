@@ -99,6 +99,8 @@
     <Content Include="Contents\bootstrap\css\bootstrap.min.css" />
     <Content Include="Contents\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Contents\css\simple-sidebar.css" />
+    <Content Include="Contents\CustomValidation\SaleReport.js" />
+    <Content Include="Contents\CustomValidation\PurchaseReport.js" />
     <Content Include="Contents\fontawesome\css\all.css" />
     <Content Include="Contents\fontawesome\css\all.min.css" />
     <Content Include="Contents\fontawesome\css\brands.css" />
@@ -168,6 +170,8 @@
     <Content Include="Views\Sale\_SaleDetails.cshtml" />
     <Content Include="Contents\Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Contents\Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Report\_PurchaseReportListing.cshtml" />
+    <Content Include="Views\Report\_SaleReportListing.cshtml" />
     <None Include="Views\Shared\ctreate.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -195,7 +199,6 @@
     <Compile Include="ViewModels\SaleDetailViewModel.cs" />
     <Compile Include="ViewModels\SaleViewModel.cs" />
     <Compile Include="ViewModels\SideMenuViewModel.cs" />
-    <Compile Include="ViewModels\StockViewModel.cs" />
     <Compile Include="ViewModels\SupplierListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,65 @@
+﻿@model  List<DotNetForever.Model.Model.PurchaseDetail>
+
+@if (Model != null)
+{
+    <div class="modal-content" @*style="width: 900px; margin-right: 900px;"*@>
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Purchase Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+       
+        <div class="modal-body">
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Manuf. Date</th>
+                            <th scope="col">Expire Date</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Total Price</th>
+                            <th scope="col">MRP</th>
+                            <th scope="col">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                        var i = 0;
+                        foreach (var productDetail in Model)
+                        {
+                            i++;
+
+                            <tr>
+                                <td>@i</td>
+                                <td>@productDetail.Product.Name</td>
+                                <td>@productDetail.ManufacturedDateTime</td>
+                                <td>@productDetail.ExpireDate</td>
+                                <td>@productDetail.Quantity</td>
+                                <td>@productDetail.UnitPrice</td>
+                                <td>@productDetail.TotalPrice</td>
+                                <td>@productDetail.MRP</td>
+                                <td>@productDetail.Remarks</td>
+                                
+                            </tr>
+                        }
+
+                    }
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+            <div class="modal-footer">
+                <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
+            </div>
+       
+    </div>
+}

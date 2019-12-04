@@ -6,45 +6,45 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAALybtcwCJcEmjxHJlujVgMgAAAAACAAAAAAAQZgAAAAEAACAAAADhQetcGA36qzw84q87XhCagw6Cjw419pqsyOBZ5Jr11gAAAAAOgAAAAAIAACAAAAD9zUOND36PyXUyy7CqudSOqPzPpvUMQdgr8/QevaK8xiAAAABSJvaLPIERJuUjXTC5QeueMKTw7/8F7XsFDmd6beHrhkAAAACLs0CqpAASZGxAFkUZ+Tn9tow6xTQhCnIT1u62kXLbQ1kVhHeiv60DeFTmJxRTyrfdQ4ewftanxkNSFhv28WPV</EncryptedPassword>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAobpcLOgqV0qlYCZpDE+oMAAAAAACAAAAAAAQZgAAAAEAACAAAABDoLKSHxyvTZLq+1tRJi5xZvu33pjA/yhkH3j8OWpqJQAAAAAOgAAAAAIAACAAAACLhGBi2DpukexslggjLJp3NNN0/R0L/t4Mt67K/EZYHCAAAAACwuH5CPncW1MJ6KP81j29hS2vm2Hw9r9tRBGVnaR50UAAAADudSVIYEi7fIl4rj3roRRTP0NUjcM0/0M6BIA0LXRYB34uBLNOAeAjxS1jBpYG95ONM7CfzHzBAAwXOxcaOqq8</EncryptedPassword>
     <_PublishTargetUrl>ftp://www.StockManagementSystem.somee.com/www.StockManagementSystem.somee.com/</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/DotNetForever.DatabaseContext.dll">
-      <publishTime>11/16/2019 18:45:56</publishTime>
+      <publishTime>12/04/2019 18:37:20</publishTime>
     </File>
     <File Include="bin/DotNetForever.DatabaseContext.dll.config">
       <publishTime>11/12/2019 09:45:06</publishTime>
     </File>
     <File Include="bin/DotNetForever.DatabaseContext.pdb">
-      <publishTime>11/16/2019 18:45:56</publishTime>
+      <publishTime>12/04/2019 18:37:20</publishTime>
     </File>
     <File Include="bin/DotNetForever.Manager.dll">
-      <publishTime>11/17/2019 00:18:24</publishTime>
+      <publishTime>12/04/2019 18:37:21</publishTime>
     </File>
     <File Include="bin/DotNetForever.Manager.pdb">
-      <publishTime>11/17/2019 00:18:24</publishTime>
+      <publishTime>12/04/2019 18:37:21</publishTime>
     </File>
     <File Include="bin/DotNetForever.Model.dll">
-      <publishTime>11/16/2019 18:45:56</publishTime>
+      <publishTime>12/04/2019 18:37:20</publishTime>
     </File>
     <File Include="bin/DotNetForever.Model.pdb">
-      <publishTime>11/16/2019 18:45:56</publishTime>
+      <publishTime>12/04/2019 18:37:20</publishTime>
     </File>
     <File Include="bin/DotNetForever.Repository.dll">
-      <publishTime>11/17/2019 00:18:24</publishTime>
+      <publishTime>12/04/2019 18:37:21</publishTime>
     </File>
     <File Include="bin/DotNetForever.Repository.dll.config">
       <publishTime>11/12/2019 09:47:14</publishTime>
     </File>
     <File Include="bin/DotNetForever.Repository.pdb">
-      <publishTime>11/17/2019 00:18:24</publishTime>
+      <publishTime>12/04/2019 18:37:21</publishTime>
     </File>
     <File Include="bin/DotNetForever.Web.dll">
-      <publishTime>11/17/2019 00:18:25</publishTime>
+      <publishTime>12/04/2019 18:37:21</publishTime>
     </File>
     <File Include="bin/DotNetForever.Web.pdb">
-      <publishTime>11/17/2019 00:18:25</publishTime>
+      <publishTime>12/04/2019 18:37:21</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -223,6 +223,33 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Contents/css/simple-sidebar.css">
       <publishTime>11/07/2019 16:04:17</publishTime>
     </File>
+    <File Include="Contents/CustomValidation/Category.js">
+      <publishTime>11/29/2019 23:45:58</publishTime>
+    </File>
+    <File Include="Contents/CustomValidation/Customer.js">
+      <publishTime>11/17/2019 10:35:01</publishTime>
+    </File>
+    <File Include="Contents/CustomValidation/Product.js">
+      <publishTime>12/02/2019 18:58:11</publishTime>
+    </File>
+    <File Include="Contents/CustomValidation/Purchase.js">
+      <publishTime>11/30/2019 12:48:01</publishTime>
+    </File>
+    <File Include="Contents/CustomValidation/PurchaseReport.js">
+      <publishTime>12/04/2019 16:49:21</publishTime>
+    </File>
+    <File Include="Contents/CustomValidation/Sale.js">
+      <publishTime>12/02/2019 18:10:35</publishTime>
+    </File>
+    <File Include="Contents/CustomValidation/SaleReport.js">
+      <publishTime>12/04/2019 16:39:02</publishTime>
+    </File>
+    <File Include="Contents/CustomValidation/Stock.js">
+      <publishTime>11/30/2019 13:37:26</publishTime>
+    </File>
+    <File Include="Contents/CustomValidation/Supplier.js">
+      <publishTime>11/17/2019 10:35:12</publishTime>
+    </File>
     <File Include="Contents/fontawesome/css/all.css">
       <publishTime>11/08/2019 09:46:51</publishTime>
     </File>
@@ -310,8 +337,77 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Contents/fontawesome/webfonts/fa-solid-900.woff2">
       <publishTime>11/08/2019 09:46:51</publishTime>
     </File>
+    <File Include="Contents/jQueryDateTime/jquery-ui.min.css">
+      <publishTime>11/22/2019 19:42:06</publishTime>
+    </File>
+    <File Include="Contents/jQueryDateTime/jquery-ui.min.js">
+      <publishTime>11/22/2019 19:42:06</publishTime>
+    </File>
+    <File Include="Contents/jQueryDateTime/jquery-ui.theme.min.css">
+      <publishTime>11/22/2019 20:00:50</publishTime>
+    </File>
+    <File Include="Contents/jQueryDateTime/jquery.js">
+      <publishTime>11/22/2019 20:00:00</publishTime>
+    </File>
     <File Include="Contents/js/jquery.min.js">
       <publishTime>11/07/2019 16:05:42</publishTime>
+    </File>
+    <File Include="Contents/Scripts/images/ui-icons_444444_256x240.png">
+      <publishTime>11/30/2019 01:39:12</publishTime>
+    </File>
+    <File Include="Contents/Scripts/images/ui-icons_555555_256x240.png">
+      <publishTime>11/30/2019 01:39:12</publishTime>
+    </File>
+    <File Include="Contents/Scripts/images/ui-icons_777620_256x240.png">
+      <publishTime>11/30/2019 01:39:12</publishTime>
+    </File>
+    <File Include="Contents/Scripts/images/ui-icons_777777_256x240.png">
+      <publishTime>11/30/2019 01:39:12</publishTime>
+    </File>
+    <File Include="Contents/Scripts/images/ui-icons_cc0000_256x240.png">
+      <publishTime>11/30/2019 01:39:12</publishTime>
+    </File>
+    <File Include="Contents/Scripts/images/ui-icons_ffffff_256x240.png">
+      <publishTime>11/30/2019 01:39:12</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery-3.4.1.js">
+      <publishTime>11/29/2019 18:13:04</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery-3.4.1.min.js">
+      <publishTime>11/29/2019 18:13:04</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery-3.4.1.min.map">
+      <publishTime>11/29/2019 18:13:04</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery-3.4.1.slim.js">
+      <publishTime>11/29/2019 18:13:04</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery-3.4.1.slim.min.js">
+      <publishTime>11/29/2019 18:13:04</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery-3.4.1.slim.min.map">
+      <publishTime>11/29/2019 18:13:04</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery-ui-1.12.1.js">
+      <publishTime>11/29/2019 18:15:36</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery-ui-1.12.1.min.js">
+      <publishTime>11/29/2019 18:15:36</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery-ui.min.css">
+      <publishTime>11/29/2019 18:43:02</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery.validate.js">
+      <publishTime>11/29/2019 18:16:30</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery.validate.min.js">
+      <publishTime>11/29/2019 18:16:29</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>11/29/2019 18:15:55</publishTime>
+    </File>
+    <File Include="Contents/Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>11/29/2019 18:15:55</publishTime>
     </File>
     <File Include="Contents/sweetalert/README.md">
       <publishTime>11/08/2019 10:02:39</publishTime>
@@ -334,14 +430,35 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Contents/sweetalert/sweetalert2.min.js">
       <publishTime>11/08/2019 10:02:39</publishTime>
     </File>
+    <File Include="favicon.ico">
+      <publishTime>11/27/2019 17:49:36</publishTime>
+    </File>
     <File Include="Global.asax">
       <publishTime>11/03/2019 18:11:14</publishTime>
     </File>
+    <File Include="img/glyphicons-halflings-white.png">
+      <publishTime>11/29/2019 23:46:56</publishTime>
+    </File>
+    <File Include="img/glyphicons-halflings.png">
+      <publishTime>11/29/2019 23:46:56</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>11/29/2019 23:46:56</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>11/29/2019 23:46:56</publishTime>
+    </File>
     <File Include="Scripts/jquery-1.8.0.js">
-      <publishTime>11/16/2019 10:34:19</publishTime>
+      <publishTime>11/29/2019 23:46:56</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.0.min.js">
-      <publishTime>11/16/2019 10:34:19</publishTime>
+      <publishTime>11/29/2019 23:46:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.11.4.js">
+      <publishTime>11/29/2019 23:46:57</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.11.4.min.js">
+      <publishTime>11/29/2019 23:46:57</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>11/16/2019 10:34:19</publishTime>
@@ -371,10 +488,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/15/2019 09:19:18</publishTime>
     </File>
     <File Include="Views/Category/_Create.cshtml">
-      <publishTime>11/17/2019 00:04:50</publishTime>
+      <publishTime>11/30/2019 00:23:02</publishTime>
     </File>
     <File Include="Views/Category/_Edit.cshtml">
-      <publishTime>11/17/2019 00:05:05</publishTime>
+      <publishTime>11/29/2019 21:02:40</publishTime>
     </File>
     <File Include="Views/Category/_Listing.cshtml">
       <publishTime>11/11/2019 13:38:00</publishTime>
@@ -383,82 +500,100 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2019 12:32:37</publishTime>
     </File>
     <File Include="Views/Customer/_Create.cshtml">
-      <publishTime>11/17/2019 00:09:26</publishTime>
+      <publishTime>11/30/2019 00:32:23</publishTime>
     </File>
     <File Include="Views/Customer/_Edit.cshtml">
-      <publishTime>11/17/2019 00:09:24</publishTime>
+      <publishTime>11/29/2019 21:09:42</publishTime>
     </File>
     <File Include="Views/Customer/_Listing.cshtml">
       <publishTime>11/11/2019 13:37:38</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/11/2019 21:55:07</publishTime>
+      <publishTime>11/17/2019 10:47:38</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
-      <publishTime>11/15/2019 09:19:18</publishTime>
+      <publishTime>11/23/2019 18:40:04</publishTime>
     </File>
     <File Include="Views/Product/_Create.cshtml">
-      <publishTime>11/16/2019 23:25:45</publishTime>
+      <publishTime>11/29/2019 23:41:39</publishTime>
     </File>
     <File Include="Views/Product/_Edit.cshtml">
-      <publishTime>11/16/2019 23:43:23</publishTime>
+      <publishTime>11/29/2019 23:16:26</publishTime>
     </File>
     <File Include="Views/Product/_Listing.cshtml">
       <publishTime>11/16/2019 14:47:25</publishTime>
     </File>
     <File Include="Views/Purchase/Create.cshtml">
-      <publishTime>11/15/2019 22:22:22</publishTime>
+      <publishTime>11/30/2019 12:11:21</publishTime>
     </File>
     <File Include="Views/Purchase/Index.cshtml">
-      <publishTime>11/15/2019 23:47:57</publishTime>
+      <publishTime>11/24/2019 20:16:26</publishTime>
     </File>
     <File Include="Views/Purchase/_Listing.cshtml">
-      <publishTime>11/15/2019 12:13:58</publishTime>
+      <publishTime>12/04/2019 18:06:55</publishTime>
+    </File>
+    <File Include="Views/Purchase/_PurchaseDetails.cshtml">
+      <publishTime>12/04/2019 17:36:11</publishTime>
     </File>
     <File Include="Views/Report/PurchaseReport.cshtml">
-      <publishTime>11/15/2019 23:43:56</publishTime>
+      <publishTime>12/04/2019 17:21:55</publishTime>
     </File>
     <File Include="Views/Report/SaleReport.cshtml">
-      <publishTime>11/15/2019 23:44:08</publishTime>
+      <publishTime>12/04/2019 17:22:07</publishTime>
+    </File>
+    <File Include="Views/Report/_PurchaseReportListing.cshtml">
+      <publishTime>12/04/2019 16:20:30</publishTime>
+    </File>
+    <File Include="Views/Report/_SaleReportListing.cshtml">
+      <publishTime>12/04/2019 16:23:03</publishTime>
     </File>
     <File Include="Views/Sale/Create.cshtml">
-      <publishTime>11/15/2019 22:50:07</publishTime>
+      <publishTime>12/02/2019 18:12:15</publishTime>
     </File>
     <File Include="Views/Sale/Index.cshtml">
       <publishTime>11/15/2019 23:48:33</publishTime>
     </File>
     <File Include="Views/Sale/_Listing.cshtml">
-      <publishTime>11/15/2019 12:14:03</publishTime>
+      <publishTime>11/25/2019 22:02:42</publishTime>
+    </File>
+    <File Include="Views/Sale/_SaleDetails.cshtml">
+      <publishTime>11/25/2019 21:51:24</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/16/2019 11:08:59</publishTime>
+      <publishTime>12/04/2019 17:27:42</publishTime>
     </File>
     <File Include="Views/Shared/_ReportLayout.cshtml">
       <publishTime>11/15/2019 23:45:29</publishTime>
     </File>
     <File Include="Views/Shared/_SideMenu.cshtml">
-      <publishTime>11/15/2019 23:33:01</publishTime>
+      <publishTime>12/01/2019 11:03:12</publishTime>
     </File>
     <File Include="Views/Stock/Index.cshtml">
-      <publishTime>11/15/2019 23:46:32</publishTime>
+      <publishTime>12/04/2019 17:17:40</publishTime>
+    </File>
+    <File Include="Views/Stock/_Listing.cshtml">
+      <publishTime>12/04/2019 16:12:36</publishTime>
     </File>
     <File Include="Views/Supplier/Index.cshtml">
       <publishTime>11/17/2019 00:16:07</publishTime>
     </File>
     <File Include="Views/Supplier/_Create.cshtml">
-      <publishTime>11/17/2019 00:10:49</publishTime>
+      <publishTime>11/30/2019 00:41:57</publishTime>
     </File>
     <File Include="Views/Supplier/_Edit.cshtml">
-      <publishTime>11/17/2019 00:10:49</publishTime>
+      <publishTime>11/29/2019 21:10:53</publishTime>
     </File>
     <File Include="Views/Supplier/_Listing.cshtml">
       <publishTime>11/11/2019 13:37:27</publishTime>
+    </File>
+    <File Include="Views/Supplier/_SupplierDetails.cshtml">
+      <publishTime>11/23/2019 12:52:51</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>11/03/2019 18:11:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/17/2019 00:18:32</publishTime>
+      <publishTime>12/04/2019 18:37:28</publishTime>
     </File>
   </ItemGroup>
 </Project>

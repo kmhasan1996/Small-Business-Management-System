@@ -109,5 +109,16 @@ namespace DotNetForever.Repository.Repository
             return code;
         }
 
+
+        public List<Purchase> Search(string search)
+        {
+            using (var context = new SMSDbContext())
+            {
+                return context.Purchases.Where(x => (x.Code.ToLower().Contains(search.ToLower()) || x.Supplier.Name.Contains(search))).ToList();
+
+
+            }
+        }
+
     }
 }

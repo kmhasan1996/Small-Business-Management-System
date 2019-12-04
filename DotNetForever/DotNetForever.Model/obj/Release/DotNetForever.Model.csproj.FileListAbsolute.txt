@@ -4,3 +4,9 @@ D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotN
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.csproj.CoreCompileInputs.cache
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.dll
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.pdb
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\bin\Release\DotNetForever.Model.dll
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\bin\Release\DotNetForever.Model.pdb
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.csprojAssemblyReference.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.csproj.CoreCompileInputs.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.dll
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Model\obj\Release\DotNetForever.Model.pdb

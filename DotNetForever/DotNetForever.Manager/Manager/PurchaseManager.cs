@@ -31,6 +31,11 @@ namespace DotNetForever.Manager.Manager
         {
             return _purchaseRepository.GetLastPurchaseCode();
         }
+
+        public List<Purchase> Search(string search)
+        {
+            return _purchaseRepository.Search(search);
+        }
     }
 }
 

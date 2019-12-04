@@ -1,4 +1,4 @@
-﻿@model DotNetForever.Web.ViewModels.StockViewModel
+﻿@model  List<DotNetForever.Model.Model.Category>
 
 @{
     ViewBag.Title = "Index";
@@ -11,7 +11,7 @@
 
     </div>
     <div class="col-md-7">
-        <form id="stockForm" method="post">
+        <form id="stockForm" @*method="post"*@>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group row">
@@ -19,11 +19,11 @@
                         <div class="col-sm-8">
                             <select id="categoryId" name="categoryId" class="form-control" size="1">
                                 <option value="">Select One</option>
-                                @if (Model.Categories != null)
+                                @if (Model != null)
                                 {
-                                    foreach (var category in Model.Categories)
+                                    foreach (var category in Model)
                                     {
-                                        <option value="@category.Id">@category.Name</option>
+                                         <option value="@category.Id">@category.Name</option>
                                     }
                                 }
 
@@ -49,14 +49,14 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Start Date</label>
                         <div class="col-sm-8">
-                            <input @*type="date"*@ class="form-control" id="startDate" name="startDate" @*value="@Model.StartDate"*@>
+                            <input  class="form-control" id="startDate" name="startDate">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">End Date</label>
                         <div class="col-sm-8">
-                            <input @*type="date"*@ class="form-control" id="endDate" name="endDate" @*value="@Model.EndDate"*@>
+                            <input  class="form-control" id="endDate" name="endDate">
                         </div>
                     </div>
 
@@ -78,14 +78,6 @@
 
 </div>
 
-@*<div id="hideList">
-    
-    @{
-        //Html.RenderAction("Listing");
-
-        Html.RenderPartial("_Listing",Model.Stocks);
-    } 
-</div>*@
 <div id="showList">
 
 </div>

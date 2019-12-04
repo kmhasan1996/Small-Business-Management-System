@@ -41,8 +41,12 @@ namespace DotNetForever.Repository.Repository
                     model.Category = product.Category.Name;
                     model.AvailableQty = (purchaseQty - salesQty) + inQty - outQty;
                     var pDetails= _purchaseDetailsRepository.GetPurchaseDetailByProductId(productId);
-                    model.MRP = model.AvailableQty*pDetails.MRP;
-                    model.CP = model.AvailableQty * pDetails.UnitPrice;
+                    if (pDetails!=null)
+                    {
+                        model.MRP = model.AvailableQty * pDetails.MRP;
+                        model.CP = model.AvailableQty * pDetails.UnitPrice;
+                    }
+                   
 
                     model.Profit =model.MRP - model.CP;
 
@@ -86,8 +90,12 @@ namespace DotNetForever.Repository.Repository
                     model.Category = product.Category.Name;
                     model.SoldQty = outQty;
                     var pDetails = _purchaseDetailsRepository.GetPurchaseDetailByProductId(productId);
-                    model.MRP = model.SoldQty*pDetails.MRP;
-                    model.CP = model.SoldQty * pDetails.UnitPrice;
+                    if (pDetails!=null)
+                    {
+                        model.MRP = model.SoldQty * pDetails.MRP;
+                        model.CP = model.SoldQty * pDetails.UnitPrice;
+                    }
+                   
 
                     model.Profit = model.MRP - model.CP;
 

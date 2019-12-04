@@ -17,26 +17,39 @@ namespace DotNetForever.Web.Controllers
         {
             //List<PurchaseReportViewModel> model=new List<PurchaseReportViewModel>();
 
-            List<PurchaseReport> model=new List<PurchaseReport>();
+            //List<PurchaseReport> model=new List<PurchaseReport>();
 
-            DateTime startDate = DateTime.Today.Date;
-            DateTime endDate = DateTime.Today.Date;
+            //DateTime startDate = DateTime.Today.Date;
+            //DateTime endDate = DateTime.Today.Date;
 
-            model = _sharedManager.GetPurchaseReport(startDate, endDate);
+            //model = _sharedManager.GetPurchaseReport(startDate, endDate);
 
-            return View(model);
+            return View();
+        }
+
+        public ActionResult SearchPurchaseReport(DateTime startDate, DateTime endDate)
+        {
+            var purchaseReports = _sharedManager.GetPurchaseReport(startDate, endDate);
+            return PartialView("_PurchaseReportListing", purchaseReports);
         }
 
         public ActionResult SaleReport()
         {
-            List<SaleReport> model = new List<SaleReport>();
+            //List<SaleReport> model = new List<SaleReport>();
 
-            DateTime startDate = DateTime.Today.Date;
-            DateTime endDate = DateTime.Today.Date;
+            //DateTime startDate = DateTime.Today.Date;
+            //DateTime endDate = DateTime.Today.Date;
 
-            model = _sharedManager.GetSalesReport(startDate, endDate);
+            //model = _sharedManager.GetSalesReport(startDate, endDate);
 
-            return View(model);
+            return View();
+        }
+
+
+        public ActionResult SearchSaleReport(DateTime startDate, DateTime endDate)
+        {
+            var saleReports = _sharedManager.GetSalesReport(startDate, endDate);
+            return PartialView("_SaleReportListing", saleReports);
         }
     }
 }

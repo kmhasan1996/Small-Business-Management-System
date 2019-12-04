@@ -1,0 +1,56 @@
+﻿@model  List<DotNetForever.Model.Model.SaleDetail>
+
+@if (Model != null)
+{
+    <div class="modal-content" @*style="width: 900px; margin-right: 900px;"*@>
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sale Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+
+        <div class="modal-body">
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">MRP</th>
+                            <th scope="col">Total MRP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var i = 0;
+                            foreach (var saleDetail in Model)
+                            {
+                                i++;
+
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@saleDetail.Product.Name</td>
+                                    <td>@saleDetail.Quantity</td>
+                                    <td>@saleDetail.MRP</td>
+                                    <td>@saleDetail.TotalPrice</td>
+                                </tr>
+                            }
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
+        </div>
+
+    </div>
+}

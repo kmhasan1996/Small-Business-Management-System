@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using DotNetForever.Manager.Manager;
 using DotNetForever.Model.Model;
@@ -19,7 +20,17 @@ namespace DotNetForever.Web.Controllers
         // GET: Category
         public ActionResult Index(string search)
         {
-            PurchaseViewModel model = new PurchaseViewModel {Purchases = _purchaseManager.GetAll(), Search = search};
+            PurchaseViewModel model = new PurchaseViewModel();
+            if (!String.IsNullOrEmpty(search))
+            {
+                model.Purchases = _purchaseManager.GetAll().Where(x => (x.Code.ToLower().Contains(search.ToLower()) || x.Supplier.Name.ToLower().Contains(search.ToLower()))).ToList();
+            }
+            else
+            {
+                model.Purchases = _purchaseManager.GetAll();
+            }
+
+            model.Search = search;
             return View( model);
         }
 

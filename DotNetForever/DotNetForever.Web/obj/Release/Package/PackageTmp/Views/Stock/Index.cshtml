@@ -1,4 +1,4 @@
-﻿@model DotNetForever.Web.ViewModels.StockViewModel
+﻿@model  List<DotNetForever.Model.Model.Category>
 
 @{
     ViewBag.Title = "Index";
@@ -7,130 +7,100 @@
 
 <h2>Stock</h2><hr/>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
 
     </div>
-    <div class="col-md-5">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Category</span>
+    <div class="col-md-7">
+        <form id="stockForm" @*method="post"*@>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Category</label>
+                        <div class="col-sm-8">
+                            <select id="categoryId" name="categoryId" class="form-control" size="1">
+                                <option value="">Select One</option>
+                                @if (Model != null)
+                                {
+                                    foreach (var category in Model)
+                                    {
+                                         <option value="@category.Id">@category.Name</option>
+                                    }
+                                }
+
+
+                            </select>
+                        </div>
                     </div>
-                    <select id="categorySelect" name="CategoryID" class="form-control" re>
-                        <option>Select One</option>
-                        @if (Model.Categories != null)
-                        {
-                            foreach (var category in Model.Categories)
-                            {
-                                <option value="@category.Id">@category.Name</option>
-                            }
-                        }
-                    </select>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Product</label>
+                        <div class="col-sm-8">
+                            <select id="ProductId" name="ProductId" class="form-control" size="1">
+                                <option value="" >Select One</option>
+
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Product</span>
+                <div class="col-md-6">
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Start Date</label>
+                        <div class="col-sm-8">
+                            <input  class="form-control" id="startDate" name="startDate">
+                        </div>
                     </div>
-                    <select id="productSelect" name="CategoryID" class="form-control" re>
-                        <option>Select One</option>
-                        @if (Model.Products != null)
-                        {
-                            foreach (var product in Model.Products)
-                            {
-                                <option value="@product.Id.">@product.Name</option>
-                            }
-                        }
-                    </select>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">End Date</label>
+                        <div class="col-sm-8">
+                            <input  class="form-control" id="endDate" name="endDate">
+                        </div>
+                    </div>
+
+
+                    <button id="searchButton" type="button" class="btn btn-primary float-right ml-4"><i class="fas fa-search mr-2"></i>Search</button>
+                    <a href="@Url.Action("Index","Stock")" class="btn btn-primary float-right"><i class="fas fa-redo-alt mr-2"></i>Reset</a>
+
                 </div>
+
 
             </div>
-
-            <div class="col-md-6">
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Start Date</span>
-                    </div>
-                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">End Date</span>
-                    </div>
-                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <button id="addButton" type="submit" class="btn btn-primary float-right"><i class="fas fa-search mr-2"></i>Search</button>
-
-            </div>
-          
-
-        </div>
-        <hr />
-    </div>
-
-    <div class="col-md-3">
-
-    </div>
-
-</div>
-
-<!--Stock Table-->
-
-<div class="card bg-light overflow-auto" style="height: 425px;">
-    @*@if (Model != null && Model.Count>0)
-        {*@
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Code</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">ReorderLevel</th>
-                    <th scope="col">OpeningBalance</th>
-                    <th scope="col">In</th>
-                    <th scope="col">Out</th>
-                    <th scope="col">ClosingBalance</th>
-                </tr>
-            </thead>
-            <tbody>
-                @*@{
-                        var i = 0;
-                        foreach (var product in Model.PurchaseDetail)
-                        {
-                            i++;
-
-                            <tr>
-                                <td>@i</td>
-                                <td>@product.Category.Name</td>
-                                <td>@product.Code</td>
-                                <td>@product.Name</td>
-                                <td>@product.RecorderLevel</td>
-                                <td>@product.Description</td>
-                                <td>
-                                    <button  type="button" class="editButton btn btn-primary" data-id="@product.Id" data-toggle="modal" data-target="#editModal"><i class="fas fa-pen mr-2"></i>Edit</button>
-                                    <button  type="button" class="deleteButton btn btn-danger" data-id="@product.Id"><i class="fas fa-trash-alt mr-2"></i>Delete</button>
-                                </td>
-
-                            </tr>
-                        }
-
-                    }*@
-
-            </tbody>
-        </table>
-    </div>
-
-    @*}
-        else
-        {
             <hr/>
-            <div class="alert alert-warning" role="alert">
-                Sorry! No product record found.
-            </div>
-        }*@
+        </form>
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+
 </div>
 
+<div id="showList">
 
+</div>
+
+<script src="~/Contents/CustomValidation/Stock.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        //default load the data on page load 
+        $.ajax({
+                type: "POST",
+                url: "/Stock/Search",
+                data: $("#stockForm").serialize()
+
+        })
+        .done(function (response) {
+            //$("#hideList").hide();
+            $("#showList").html(response);
+        })
+        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Fail");
+        });
+    });
+    
+</script>

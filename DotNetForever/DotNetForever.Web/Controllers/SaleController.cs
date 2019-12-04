@@ -20,7 +20,19 @@ namespace DotNetForever.Web.Controllers
         private SaleDetailsManager _saleDetailsManager=new SaleDetailsManager();
         public ActionResult Index(string search)
         {
-            SaleViewModel model = new SaleViewModel {Sales = _saleManager.GetAll(), Search = search};
+            SaleViewModel model = new SaleViewModel();
+
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                model.Sales = _saleManager.GetAll().Where(x => (x.Code.ToLower().Contains(search.ToLower()) || x.Customer.Name.ToLower().Contains(search.ToLower()))).ToList();
+            }
+            else
+            {
+                model.Sales = _saleManager.GetAll();
+            }
+
+            model.Search = search;
             return View(model);
         }
 

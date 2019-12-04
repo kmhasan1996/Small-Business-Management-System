@@ -16,10 +16,14 @@ namespace DotNetForever.Web.Controllers
         public ActionResult Index(string search)
         {
             CategoryListViewModel model=new CategoryListViewModel();
-            model.Categories = _categoryManager.GetAll();
+           
             if (!String.IsNullOrEmpty(search))
             {
                 model.Categories = _categoryManager.Search(search);
+            }
+            else
+            {
+                model.Categories = _categoryManager.GetAll();
             }
 
             model.Search = search;

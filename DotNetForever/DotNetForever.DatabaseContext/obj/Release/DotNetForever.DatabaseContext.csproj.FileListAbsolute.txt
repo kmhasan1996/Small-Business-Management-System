@@ -28,3 +28,17 @@ D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Re
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.csproj.CopyComplete
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.dll
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.pdb
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\DotNetForever.DatabaseContext.dll.config
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\DotNetForever.DatabaseContext.dll
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\DotNetForever.DatabaseContext.pdb
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\DotNetForever.Model.dll
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\EntityFramework.dll
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\EntityFramework.SqlServer.dll
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\DotNetForever.Model.pdb
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\EntityFramework.xml
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\EntityFramework.SqlServer.xml
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.csprojAssemblyReference.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.csproj.CoreCompileInputs.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.csproj.CopyComplete
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.dll
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.pdb

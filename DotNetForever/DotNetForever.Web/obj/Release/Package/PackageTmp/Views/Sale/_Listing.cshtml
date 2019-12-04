@@ -27,7 +27,7 @@
                             <td>@purchase.DateTime</td>
 
                             <td>
-                                <button type="button" class="editButton btn btn-primary" data-id="@purchase.Id" data-toggle="modal" data-target="#editModal"><i class="fas fa-file-alt mr-2"></i>Details</button>
+                                <button type="button" class="detailsButton btn btn-primary" data-id="@purchase.Id" data-toggle="modal" data-target="#detailsModal"><i class="fas fa-file-alt mr-2"></i>Details</button>
 
                             </td>
 
@@ -50,25 +50,25 @@ else
 }
 
 <!-- Modal Edit -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
 
     </div>
 </div>
 
 <script>
-    $(".editButton").click(function () {
+    $(".detailsButton").click(function () {
 
         $.ajax({
                 type: "GET",
-                url: "/Category/Edit",
+                url: "/Sale/SaleDetails",
                 data: {
-                    Id: $(this).attr('data-id')
+                    saleId: $(this).attr('data-id')
                 }
 
         })
         .done(function (response) {
-            $("#editModal .modal-dialog").html(response);
+            $("#detailsModal .modal-dialog").html(response);
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Fail");
