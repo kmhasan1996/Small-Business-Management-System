@@ -89,12 +89,17 @@ namespace DotNetForever.Web.Controllers
             JsonResult jason = new JsonResult();
             var productDetails= _purchaseDetailsManager.GetPurchaseDetailByProductId(productId);
 
-            jason.Data = new
+            jason.Data = null;
+            if (productDetails !=null)
             {
-                availableProduct = _purchaseManager.GetPurchaseProductQtyByIdAndDate(productId,saleDateTime) - _saleManager.GetSoldProductQtyByIdAndDate(productId,saleDateTime),
-                currentMRP=productDetails.MRP,
-                reorderLevel=productDetails.Product.ReorderLevel
-            };
+                jason.Data = new
+                {
+                    availableProduct = _purchaseManager.GetPurchaseProductQtyByIdAndDate(productId, saleDateTime) - _saleManager.GetSoldProductQtyByIdAndDate(productId, saleDateTime),
+                    currentMRP = productDetails.MRP,
+                    reorderLevel = productDetails.Product.ReorderLevel
+                };
+            }
+            
             return jason;
         }
         public ActionResult SaleDetails(int saleId)

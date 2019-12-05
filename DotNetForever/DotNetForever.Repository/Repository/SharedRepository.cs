@@ -136,8 +136,6 @@ namespace DotNetForever.Repository.Repository
                 }
 
 
-
-
                 foreach (var product in allProduct)
                 {
                     int proId = product.Id;

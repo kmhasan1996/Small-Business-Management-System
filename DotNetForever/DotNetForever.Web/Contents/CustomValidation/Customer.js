@@ -24,6 +24,16 @@
             // Filter non-digits from input value.
             this.value = this.value.replace(/\D/g, '');
         }
+
+        //var contact = $("#Contact").length;
+        //alert(contact);
+        ////var length = contact.length;
+        //if (contact>11) {
+        //    var regexp = /[^a-zA-Z]/g;
+        //    if ($(this).val().match(regexp)) {
+        //        $(this).val($(this).val().replace(regexp, ''));
+        //    }
+        //}
     });
 
 

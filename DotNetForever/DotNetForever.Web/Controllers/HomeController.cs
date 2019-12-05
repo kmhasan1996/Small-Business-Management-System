@@ -15,9 +15,24 @@ namespace DotNetForever.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            ProductManager _productManager = new ProductManager();
+
+            CategoryManager _categoryManager = new CategoryManager();
+
+            CustomerManager _customerManager = new CustomerManager();
+            SupplierManager _supplierManager = new SupplierManager();
+
+            SideMenuViewModel model = new SideMenuViewModel();
+            model.ProductCount = _productManager.GetCount();
+            model.CategoryCount = _categoryManager.GetCount();
+            model.CustomerCount = _customerManager.GetCount();
+            model.SupplierCount = _supplierManager.GetCount();
+           
+            return View(model);
         }
-	[HttpGet]
+
+
+	    [HttpGet]
         public ActionResult SideMenu()
         {
             ProductManager _productManager = new ProductManager();

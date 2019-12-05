@@ -158,10 +158,33 @@ $(function() {
                 success: function(response) {
 
                     if (response != null) {
+                        $("#quantity").prop("disabled", false);
+                        $("#mrp").prop("disabled", false);
+                        $("#addButton").prop("disabled", false);
                         //set the values to input field by id
                         $("#availableQty").val(response.availableProduct);
                         $("#mrp").val(response.currentMRP);
                         reorderLevel = response.reorderLevel;
+                    } else {
+                        swal({
+                                title: "Quantity not available",
+                                text: "Please, purchase some ! ",
+                                icon: "warning",
+                                buttons: true,
+                                dangerMode: true
+
+                        })
+                            .then((willDelete) => {
+
+                                $("#availableQty").val("");
+                                $("#quantity").val("");
+                                $("#quantity").prop("disabled", true);
+                                $("#mrp").val("");
+                                $("#mrp").prop("disabled", true);
+                                $("#totalPrice").val("");
+
+                                $("#addButton").prop("disabled", true);
+                        });
                     }
 
                 }
