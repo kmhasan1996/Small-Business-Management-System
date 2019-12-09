@@ -32,7 +32,7 @@
                     <td>@Model.Purchase.InvoiceNo</td>
                     <td>@Model.Purchase.Code</td>
                     <td> @Model.Purchase.Supplier.Name</td>
-                    <td>@Model.Purchase.DateTime</td>
+                    <td>@Model.Purchase.DateTime.ToShortDateString()</td>
                 </tr>
                 </tbody>
             </table>
@@ -62,8 +62,8 @@
                             <tr>
                                 <td>@i</td>
                                 <td>@productDetail.Product.Name</td>
-                                <td>@productDetail.ManufacturedDateTime</td>
-                                <td>@productDetail.ExpireDate</td>
+                                <td>@productDetail.ManufacturedDateTime.ToShortDateString()</td>
+                                <td>@productDetail.ExpireDate.ToShortDateString()</td>
                                 <td>@productDetail.Quantity</td>
                                 <td>@productDetail.UnitPrice</td>
                                 <td>@productDetail.MRP</td>

@@ -1,4 +1,14 @@
-$(function () {
+$(document).ready(function () {
+
+    function getTodayDate() {
+        var date = new Date();
+        var currentDate = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
+        return currentDate;
+    }
+
+    $("#dateTime").datepicker();
+
+    $("#dateTime").val(getTodayDate());
 
     $("#discountPercentage").prop("disabled", true);
     $("#Code").prop("disabled", true);
@@ -175,7 +185,7 @@ $(function () {
                         $("#mrp").val(response.currentMRP);
                         reorderLevel = response.reorderLevel;
                     } else {
-                        swal({
+                        Swal.fire({
                                 title: "Quantity not available",
                                 text: "Please, purchase some ! ",
                                 icon: "warning",
@@ -183,17 +193,18 @@ $(function () {
                                 dangerMode: true
 
                         })
-                            .then((willDelete) => {
+                        .then((willDelete) => {
 
-                                $("#availableQty").val("");
-                                $("#quantity").val("");
-                                $("#quantity").prop("disabled", true);
-                                $("#mrp").val("");
-                                $("#mrp").prop("disabled", true);
-                                $("#totalPrice").val("");
+                            $("#availableQty").val("");
+                            $("#quantity").val("");
+                            $("#quantity").prop("disabled", true);
+                            $("#mrp").val("");
+                            $("#mrp").prop("disabled", true);
+                            $("#totalPrice").val("");
 
-                                $("#addButton").prop("disabled", true);
+                            $("#addButton").prop("disabled", true);
                         });
+
                     }
 
                 }
@@ -218,19 +229,32 @@ $(function () {
         afterSellAvailableQty = availableQty - sellQty;
 
         if (parseInt(availableQty) < parseInt(sellQty)) {
-            swal({
-                    title: "Quantity not available",
-                    text: "Please, enter less than available quantity ! ",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true
+            //Swal.fire({
+            //        title: "Quantity not available",
+            //        text: "Please, enter less than available quantity ! ",
+            //        icon: "warning",
+            //        buttons: true,
+            //        dangerMode: true
 
-                })
-                .then((willDelete) => {
+            //})
+            //.then((willDelete) => {
+            //    $("#quantity").val("");
+            //    //var sellQty1 = $('#quantity').val();
+            //    //alert(sellQty1);
+            //    });
+
+            Swal.fire({
+                title: "Quantity not available",
+                text: "Please, enter less than available quantity ! ",
+                icon: "warning",
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.value) {
                     $("#quantity").val("");
-                    //var sellQty1 = $('#quantity').val();
-                    //alert(sellQty1);
-                });
+                }
+            });
         }
         //alert(rr);
         //if (parseInt(reorderLevel) > parseInt(afterSellAvailableQty)) {
@@ -455,7 +479,7 @@ $(function () {
         .done(function (response) {
             //if (response.Success) {
             Swal.fire({
-                title: 'Sale SuccessFully',
+                title: 'Sale Successfully',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
@@ -473,7 +497,7 @@ $(function () {
                         confirmButtonText: 'Yes!'
                     }).then((result) => {
                         if (result.value) {
-
+                            window.location.reload();
                         } else {
                             window.location.href = 'Index';
                         }

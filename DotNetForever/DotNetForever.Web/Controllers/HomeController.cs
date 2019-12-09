@@ -7,7 +7,7 @@ using DotNetForever.Manager.Manager;
 using DotNetForever.Model.Model;
 using DotNetForever.Web.ViewModels;
 
-namespace DotNetForever.Web.Controllers
+namespace DotNetForever.Model.Controllers
 {
     public class HomeController : Controller
     {

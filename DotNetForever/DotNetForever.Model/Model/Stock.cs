@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using DotNetForever.Model.Model;
+﻿using System.Collections.Generic;
 
-namespace DotNetForever.Web.Models
+
+namespace DotNetForever.Model.Model
 {
     public class Stock
     {

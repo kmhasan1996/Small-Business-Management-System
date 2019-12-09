@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using DotNetForever.Web.Models;
-
-namespace DotNetForever.Model.Model
+﻿namespace DotNetForever.Model.Model
 {
     public class SaleReport
     {

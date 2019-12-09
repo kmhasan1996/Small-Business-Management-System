@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using DotNetForever.Manager.Manager;
 using DotNetForever.Model.Model;
 using DotNetForever.Web.ViewModels;
 
-namespace DotNetForever.Web.Controllers
+namespace DotNetForever.Model.Controllers
 {
     public class CategoryController : Controller
     {

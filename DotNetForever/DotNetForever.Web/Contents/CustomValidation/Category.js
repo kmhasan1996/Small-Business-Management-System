@@ -81,7 +81,7 @@
             .done(function (response) {
                 if (response.Success) {
                     Swal.fire({
-                        title: 'Saved SuccessFully',
+                        title: 'Saved Successfully',
                         icon: 'success',
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
@@ -123,7 +123,7 @@
                     
                     if (response.Success) {
                     Swal.fire({
-                        title: 'Updated SuccessFully',
+                        title: 'Updated Successfully',
                         icon: 'success',
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
@@ -136,7 +136,7 @@
 
                 } else {
                     Swal.fire({
-                        title: 'Updated SuccessFully',
+                        title: 'Updated Successfully',
                         icon: 'success',
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',

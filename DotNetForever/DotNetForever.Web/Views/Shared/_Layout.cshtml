@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SMS-Dashboard</title>
+    <title>SMS - @ViewBag.Title</title>
     <!-- Bootstrap core CSS -->
     <link href="~/Contents/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -66,7 +66,7 @@
         </div>*@
 
         <div class=" border-right" id="sidebar-wrapper" style="background:rgb(0, 31, 63)">
-            <div class="sidebar-heading" style="background: rgb(0, 31, 63);color: white"><i class="fas fa-tachometer-alt mr-2"></i>Menu </div>
+            <div class="sidebar-heading" style="background: rgb(0, 31, 63);color: white"><i class="fas fa-bars mr-3"></i>Menu </div>
             <div class="list-group list-group-flush" >
                 <a href="@Url.Action("Index","Home")" class="list-group-item list-group-item-action" @*style="background: black;color: white"*@><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a>
 
@@ -91,7 +91,7 @@
                     <span class="navbar-toggler-icon"></span>
                    
                 </button>
-                <a class="nav-link text-white text-center text-uppercase " href="#"><h5>Stock Management System</h5> </a>
+                <a class="nav-link text-white text-center text-uppercase " href="#"><h5>Small Business Management System</h5> </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
@@ -143,7 +143,19 @@
     var pathname = window.location.pathname;
 
     //window.alert(pathname);
-    $('.list-group > a[href="'+pathname+'"]').addClass('active');
+    $('.list-group > a[href="' + pathname + '"]').addClass('active');
+
+    if (pathname==="/Purchase/Create") {
+        $('.list-group > a[href="/Purchase"]').addClass('active');
+    }
+    else if (pathname === "/Sale/Create"){
+        $('.list-group > a[href="/Sale"]').addClass('active');
+    }
+    else if (pathname === "/Report/SaleReport") {
+        $('.list-group > a[href="/Report/PurchaseReport"]').addClass('active');
+    }
+
+    //$('.list-group > a[href="/Category"]').addClass('active');
 
 </script>
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DotNetForever.Model.Model;
 using DotNetForever.Repository.Repository;
-using DotNetForever.Web.Models;
+
 
 
 namespace DotNetForever.Manager.Manager

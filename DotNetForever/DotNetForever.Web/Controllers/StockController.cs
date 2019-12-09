@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using DotNetForever.Manager.Manager;
-using DotNetForever.Web.Models;
-using DotNetForever.Web.ViewModels;
 
-namespace DotNetForever.Web.Controllers
+
+namespace DotNetForever.Model.Controllers
 {
     public class StockController : Controller
     {
        
         CategoryManager _categoryManager=new CategoryManager();
-        ProductManager _productManager=new ProductManager();
         SharedManager _sharedManager=new SharedManager();
 
       
@@ -45,8 +43,11 @@ namespace DotNetForever.Web.Controllers
             {
                 stocks = stocks.Where(x => x.OpeningBalance != 0 || x.In != 0 || x.Out != 0 || x.ClosingBalance != 0).ToList();
             }
-            
 
+            if (stocks.Count==0)
+            {
+                stocks = null;
+            }
 
             return PartialView("_Listing",stocks);
         }

@@ -1,7 +1,7 @@
 ﻿@model  List<DotNetForever.Model.Model.Category>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Stock";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -47,11 +47,11 @@
                         <div class="col-sm-8">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="inCheckbox">
-                                <label class="form-check-label" for="inCheckbox">In</label>
+                                <label class="form-check-label" for="inCheckbox">In Stock</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="outCheckbox">
-                                <label class="form-check-label" for="outCheckbox">Out</label>
+                                <label class="form-check-label" for="outCheckbox">Out Stock</label>
                             </div>
                         </div>
                     </div>
@@ -65,6 +65,7 @@
                         <label class="col-sm-4 col-form-label">Start Date</label>
                         <div class="col-sm-8">
                             <input  class="form-control" id="startDate" name="startDate">
+                            <span id="startDateError"></span>
                         </div>
                     </div>
 
@@ -72,6 +73,7 @@
                         <label class="col-sm-4 col-form-label">End Date</label>
                         <div class="col-sm-8">
                             <input  class="form-control" id="endDate" name="endDate">
+                            <span id="endDateError"></span>
                         </div>
                     </div>
 
@@ -85,9 +87,6 @@
         </form>
     </div>
 
-    <div class="col-md-3">
-
-    </div>
 
 </div>
 

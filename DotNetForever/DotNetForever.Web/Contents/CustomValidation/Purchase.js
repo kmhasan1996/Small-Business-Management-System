@@ -440,13 +440,14 @@
             $.ajax({
                     type: "POST",
                     url: "/Purchase/Create",
+                    //url: "/Purchase/AddPurchase",
                     data: $("#PurchaseForm").serialize()
 
                 })
                 .done(function (response) {
                     //if (response.Success) {
                     Swal.fire({
-                        title: 'Purchase SuccessFully',
+                        title: 'Purchase Successfully',
                         icon: 'success',
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
@@ -464,7 +465,7 @@
                                 confirmButtonText: 'Yes!'
                             }).then((result) => {
                                 if (result.value) {
-                                    
+                                    window.location.reload();
                                 } else {
                                     window.location.href = 'Index';
                                 }

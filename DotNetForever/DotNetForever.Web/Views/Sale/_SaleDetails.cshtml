@@ -25,7 +25,7 @@
                     <tr>
                         <td>@Model.Sale.Code</td>
                         <td> @Model.Sale.Customer.Name</td>
-                        <td>@Model.Sale.DateTime</td>
+                        <td>@Model.Sale.DateTime.ToShortDateString()</td>
                     </tr>
                 </tbody>
             </table>

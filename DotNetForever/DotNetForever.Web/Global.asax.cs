@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace DotNetForever.Web
+namespace DotNetForever.Model
 {
     public class MvcApplication : System.Web.HttpApplication
     {

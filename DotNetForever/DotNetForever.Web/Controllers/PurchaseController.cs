@@ -6,7 +6,7 @@ using DotNetForever.Manager.Manager;
 using DotNetForever.Model.Model;
 using DotNetForever.Web.ViewModels;
 
-namespace DotNetForever.Web.Controllers
+namespace DotNetForever.Model.Controllers
 {
     public class PurchaseController : Controller
     {
@@ -65,6 +65,8 @@ namespace DotNetForever.Web.Controllers
             return View(model);
         }
 
+       
+
         [HttpPost]
         public ActionResult Create(Purchase purchase)
         {
@@ -74,13 +76,15 @@ namespace DotNetForever.Web.Controllers
             if (ModelState.IsValid)
             {
                 jason.Data = _purchaseManager.Add(purchase)
-                    ? new {Success = true, Message = "Saved Successfully"}
-                    : new {Success = true, Message = "Unable to Save"};
+                    ? new { Success = true, Message = "Saved Successfully" }
+                    : new { Success = true, Message = "Unable to Save" };
             }
 
 
             return RedirectToAction("Index");
         }
+
+        
 
         //from purchase details
         public JsonResult GetPurchaseDetailByProductId(int productId,DateTime purchaseDateTime)

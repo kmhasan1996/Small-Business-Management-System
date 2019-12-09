@@ -99,6 +99,7 @@
     <Content Include="Contents\bootstrap\css\bootstrap.min.css" />
     <Content Include="Contents\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Contents\css\simple-sidebar.css" />
+    <Content Include="Contents\css\StyleSheet1.css" />
     <Content Include="Contents\CustomValidation\SaleReport.js" />
     <Content Include="Contents\CustomValidation\PurchaseReport.js" />
     <Content Include="Contents\fontawesome\css\all.css" />

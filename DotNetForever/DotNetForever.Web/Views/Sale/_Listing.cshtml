@@ -9,7 +9,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Code</th>
                     <th scope="col">Customer</th>
-                    <th scope="col">DateTime</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -25,9 +25,9 @@
                             <td>@sale.Code</td>
                             @*<td>@purchase.Customer.Name</td>*@
                             <td>
-                                <a class="customerName" data-id="@sale.Customer.Id" data-toggle="modal" data-target="#customerDetailModal">@sale.Customer.Name</a>
+                                <a class="customerName btn " data-id="@sale.Customer.Id" data-toggle="modal" data-target="#customerDetailModal"><u>@sale.Customer.Name</u></a>
                             </td>
-                            <td>@sale.DateTime</td>
+                            <td>@sale.DateTime.ToShortDateString()</td>
 
                             <td>
                                 <button type="button" class="detailsButton btn btn-primary" data-id="@sale.Id" data-toggle="modal" data-target="#detailsModal"><i class="fas fa-file-alt mr-2"></i>Details</button>

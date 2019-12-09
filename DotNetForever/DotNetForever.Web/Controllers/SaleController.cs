@@ -7,7 +7,7 @@ using DotNetForever.Manager.Manager;
 using DotNetForever.Model.Model;
 using DotNetForever.Web.ViewModels;
 
-namespace DotNetForever.Web.Controllers
+namespace DotNetForever.Model.Controllers
 {
     public class SaleController : Controller
     {
@@ -67,6 +67,7 @@ namespace DotNetForever.Web.Controllers
             };
             return View(model);
         }
+
         [HttpPost]
         public ActionResult Create(Sale sale)
         {
@@ -88,13 +89,15 @@ namespace DotNetForever.Web.Controllers
         {
             JsonResult jason = new JsonResult();
             var productDetails= _purchaseDetailsManager.GetPurchaseDetailByProductId(productId);
+            var avaProduct = _purchaseManager.GetPurchaseProductQtyByIdAndDate(productId, saleDateTime) -
+                                   _saleManager.GetSoldProductQtyByIdAndDate(productId, saleDateTime);
 
             jason.Data = null;
-            if (productDetails !=null)
+            if (productDetails !=null && avaProduct !=0)
             {
                 jason.Data = new
                 {
-                    availableProduct = _purchaseManager.GetPurchaseProductQtyByIdAndDate(productId, saleDateTime) - _saleManager.GetSoldProductQtyByIdAndDate(productId, saleDateTime),
+                    availableProduct = avaProduct,
                     currentMRP = productDetails.MRP,
                     reorderLevel = productDetails.Product.ReorderLevel
                 };

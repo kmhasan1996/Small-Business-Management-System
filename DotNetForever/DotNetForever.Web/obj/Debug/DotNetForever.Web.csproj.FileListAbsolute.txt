@@ -164,7 +164,7 @@ D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetFo
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csproj.CopyComplete
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.dll
 D:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.pdb
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csproj.CoreCompileInputs.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\System.Web.Mvc.xml
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.Web.dll.config
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.Web.dll
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.Web.pdb
@@ -237,13 +237,13 @@ E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\System.Web.Web
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\System.Web.Webpages.Deployment.xml
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\System.Web.Webpages.Razor.xml
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\System.Web.Helpers.xml
-E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\System.Web.Mvc.xml
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.Repository.pdb
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.Repository.dll.config
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.DatabaseContext.pdb
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\DotNetForever.DatabaseContext.dll.config
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csprojAssemblyReference.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csproj.CoreCompileInputs.cache
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csproj.CopyComplete
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.dll
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.pdb
