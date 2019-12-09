@@ -11,6 +11,17 @@ namespace DotNetForever.Manager.Manager
     public class SupplierManager
     {
         readonly SupplierRepository _supplierRepository = new SupplierRepository();
+
+
+        public bool UniqueEmail(Supplier supplier)
+        {
+            return _supplierRepository.UniqueEmail(supplier);
+        }
+
+        public bool UniqueContact(Supplier supplier)
+        {
+            return _supplierRepository.UniqueContact(supplier);
+        }
         public bool Add(Supplier supplier)
         {
             return _supplierRepository.Add(supplier);

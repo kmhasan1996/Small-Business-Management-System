@@ -15,6 +15,10 @@
     $("#ExpireDate").datepicker();
     $("#ExpireDate").val(getTodayDate());
 
+    $("#Code").prop("disabled", true);
+
+
+
 
     $("#PurchaseForm").validate({
         rules: {
@@ -80,10 +84,11 @@
 
             if ($("#SupplierId").valid() && $("#InvoiceNo").valid()) {
                 //disable supplier details
-                $("#SupplierId").prop("disabled", true);
-                $("#InvoiceNo").prop("disabled", true);
-                $("#Code").prop("disabled", true);
-                $("#dateTime").prop("disabled", true);
+                //$("#SupplierId").prop("disabled", true);
+                //$("#InvoiceNo").prop("disabled", true);
+
+                //$("#Code").prop("disabled", true);
+                //$("#dateTime").prop("disabled", true);
 
                 var categoryId = $('#categoryId').val();
                 var jsonData = { categoryId: categoryId };
@@ -125,7 +130,7 @@
 
     //function Clear Available Product Details
     function clearAvailableProductDetails() {
-        $('#ProductCode').val("0");
+        //$('#ProductCode').val("0");
         $('#AvailableQty').val("0");
         $('#PreviousUnitPrice').val("0");
         $('#PreviousMRP').val("0");
@@ -155,7 +160,7 @@
                     clearAvailableProductDetails();
                     if (response != null) {
                         //set the values to input field by id
-                        $('#ProductCode').val(response.ProductCode);
+                      
                         $('#AvailableQty').val(response.AvailableQty);
                         $('#PreviousUnitPrice').val(response.PreviousUnitPrice);
                         $('#PreviousMRP').val(response.PreviousMRP);
@@ -174,6 +179,30 @@
 
         });
 
+    //on change load product code
+    $("#ProductId").on("change",
+        function () {
+            var productId = $('#ProductId').val();
+          
+            var jsonData = { productId: productId};
+
+            $.ajax({
+                type: "POST",
+                url: "/Product/GetProductCodeByProductId/",
+                data: JSON.stringify(jsonData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        //set the values to input field by id
+                        $('#ProductCode').val(response.ProductCode);
+                        
+                    }
+
+                }
+            });
+
+        });
 
     $('input[name="MRP"]').keyup(function (e) {
 
@@ -381,14 +410,14 @@
         var slCell = "<td class='text-success'>" + (++sl) + "</td>";
 
         var productIdCell = productIdHidden;
-        var productNameCell = "<td class='text-success'>" + result.ProductName + "</td>";
-        var manufacturedDateTimeCell = "<td class='text-success'>" + manufacturedDateTimeHidden + result.ManufacturedDateTime + "</td>";
-        var expireDateCell = "<td class='text-success'>" + expireDateHidden + result.ExpireDate + "</td>";
-        var quantityCell = "<td class='text-success'>" + quantityHidden + result.Quantity + "</td>";
-        var unitPriceCell = "<td class='text-success'>" + unitPriceHidden + result.UnitPrice + "</td>";
-        var totalPriceCell = "<td class='text-success'>" + totalPriceHidden + result.TotalPrice + "</td>";
-        var mrpCell = "<td class='text-success'>" + mrpHiddenHidden + result.MRP + "</td>";
-        var remarksCell = "<td class='text-success'>" + remarksHidden + result.Remarks + "</td>";
+        var productNameCell = "<td class='text-dark' >" + result.ProductName + "</td>";
+        var manufacturedDateTimeCell = "<td class='text-dark' >" + manufacturedDateTimeHidden + result.ManufacturedDateTime + "</td>";
+        var expireDateCell = "<td class='text-dark'>" + expireDateHidden + result.ExpireDate + "</td>";
+        var quantityCell = "<td class='text-dark'>" + quantityHidden + result.Quantity + "</td>";
+        var unitPriceCell = "<td class='text-dark'>" + unitPriceHidden + result.UnitPrice + "</td>";
+        var totalPriceCell = "<td class='text-dark'>" + totalPriceHidden + result.TotalPrice + "</td>";
+        var mrpCell = "<td class='text-dark'>" + mrpHiddenHidden + result.MRP + "</td>";
+        var remarksCell = "<td class='text-dark' >" + remarksHidden + result.Remarks + "</td>";
 
         var endTr = "</tr>";
 
@@ -402,10 +431,10 @@
     $("#submitButton").click(function () {
         //document.getElementById("saveError").style.display = "none";
 
-        $("#SupplierId").prop("disabled", false);
-        $("#InvoiceNo").prop("disabled", false);
+        //$("#SupplierId").prop("disabled", false);
+        //$("#InvoiceNo").prop("disabled", false);
         $("#Code").prop("disabled", false);
-        $("#dateTime").prop("disabled", false);
+        //$("#dateTime").prop("disabled", false);
 
         //if ($("#PurchaseForm").valid()) {
             $.ajax({
@@ -416,26 +445,39 @@
                 })
                 .done(function (response) {
                     //if (response.Success) {
-                        swal({
-                                title: "Saved Successfully",
-                                //text: "Once deleted, you will not be able to recover this imaginary file!",
-                                icon: "success",
-                                buttons: true,
-                                dangerMode: true
-
-                            })
-                            .then((willDelete) => {
-                                if (willDelete) {
-                                    window.location.reload();
+                    Swal.fire({
+                        title: 'Purchase SuccessFully',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
+                            Swal.fire({
+                                icon: 'question',
+                                title: 'Want to purchase more?',
+                                //text: "You won't be able to revert this!",
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                cancelButtonText: 'No, Show Purchases!',
+                                confirmButtonText: 'Yes!'
+                            }).then((result) => {
+                                if (result.value) {
+                                    
+                                } else {
+                                    window.location.href = 'Index';
                                 }
                             });
+                        }
+                    });
 
                     //} else {
                     //    alert("failed");
                     //}
 
                 })
-                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                .fail(function (xmlHttpRequest, textStatus, errorThrown) {
                     alert("Fail");
                 });
         //};

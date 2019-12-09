@@ -16,6 +16,11 @@ namespace DotNetForever.Manager.Manager
             return _categoryRepository.Add(category);
         }
 
+        public bool UniqueName(Category category)
+        {
+            return _categoryRepository.UniqueName(category);
+        }
+
         public bool Update(Category category)
         {
             return _categoryRepository.Update(category);

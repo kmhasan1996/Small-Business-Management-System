@@ -1,5 +1,7 @@
-﻿$(function () {
-    //alert("hi");
+﻿$(document).ready(function () {
+
+    $("#Code").prop("disabled", true);
+
     $('input[name="Code"]').keyup(function (e) {
         if (/\D/g.test(this.value)) {
             // Filter non-digits from input value.
@@ -12,21 +14,35 @@
             $(this).val($(this).val().replace(regexp, ''));
         }
     });
-    //$.validator.setDefaults({
-    //    errorClass: "help-block",
-    //    highlight: function (element) {
-    //        $(element)
-    //        .closest(".form-control")
-    //        //.closest('.form-control')
-    //        .addClass("has-error");
-    //    },
-    //    unhighlight: function (element) {
-    //        $(element)
-    //        .closest(".form-control")
-    //        //.closest('.form-control')
-    //        .removeClass("has-error");
-    //    }
-    //});
+
+    var nameError = false;
+    $('input[name="Name"]').keyup(function (e) {
+        $("#Code").prop("disabled", false);
+        var x = document.getElementById("NameError");
+        $.ajax({
+            url: "Category/UniqueName",
+            type: "POST",
+            data: $("#categoryForm").serialize(),
+            //contentType: "application/json; charset=utf-8",
+            //dataType: "json",
+            //data: "{'name': '" + $("#Name").val() + "','id': '" + $("#id").val() + "'}",
+            dataFilter: function (response) {
+
+                if (response === "True") {
+                    nameError = true;
+                    x.innerHTML = "Name already exist";
+                    x.style.color = "red";
+
+                } else {
+                    nameError = false;
+                    x.innerHTML = "";
+                }
+
+            }
+
+        });
+
+    });
 
     $("#categoryForm").validate({
         rules: {
@@ -52,11 +68,10 @@
         }
     });
 
-    //document.getElementById("saveError").style.display = "none";
+   
     $("#saveButton").click(function () {
-        //document.getElementById("saveError").style.display = "none";
-        //alert("hi");
-        if ($("#categoryForm").valid()) {
+        if ($("#categoryForm").valid() && !nameError) {
+            $("#Code").prop("disabled", false);
             $.ajax({
                     type: "POST",
                     url: "/Category/Create",
@@ -65,68 +80,76 @@
             })
             .done(function (response) {
                 if (response.Success) {
-                    swal({
-                            title: "Saved Successfully",
-                            //text: "Once deleted, you will not be able to recover this imaginary file!",
-                            icon: "success",
-                            buttons: true,
-                            dangerMode: true
+                    Swal.fire({
+                        title: 'Saved SuccessFully',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location.reload();
+                        }
+                    });
 
-                        })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                window.location.reload();
-                            }
-                        });
-
-                } else {
-                    $("#saveError").html(response.Message);
-                }
-
+                } 
             })
-            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            .fail(function (xmlHttpRequest, textStatus, errorThrown) {
                 alert("Fail");
             });
         };
        
     });
 
-    $("#closeButton").click(function () {
-        location.reload();
+    $("#closeButton").click(function() {
+        window.location.reload();
     });
 
     $("#updateButton").click(function () {
-        //document.getElementById("saveError").style.display = "none";
-        alert("hi");
-        if ($("#categoryForm").valid()) {
+        
+        if ($("#categoryForm").valid() && !nameError) {
+            $("#Code").prop("disabled", false);
             $.ajax({
                     type: "POST",
                     url: "/Category/Edit",
                     data: $("#categoryForm").serialize()
 
             })
-            .done(function (response) {
-                if (response.Success) {
-                    swal({
-                            title: "Updated Successfully",
-                            //text: "Once deleted, you will not be able to recover this imaginary file!",
-                            icon: "warning",
-                            buttons: true,
-                            dangerMode: true
-
-                        })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                window.location.reload();
-                            }
-                        });
+                .done(function (response) {
+                    //document.getElementById("categoryForm").reset();
+                    //$("#Name").val("");
+                    //$("#categoryForm").reset();
+                    //$("#categoryForm").trigger("reset"); 
+                    
+                    if (response.Success) {
+                    Swal.fire({
+                        title: 'Updated SuccessFully',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location.reload();
+                        }
+                    });
 
                 } else {
-                    $("#saveError").html(response.Message);
+                    Swal.fire({
+                        title: 'Updated SuccessFully',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location.reload();
+                        }
+                    });
                 }
 
             })
-            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            .fail(function (xmlHttpRequest, textStatus, errorThrown) {
                 alert("Fail");
             });
         };

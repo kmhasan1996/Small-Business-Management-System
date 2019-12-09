@@ -9,7 +9,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Code</th>
-                    <th scope="col">InvoiceNo</th>
+                    @*<th scope="col">InvoiceNo</th>*@
                     <th scope="col">Supplier</th>
                     <th scope="col">DateTime</th>
                     <th scope="col">Action</th>
@@ -25,7 +25,7 @@
                         <tr>
                             <td>@i</td>
                             <td>@purchase.Code</td>
-                            <td>@purchase.InvoiceNo</td>
+                            @*<td>@purchase.InvoiceNo</td>*@
                             @*<td>@purchase.Supplier.Name</td>*@
                             <td>
                                 <a class="supplierName" data-id="@purchase.Supplier.Id" data-toggle="modal" data-target="#supplierDetailModal">@purchase.Supplier.Name</a>
@@ -65,7 +65,7 @@ else
 
 <!-- Modal Edit -->
 <div class="modal fade" id="detailModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" >
+    <div class="modal-dialog modal-lg">
 
     </div>
 </div>

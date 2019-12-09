@@ -10,6 +10,42 @@ namespace DotNetForever.Repository.Repository
 {
     public class SupplierRepository
     {
+
+        public bool UniqueEmail(Supplier supplier)
+        {
+            using (var context = new SMSDbContext())
+            { 
+                var suppliers = (dynamic) null;
+                if (supplier.Id !=0)
+                {
+                    suppliers = context.Suppliers.Where(x => x.Email.Equals(supplier.Email) && x.Id != supplier.Id).ToList();
+                }
+                else
+                {
+                    suppliers = context.Suppliers.Where(x => x.Email.Equals(supplier.Email)).ToList();
+                }
+                
+                return suppliers.Count > 0;
+            }
+        }
+
+        public bool UniqueContact(Supplier supplier)
+        {
+            using (var context = new SMSDbContext())
+            {
+                var suppliers = (dynamic)null;
+                if (supplier.Id != 0)
+                {
+                    suppliers = context.Suppliers.Where(x => x.Contact.Equals(supplier.Contact) && x.Id != supplier.Id).ToList();
+                }
+                else
+                {
+                    suppliers = context.Suppliers.Where(x => x.Contact.Equals(supplier.Contact)).ToList();
+                }
+
+                return suppliers.Count > 0;
+            }
+        }
         public bool Add(Supplier supplier)
         {
             using (var context = new SMSDbContext())
@@ -89,7 +125,7 @@ namespace DotNetForever.Repository.Repository
         {
             using (var context = new SMSDbContext())
             {
-                return context.Suppliers.OrderByDescending(x => x.Id).Select(x => x.Code).DefaultIfEmpty("").FirstOrDefault();
+                return context.Suppliers.OrderByDescending(x => x.Id).Select(x => x.Code).FirstOrDefault();
 
             }
 

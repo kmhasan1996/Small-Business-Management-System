@@ -1,4 +1,4 @@
-﻿@model  List<DotNetForever.Model.Model.SaleDetail>
+﻿@model  DotNetForever.Web.ViewModels.SaleInfoModalViewModel
 
 @if (Model != null)
 {
@@ -13,9 +13,26 @@
 
         <div class="modal-body">
 
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Code</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Sale.Code</td>
+                        <td> @Model.Sale.Customer.Name</td>
+                        <td>@Model.Sale.DateTime</td>
+                    </tr>
+                </tbody>
+            </table>
+
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead class="thead-dark">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Product</th>
@@ -25,24 +42,50 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @{
-                            var i = 0;
-                            foreach (var saleDetail in Model)
-                            {
-                                i++;
+                    @{
+                        var i = 0;
+                        foreach (var saleDetail in Model.SaleDetails)
+                        {
+                            i++;
 
-                                <tr>
-                                    <td>@i</td>
-                                    <td>@saleDetail.Product.Name</td>
-                                    <td>@saleDetail.Quantity</td>
-                                    <td>@saleDetail.MRP</td>
-                                    <td>@saleDetail.TotalPrice</td>
-                                </tr>
-                            }
-
+                            <tr>
+                                <td>@i</td>
+                                <td>@saleDetail.Product.Name</td>
+                                <td>@saleDetail.Quantity</td>
+                                <td>@saleDetail.MRP</td>
+                                <td>@saleDetail.TotalPrice</td>
+                            </tr>
                         }
 
+                    }
+
                     </tbody>
+                    <tfoot >
+                    <tr class="table-borderless">
+                        <td colspan="3"></td>
+                        <th colspan="1" class="float-right">Sub Total</th>
+                        <th>@Model.SubTotal</th>
+
+                    </tr>
+                    <tr class="table-borderless">
+                        <td colspan="3"></td>
+                        <th colspan="1" class="float-right">Discount (%)</th>
+                        <th>@Model.DiscountPercentage</th>
+                       
+                    </tr>
+                    <tr class="table-borderless">
+                        <td colspan="3"></td>
+                        <th colspan="1" class="float-right">Discount Amount</th>
+                        <th>@Model.DiscountAmount</th>
+                       
+                    </tr>
+                    <tr class="table-borderless">
+                        <td colspan="3"></td>
+                        <th colspan="1" class="float-right">Payable Amount</th>
+                        <th>@Model.PayaableAmount</th>
+                       
+                    </tr>
+                    </tfoot>
                 </table>
             </div>
 

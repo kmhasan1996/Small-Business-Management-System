@@ -30,6 +30,11 @@ namespace DotNetForever.Web.Controllers
             return View(model);
         }
 
+        public bool UniqueName(Category category)
+        {
+            return _categoryManager.UniqueName(category);
+        }
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -89,7 +94,7 @@ namespace DotNetForever.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                jason.Data = _categoryManager.Update(existingCategory) ? new {Success = true, Message = "Updated Successfully" } : new {Success = true, Message = "Unable to Update"};
+                jason.Data = _categoryManager.Update(existingCategory) ? new {Success = true, Message = "Updated Successfully" } : new {Success = false, Message = "Unable to Update"};
             }
            
 

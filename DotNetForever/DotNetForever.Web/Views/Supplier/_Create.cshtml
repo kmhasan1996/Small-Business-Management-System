@@ -14,42 +14,44 @@
         <div class="modal-body">
             
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Code</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="Code" value="@Model.Code">
+                <label class="col-sm-3 col-form-label form-control-sm">Code</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control form-control-sm" id="Code" name="Code" value="@Model.Code">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="Name" placeholder="Enter name">
+                <label class="col-sm-3 col-form-label form-control-sm">Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control form-control-sm" id="Name" name="Name" placeholder="Enter name">
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" name="Email" id="Email" placeholder="Enter email ">
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Contact</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="Contact" placeholder="Enter contact no." >
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Contact Person</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="ContactPerson" placeholder="Enter contact person">
+                <label class="col-sm-3 col-form-label form-control-sm">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control form-control-sm" name="Email" id="Email" placeholder="Enter email ">
+                    <span id="EmailError"></span>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Address</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" name="Address"></textarea>
+                <label class="col-sm-3 col-form-label form-control-sm">Contact</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control form-control-sm" id="Contact" maxlength="11" name="Contact" placeholder="Enter contact no." >
+                    <span id="ContactError"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label form-control-sm">Contact Person</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control form-control-sm" name="ContactPerson" placeholder="Enter contact person">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label form-control-sm">Address</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control form-control-sm" name="Address" placeholder="Enter address"></textarea>
                 </div>
             </div>
 

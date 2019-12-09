@@ -26,20 +26,21 @@ namespace DotNetForever.Repository.Repository
 
         #endregion
 
-        public bool UniqueName(string name)
+        public bool UniqueName(Product product)
         {
             using (var context = new SMSDbContext())
             {
-                var customer = context.Products.Where(x => x.Name.Contains(name)).ToList();
-
-                if (customer.Count > 0)
+                var products = (dynamic) null;
+                if (product.Id != 0)
                 {
-                    return true;
+                    products = context.Products.Where(x => x.Name.Equals(product.Name) && x.Id != product.Id).ToList();
                 }
                 else
                 {
-                    return false;
+                    products = context.Products.Where(x => x.Name.Equals(product.Name)).ToList();
                 }
+
+                return products.Count > 0;
             }
         }
         public bool Add(Product product)

@@ -24,8 +24,9 @@
     <link href="~/Contents/fontawesome/css/all.min.css" rel="stylesheet" />
 
     <!--sweet alert-->
-    <script src="~/Contents/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
+    @*<script src="~/Contents/sweetalert/sweetalert2.all.min.js"></script>*@
     @*<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>*@
 
     <!-- jQuery date tim piker-->
@@ -43,7 +44,7 @@
     </style>
 </head>
 <body>
-    <div class="d-flex" id="wrapper">
+    <div class="d-flex" id="wrapper" style="background:rgb(244, 246, 249)">
         <!-- Sidebar -->
         @*@Html.Action("SideMenu", "Home")*@
 
@@ -60,14 +61,14 @@
                 <a href="#" class="list-group-item list-group-item-action bg-light">Sales</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Stock</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light ">Report</a>
-
+            rgb(20, 158, 132)
             </div>
         </div>*@
 
-        <div class=" border-right" id="sidebar-wrapper" style="background:rgb(20, 158, 132)">
-            <div class="sidebar-heading" style="background: rgb(20, 158, 132);color: white"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard </div>
-            <div class="list-group list-group-flush" style="background-color:rgb(20, 158, 132)">
-                <a href="@Url.Action("Index","Home")" class="list-group-item list-group-item-action" @*style="background: black;color: white"*@><i class="fas fa-home mr-2"></i>Home</a>
+        <div class=" border-right" id="sidebar-wrapper" style="background:rgb(0, 31, 63)">
+            <div class="sidebar-heading" style="background: rgb(0, 31, 63);color: white"><i class="fas fa-tachometer-alt mr-2"></i>Menu </div>
+            <div class="list-group list-group-flush" >
+                <a href="@Url.Action("Index","Home")" class="list-group-item list-group-item-action" @*style="background: black;color: white"*@><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a>
 
                 <a href="@Url.Action("Index","Category")" class="list-group-item list-group-item-action  "><i class="fas fa-folder mr-2"></i>Category</a>
                 <a href="@Url.Action("Index","Product")" class="list-group-item list-group-item-action  "><i class="fas fa-boxes mr-2"></i>Product </a>
@@ -83,19 +84,25 @@
         <!-- /#sidebar-wrapper navbar-dark bg-dark -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg  border-bottom" style="background: rgb(20, 158, 132); color: white;">
+            <nav class="navbar navbar-expand-lg  border-bottom" style="background: rgb(40, 167, 69); color: white;">
+               
                 <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-bars"></i></button>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
+                   
                 </button>
-                @*<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a class="nav-link text-white text-center text-uppercase " href="#"><h5>Stock Management System</h5> </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+                            @*<a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>*@ 
+                            @*<a class="nav-link text-white text-center" href="#">Stock Management System </a>*@
+
                         </li>
 
                     </ul>
-                </div>*@
+                </div>
+              
             </nav>
             <div class="container-fluid">
                 @RenderBody()

@@ -25,7 +25,7 @@ namespace DotNetForever.Repository.Repository
         {
             using (var context = new SMSDbContext())
             {
-                return context.Sales.Include(x=>x.Customer).ToList();
+                return context.Sales.Include(x=>x.Customer).OrderByDescending(x=>x.Id).ToList();
 
             }
         }

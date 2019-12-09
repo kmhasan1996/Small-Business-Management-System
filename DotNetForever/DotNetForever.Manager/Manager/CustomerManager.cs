@@ -12,9 +12,14 @@ namespace DotNetForever.Manager.Manager
     {
         readonly CustomerRepository _customerRepository = new CustomerRepository();
 
-        public bool CheckEmailAvailability(string email)
+        public bool UniqueEmail(Customer customer)
         {
-            return _customerRepository.CheckEmailAvailability(email);
+            return _customerRepository.UniqueEmail(customer);
+        }
+
+        public bool UniqueContact(Customer customer)
+        {
+            return _customerRepository.UniqueContact(customer);
         }
 
         public bool Add(Customer customer)

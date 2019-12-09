@@ -16,6 +16,7 @@ namespace DotNetForever.Model.Model
         public DateTime DateTime { get; set; }
         [Required]
         public string Code { get; set; }
+        public int DiscountPercentage { get; set; }
         public List<SaleDetail> SaleDetails { get; set; }
         public virtual Customer Customer { get; set; }
     }

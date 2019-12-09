@@ -172,6 +172,7 @@
     <Content Include="Contents\Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Report\_PurchaseReportListing.cshtml" />
     <Content Include="Views\Report\_SaleReportListing.cshtml" />
+    <Content Include="Views\Customer\_CustomerDetails.cshtml" />
     <None Include="Views\Shared\ctreate.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -195,8 +196,10 @@
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\ProductListViewModel.cs" />
     <Compile Include="ViewModels\PurchaseDetailsViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseInfoModalViewModel.cs" />
     <Compile Include="ViewModels\PurchaseViewModel.cs" />
     <Compile Include="ViewModels\SaleDetailViewModel.cs" />
+    <Compile Include="ViewModels\SaleInfoModalViewModel.cs" />
     <Compile Include="ViewModels\SaleViewModel.cs" />
     <Compile Include="ViewModels\SideMenuViewModel.cs" />
     <Compile Include="ViewModels\SupplierListViewModel.cs" />

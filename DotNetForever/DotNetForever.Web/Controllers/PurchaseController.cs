@@ -59,7 +59,7 @@ namespace DotNetForever.Web.Controllers
             {
                 Suppliers = _supplierManager.GetAll(),
                 Categories = _categoryManager.GetAll(),
-                PurchaseDetail = new PurchaseDetail(),
+                //PurchaseDetail = new PurchaseDetail(),
                 Code=code
             };
             return View(model);
@@ -111,9 +111,12 @@ namespace DotNetForever.Web.Controllers
 
         public ActionResult PurchaseDetails(int purchaseId)
         {
-            List<PurchaseDetail> purchaseDetail = _purchaseDetailsManager.GetAllPurchaseDetailByPurchaseId(purchaseId);
+            PurchaseInfoModalViewModel model=new PurchaseInfoModalViewModel();
+            model.PurchaseDetails= _purchaseDetailsManager.GetAllPurchaseDetailByPurchaseId(purchaseId);
+            model.Purchase = _purchaseManager.GetAll().FirstOrDefault(x => x.Id == purchaseId);
+            model.SubTotal = model.PurchaseDetails.Select(x => x.TotalPrice).DefaultIfEmpty(0).Sum();
 
-            return PartialView("_PurchaseDetails", purchaseDetail);
+            return PartialView("_PurchaseDetails", model);
         }
 
     }

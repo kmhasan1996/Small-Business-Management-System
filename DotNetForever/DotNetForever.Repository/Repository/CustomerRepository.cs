@@ -11,20 +11,41 @@ namespace DotNetForever.Repository.Repository
 {
     public class CustomerRepository
     {
-        public bool CheckEmailAvailability(string email)
+
+        public bool UniqueEmail(Customer customer)
         {
             using (var context = new SMSDbContext())
             {
-                var customer = context.Customers.Where(x => x.Email.Contains(email) ).ToList();
-
-                if (customer.Count>0)
+                var customers = (dynamic) null;
+                if (customer.Id !=0)
                 {
-                    return true;
+                    customers = context.Customers.Where(x => x.Email.Equals(customer.Email) && x.Id !=customer.Id).ToList();
                 }
                 else
                 {
-                    return false;
+                    customers = context.Customers.Where(x => x.Email.Equals(customer.Email)).ToList();
                 }
+               
+
+                return customers.Count > 0;
+            }
+        }
+
+        public bool UniqueContact(Customer customer)
+        {
+            using (var context = new SMSDbContext())
+            {
+                var customers = (dynamic)null;
+                if (customer.Id != 0)
+                {
+                    customers = context.Customers.Where(x => x.Contact.Equals(customer.Contact) && x.Id != customer.Id).ToList();
+                }
+                else
+                {
+                    customers = context.Customers.Where(x => x.Contact.Equals(customer.Contact)).ToList();
+                }
+                
+                return customers.Count > 0;
             }
         }
 
@@ -117,7 +138,7 @@ namespace DotNetForever.Repository.Repository
         {
             using (var context = new SMSDbContext())
             {
-                return context.Customers.OrderByDescending(x => x.Id).Select(x => x.Code).DefaultIfEmpty("").FirstOrDefault();
+                return context.Customers.OrderByDescending(x => x.Id).Select(x => x.Code).FirstOrDefault();
 
             }
 

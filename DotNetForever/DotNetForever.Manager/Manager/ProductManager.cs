@@ -9,9 +9,9 @@ namespace DotNetForever.Manager.Manager
         readonly ProductRepository _productRepository = new ProductRepository();
 
 
-        public bool UniqueName(string name)
+        public bool UniqueName(Product product)
         {
-            return _productRepository.UniqueName(name);
+            return _productRepository.UniqueName(product);
         }
 
         public bool Add(Product product)

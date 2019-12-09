@@ -1,8 +1,7 @@
-﻿$(function () {
+﻿$(document).ready(function () {
 
+    $("#Code").prop("disabled", true);
 
-
-    //alert("hi");
     $('input[name="Code"]').keyup(function (e) {
         if (/\D/g.test(this.value)) {
             // Filter non-digits from input value.
@@ -24,6 +23,36 @@
         }
     });
 
+    var nameError = false;
+    $('input[name="Name"]').keyup(function (e) {
+      
+        var x = document.getElementById("NameError");
+        $.ajax({
+            url: "Product/UniqueName",
+            type: "POST",
+            data: $("#productForm").serialize(),
+            //contentType: "application/json; charset=utf-8",
+            //dataType: "json",
+            //data: "{'Name': '" + $("#Name").val() + "'}",
+            dataFilter: function (response) {
+
+                if (response === "True") {
+                    nameError = true;
+                    x.innerHTML = "Name already exist";
+                    x.style.color = "red";
+
+                } else {
+                    nameError = false;
+                    x.innerHTML = "";
+                }
+
+            }
+
+        }); 
+      
+    });
+
+
    
     $("#productForm").validate({
         rules: {
@@ -36,35 +65,32 @@
             //    maxlength: 4
             //},
             Name: {
-                remote: {
-                    url: "Product/IsValidContent",
-                    timeout:2000,
-                    type: "POST"
-                },
                 required: true
-                //remote:false
-                //remote: function () {
-                    
-                //    return  {
-                //        url: "Product/UniqueName1",
-                //        type: "POST",
-                //        contentType: "application/json; charset=utf-8",
-                //        dataType: "json",
-                //        data: "{'Name': '" + $("#Name").val() + "'}",
-                //        dataFilter: function (response) {
-                //            alert(response);
-                //            if (response == "True") {
-                //                alert("inside true");
-                //                return true;
-                //            } else {
-                //                alert("inside false");
-                //                return false;
-                //            }
+                //remote:true
+                //remote: 
+                //        function() {
 
-                //        }
-                        
-                //    }
-                //}
+                //            return {
+                //                url: "Product/UniqueName1",
+                //                type: "POST",
+                //                contentType: "application/json; charset=utf-8",
+                //                dataType: "json",
+                //                data: "{'Name': '" + $("#Name").val() + "'}",
+                //                dataFilter: function(response) {
+                //                    alert(response);
+                //                    if (response == "True") {
+                //                        alert("inside true");
+                //                        return true;
+                //                    } else {
+                //                        alert("inside false");
+                //                        return false;
+                //                    }
+
+                //                }
+
+                //            }
+                       
+                //         }
 
             }, 
             ReorderLevel: {
@@ -79,8 +105,8 @@
                 required: "Select a category"
             },
             Name: {
-                required: "Name is required",
-                remote:"Name is available"
+                required: "Name is required"
+                //, remote:"Name is available"
             },
             ReorderLevel: {
                 required: "Reorder level is required"
@@ -93,9 +119,9 @@
 
 
     $("#saveButton").click(function () {
-
-        if ($("#productForm").valid()) {
-            //alert("Inside save");
+      
+        if ($("#productForm").valid() && !nameError) {
+            $("#Code").prop("disabled", false);
             $.ajax({
                     type: "POST",
                     url: "/Product/Create",
@@ -104,24 +130,19 @@
             })
             .done(function (response) {
                 if (response.Success) {
-                    swal({
-                            title: "Saved Successfully",
-                            //text: "Once deleted, you will not be able to recover this imaginary file!",
-                            icon: "warning",
-                            buttons: true,
-                            dangerMode: true
-
-                    })
-                    .then((willDelete) => {
-                        if (willDelete) {
+                    Swal.fire({
+                        title: 'Saved Successfully',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
                             window.location.reload();
                         }
                     });
 
-                } else {
-                    alert("Failed");
-
-                }
+                } 
 
             })
             .fail(function (xmlHttpRequest, textStatus, errorThrown) {
@@ -132,15 +153,14 @@
         
     });
 
-    //$("#closeButton").click(function () {
-    //    location.reload();
-    //});
+    $("#closeButton").click(function () {
+        location.reload();
+    });
 
-
-   
     $("#updateButton").click(function () {
-        //document.getElementById("saveError").style.display = "none";
-        if ($("#productForm").valid()) {
+       
+        if ($("#productForm").valid() && !nameError) {
+            $("#Code").prop("disabled", false);
             $.ajax({
                     type: "POST",
                     url: "/Product/Edit",
@@ -149,23 +169,30 @@
             })
             .done(function (response) {
                 if (response.Success) {
-                    swal({
-                            title: "Updated Successfully",
-                            //text: "Once deleted, you will not be able to recover this imaginary file!",
-                            icon: "warning",
-                            buttons: true,
-                            dangerMode: true
-                           
-                        })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                window.location.reload();
-                            } 
-                        });
+                    Swal.fire({
+                        title: 'Updated Successfully',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location.reload();
+                        }
+                    });
                 } else {
-                   
+                    Swal.fire({
+                        title: 'Updated Successfully',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location.reload();
+                        }
+                    });
                 }
-
             })
             .fail(function (xmlHttpRequest, textStatus, errorThrown) {
                 alert("Fail");

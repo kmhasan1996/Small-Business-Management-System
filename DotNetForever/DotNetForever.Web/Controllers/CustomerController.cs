@@ -26,26 +26,21 @@ namespace DotNetForever.Web.Controllers
             return View(model);
         }
 
-        public JsonResult CheckEmailAvailability(string email)
+        public ActionResult CustomerDetails(int id)
         {
-            if (_customerManager.CheckEmailAvailability(email))
-            {
-                return Json(1);
-            }
-            else
-            {
-                return Json(0);
-            }
+            var customer = _customerManager.GetById(id);
 
+            return PartialView("_CustomerDetails", customer);
         }
 
-
-        //public ActionResult Listing()
-        //{
-        //    var product = _productManager.GetAll();
-
-        //    return PartialView("_Listing", product);
-        //}
+        public bool UniqueEmail(Customer customer)
+        {
+            return _customerManager.UniqueEmail(customer);
+        }
+        public bool UniqueContact(Customer customer)
+        {
+            return _customerManager.UniqueContact(customer);
+        }
 
         [HttpGet]
         public ActionResult Create()
@@ -54,7 +49,7 @@ namespace DotNetForever.Web.Controllers
 
             string code = _customerManager.GetLastCustomerCode();
 
-            if (code == "")
+            if (code == null)
             {
                 code = "0001";
             }
@@ -108,6 +103,26 @@ namespace DotNetForever.Web.Controllers
                 jason.Data = _customerManager.Update(existingCustomer) ? new { Success = true, Message = "Updated Successfully" } : new { Success = true, Message = "Unable to Update" };
             }
             
+            return jason;
+        }
+
+
+        public ActionResult UpdateLoyaltyPoint(int customerId,int loyaltyPoint)
+        {
+            JsonResult jason = new JsonResult();
+            var existingCustomer = _customerManager.GetById(customerId);
+            //existingCustomer.Code = customer.Code;
+            //existingCustomer.Name = customer.Name;
+            //existingCustomer.Address = customer.Address;
+            //existingCustomer.Email = customer.Email;
+            //existingCustomer.Contact = customer.Contact;
+            existingCustomer.LoyaltyPoint = loyaltyPoint;
+
+            if (ModelState.IsValid)
+            {
+                jason.Data = _customerManager.Update(existingCustomer) ? new { Success = true, Message = "Updated Successfully" } : new { Success = true, Message = "Unable to Update" };
+            }
+
             return jason;
         }
 

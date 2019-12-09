@@ -19,7 +19,24 @@ namespace DotNetForever.Repository.Repository
                 return context.SaveChanges() > 0;
             }
         }
+        public bool UniqueName(Category category)
+        {
+            using (var context = new SMSDbContext())
+            {
+                var categories=(dynamic)null;
+                if (category.Id != 0)
+                {
+                    categories = context.Categories.Where(x => x.Name.Equals(category.Name) && x.Id != category.Id).ToList();
+                }
+                else
+                {
+                    categories = context.Categories.Where(x => x.Name.Equals(category.Name)).ToList();
+                }
+                
 
+                return categories.Count > 0;
+            }
+        }
         public bool Update(Category category)
         {
             using (var context = new SMSDbContext())

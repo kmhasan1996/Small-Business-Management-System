@@ -104,9 +104,16 @@ namespace DotNetForever.Web.Controllers
         }
         public ActionResult SaleDetails(int saleId)
         {
-            List<SaleDetail> saleDetails = _saleDetailsManager.GetAllSaleDetailBySaleId(saleId);
 
-            return PartialView("_SaleDetails", saleDetails);
+            SaleInfoModalViewModel model = new SaleInfoModalViewModel();
+            model.SaleDetails = _saleDetailsManager.GetAllSaleDetailBySaleId(saleId);
+            model.Sale = _saleManager.GetAll().FirstOrDefault(x => x.Id == saleId);
+            model.SubTotal = model.SaleDetails.Select(x => x.TotalPrice).DefaultIfEmpty(0).Sum();
+            model.DiscountPercentage =
+                _saleManager.GetAll().Where(x => x.Id == saleId).Select(x => x.DiscountPercentage).FirstOrDefault();
+            model.DiscountAmount = model.SubTotal * model.DiscountPercentage/100;
+            model.PayaableAmount = model.SubTotal - model.DiscountAmount;
+            return PartialView("_SaleDetails", model);
         }
 
     }

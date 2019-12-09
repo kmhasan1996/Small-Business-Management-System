@@ -48,61 +48,233 @@
     });
 
 
+    //for search and ajax search
+    //var categoryId = $('#categoryId').val();
+    //var productId = $('#ProductId').val();
+
+    //var startDate = $("#startDate").val();
+    //var endDate = $("#endDate").val();
+
+    //var inProduct = false;
+    //var outProduct = false;
+
+    //if ($("#inCheckbox").is(":checked")) {
+    //    inProduct = true;
+    //}
+    //if ($("#outCheckbox").is(":checked")) {
+    //    outProduct = true;
+    //}
 
 
     $("#searchButton").click(function () {
-        //document.getElementById("saveError").style.display = "none";
+
+        var categoryId = $('#categoryId').val();
+        var productId = $('#ProductId').val();
+
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+
+        var inProduct = false;
+        var outProduct = false;
+
+        if ($("#inCheckbox").is(":checked")) {
+            inProduct = true;
+        }
+        if ($("#outCheckbox").is(":checked")) {
+            outProduct = true;
+        }
+
+        var jsonData = { inProduct: inProduct, outProduct: outProduct, categoryId: categoryId, productId: productId, startDate: startDate, endDate: endDate };
+
         $.ajax({
             type: "POST",
             url: "/Stock/Search",
-            data: $("#stockForm").serialize()
-
+            data: JSON.stringify(jsonData),
+            contentType: "application/json; charset=utf-8"
         })
         .done(function (response) {
             //$("#hideList").hide();
             $("#showList").html(response);
         })
-        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+        .fail(function (xmlHttpRequest, textStatus, errorThrown) {
             alert("Fail");
         });
 
-
     });
 
+    //$("#searchButton").click(function () {
+    //    //document.getElementById("saveError").style.display = "none";
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "/Stock/Search",
+    //        data: $("#stockForm").serialize()
+
+    //    })
+    //    .done(function (response) {
+    //        //$("#hideList").hide();
+    //        $("#showList").html(response);
+    //    })
+    //    .fail(function (xmlHttpRequest, textStatus, errorThrown) {
+    //        alert("Fail");
+    //    });
+
+    //});
+
+
+    $("#inCheckbox").click(function() {
+        var categoryId = $('#categoryId').val();
+        var productId = $('#ProductId').val();
+
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+
+        var searchVal = true;
+
+        var inProduct = false;
+        var outProduct = false;
+
+        if ($("#inCheckbox").is(":checked")) {
+            inProduct = true;
+        }
+        if ($("#outCheckbox").is(":checked")) {
+            outProduct = true;
+        }
+       
+
+        var jsonData = {inProduct: inProduct, outProduct: outProduct, categoryId: categoryId, productId: productId, startDate: startDate, endDate: endDate };
+
+
+        $.ajax({
+                type: "POST",
+                url: "/Stock/Search",
+                data: JSON.stringify(jsonData),
+                contentType: "application/json; charset=utf-8"
+        })
+        .done(function (response) {
+            //$("#hideList").hide();
+            $("#showList").html(response);
+        })
+        .fail(function (xmlHttpRequest, textStatus, errorThrown) {
+            alert("Fail");
+        });
+    });
+
+    $("#outCheckbox").click(function () {
+
+        var categoryId = $('#categoryId').val();
+        var productId = $('#ProductId').val();
+
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+
+        var searchVal = true;
+
+        var inProduct = false;
+        var outProduct = false;
+
+        if ($("#inCheckbox").is(":checked")) {
+            inProduct = true;
+        }
+        if ($("#outCheckbox").is(":checked")) {
+            outProduct = true;
+        }
+       
+
+        var jsonData = { inProduct: inProduct, outProduct: outProduct, categoryId: categoryId, productId: productId, startDate: startDate, endDate: endDate };
+
+
+        $.ajax({
+                type: "POST",
+                url: "/Stock/Search",
+                data: JSON.stringify(jsonData),
+                contentType: "application/json; charset=utf-8"
+        })
+        .done(function (response) {
+            //$("#hideList").hide();
+            $("#showList").html(response);
+        })
+        .fail(function (xmlHttpRequest, textStatus, errorThrown) {
+            alert("Fail");
+        });
+    });
 
     $("#categoryId").on("change",
         function () {
 
-            $.ajax({
-                type: "POST",
-                url: "/Stock/Search",
-                data: $("#stockForm").serialize()
+            var categoryId = $('#categoryId').val();
+            var productId = $('#ProductId').val();
 
+            var startDate = $("#startDate").val();
+            var endDate = $("#endDate").val();
+
+            var searchVal = true;
+
+            var inProduct = false;
+            var outProduct = false;
+
+            if ($("#inCheckbox").is(":checked")) {
+                inProduct = true;
+            }
+            if ($("#outCheckbox").is(":checked")) {
+                outProduct = true;
+            }
+
+
+            var jsonData = { inProduct: inProduct, outProduct: outProduct, categoryId: categoryId, productId: productId, startDate: startDate, endDate: endDate };
+
+
+            $.ajax({
+                    type: "POST",
+                    url: "/Stock/Search",
+                    data: JSON.stringify(jsonData),
+                    contentType: "application/json; charset=utf-8"
             })
-                .done(function (response) {
-                    $("#showList").html(response);
-                })
-                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("Fail");
-                });
+            .done(function (response) {
+                $("#showList").html(response);
+            })
+            .fail(function (xmlHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
 
         });
 
     $("#ProductId").on("change",
         function () {
 
+            var categoryId = $('#categoryId').val();
+            var productId = $('#ProductId').val();
+
+            var startDate = $("#startDate").val();
+            var endDate = $("#endDate").val();
+
+            var searchVal = true;
+
+            var inProduct = false;
+            var outProduct = false;
+
+            if ($("#inCheckbox").is(":checked")) {
+                inProduct = true;
+            }
+            if ($("#outCheckbox").is(":checked")) {
+                outProduct = true;
+            }
+
+
+            var jsonData = {inProduct: inProduct, outProduct: outProduct, categoryId: categoryId, productId: productId, startDate: startDate, endDate: endDate };
+
+
             $.ajax({
                     type: "POST",
                     url: "/Stock/Search",
-                    data: $("#stockForm").serialize()
-
-                })
-                .done(function (response) {
-                    $("#showList").html(response);
-                })
-                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("Fail");
-                });
+                    data: JSON.stringify(jsonData),
+                    contentType: "application/json; charset=utf-8"
+            })
+            .done(function (response) {
+                $("#showList").html(response);
+            })
+            .fail(function (xmlHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
 
         });
 

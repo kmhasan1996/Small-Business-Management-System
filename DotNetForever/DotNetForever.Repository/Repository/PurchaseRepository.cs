@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace DotNetForever.Repository.Repository
         {
             using (var context=new SMSDbContext())
             {
-                return context.Purchases.Include(x=>x.Supplier).ToList();
+                return context.Purchases.Include(x=>x.Supplier).OrderByDescending(x=>x.Id).ToList();
 
             }
         }

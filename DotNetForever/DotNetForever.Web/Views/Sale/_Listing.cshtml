@@ -16,18 +16,21 @@
             <tbody>
                 @{
                     var i = 0;
-                    foreach (var purchase in Model)
+                    foreach (var sale in Model)
                     {
                         i++;
 
                         <tr>
                             <td>@i</td>
-                            <td>@purchase.Code</td>
-                            <td>@purchase.Customer.Name</td>
-                            <td>@purchase.DateTime</td>
+                            <td>@sale.Code</td>
+                            @*<td>@purchase.Customer.Name</td>*@
+                            <td>
+                                <a class="customerName" data-id="@sale.Customer.Id" data-toggle="modal" data-target="#customerDetailModal">@sale.Customer.Name</a>
+                            </td>
+                            <td>@sale.DateTime</td>
 
                             <td>
-                                <button type="button" class="detailsButton btn btn-primary" data-id="@purchase.Id" data-toggle="modal" data-target="#detailsModal"><i class="fas fa-file-alt mr-2"></i>Details</button>
+                                <button type="button" class="detailsButton btn btn-primary" data-id="@sale.Id" data-toggle="modal" data-target="#detailsModal"><i class="fas fa-file-alt mr-2"></i>Details</button>
 
                             </td>
 
@@ -49,6 +52,13 @@ else
     </div>
 }
 
+<!--Customer detail modal-->
+<div class="modal fade" id="customerDetailModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+
+    </div>
+</div>
+
 <!-- Modal Edit -->
 <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
@@ -60,20 +70,37 @@ else
     $(".detailsButton").click(function () {
 
         $.ajax({
-                type: "GET",
-                url: "/Sale/SaleDetails",
-                data: {
-                    saleId: $(this).attr('data-id')
-                }
+            type: "GET",
+            url: "/Sale/SaleDetails",
+            data: {
+                saleId: $(this).attr('data-id')
+            }
 
         })
-        .done(function (response) {
-            $("#detailsModal .modal-dialog").html(response);
-        })
-        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Fail");
-        });
+            .done(function (response) {
+                $("#detailsModal .modal-dialog").html(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
 
+    });
+
+    $(".customerName").click(function () {
+        $.ajax({
+            type: "GET",
+            url: "/Customer/CustomerDetails",
+            data: {
+                id: $(this).attr('data-id')
+            }
+
+        })
+            .done(function (response) {
+                $("#customerDetailModal .modal-dialog").html(response);
+            })
+            .fail(function (xmlHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
     });
 
 

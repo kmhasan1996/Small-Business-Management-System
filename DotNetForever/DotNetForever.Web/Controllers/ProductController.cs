@@ -28,46 +28,10 @@ namespace DotNetForever.Web.Controllers
             return View(model);
         }
 
-        public JsonResult UniqueName(string name)
+       
+        public bool UniqueName(Product product)
         {
-            //JsonResult jason = new JsonResult();
-            var data = "false";
-            //jason.Data = _productManager.UniqueName(name) ? new { Success = true, Message = "Name is exist" } : new { Success = false, Message = "Name is available" };
-
-            if (_productManager.UniqueName(name))
-            {
-                data = "true";
-            }
-            //else
-            //{
-            //    //jason.Data = new { Success = false };
-            //    Data="false"
-            //}
-
-            return Json(data, JsonRequestBehavior.AllowGet);
-
-        }
-        [HttpPost]
-        public virtual JsonResult IsValidContent(string name)
-        {
-            return new JsonResult
-            {
-                Data = true
-            };
-        }
-
-        public bool UniqueName1(string name)
-        {
-            JsonResult jason = new JsonResult();
-            if (_productManager.UniqueName(name))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
+            return _productManager.UniqueName(product);
         }
        
         public JsonResult GetProductByCategoryId(int categoryId)
@@ -77,7 +41,24 @@ namespace DotNetForever.Web.Controllers
 
             return Json(products, JsonRequestBehavior.AllowGet);
         }
-        
+        public JsonResult GetProductCodeByProductId(int productId)
+        {
+            JsonResult jason = new JsonResult();
+            var product = _productManager.GetById(productId);
+
+            jason.Data = null;
+            if (product != null)
+            {
+                jason.Data = new
+                {
+                    ProductCode = product.Code
+                };
+
+            }
+
+            return jason;
+        }
+
 
         [HttpGet]
         public ActionResult Create()
@@ -117,7 +98,7 @@ namespace DotNetForever.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                jason.Data = _productManager.Add(product) ? new { Success = true, Message = "Saved Successfully" } : new { Success = true, Message = "Unable to Save" };
+                jason.Data = _productManager.Add(product) ? new { Success = true, Message = "Saved Successfully" } : new { Success = false, Message = "Unable to Save" };
             }
 
             return jason;

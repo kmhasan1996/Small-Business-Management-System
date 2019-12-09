@@ -25,6 +25,14 @@ namespace DotNetForever.Web.Controllers
             model.Search = search;
             return View(model);
         }
+        public bool UniqueEmail(Supplier supplier)
+        {
+            return _supplierManager.UniqueEmail(supplier);
+        }
+        public bool UniqueContact(Supplier supplier)
+        {
+            return _supplierManager.UniqueContact(supplier);
+        }
 
         public ActionResult SupplierDetails(int id)
         {
@@ -40,7 +48,7 @@ namespace DotNetForever.Web.Controllers
 
             string code = _supplierManager.GetLastSupplierCode();
 
-            if (code == "")
+            if (code == null)
             {
                 code = "0001";
             }

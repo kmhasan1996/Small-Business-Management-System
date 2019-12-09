@@ -29,7 +29,7 @@ namespace DotNetForever.Web.Controllers
 
         public ActionResult SearchPurchaseReport(DateTime startDate, DateTime endDate)
         {
-            var purchaseReports = _sharedManager.GetPurchaseReport(startDate, endDate);
+            var purchaseReports = _sharedManager.GetPurchaseReport(startDate, endDate).Where(x=>x.AvailableQty !=0).ToList();
             return PartialView("_PurchaseReportListing", purchaseReports);
         }
 
@@ -48,7 +48,7 @@ namespace DotNetForever.Web.Controllers
 
         public ActionResult SearchSaleReport(DateTime startDate, DateTime endDate)
         {
-            var saleReports = _sharedManager.GetSalesReport(startDate, endDate);
+            var saleReports = _sharedManager.GetSalesReport(startDate, endDate).Where(x=>x.SoldQty !=0).ToList();
             return PartialView("_SaleReportListing", saleReports);
         }
     }

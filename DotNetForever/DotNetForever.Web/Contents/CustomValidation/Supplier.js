@@ -1,17 +1,19 @@
-﻿$(function () {
-    //alert("hi");
+﻿$(document).ready(function () {
+
+    $("#Code").prop("disabled", true);
+
     $('input[name="Code"]').keyup(function (e) {
         if (/\D/g.test(this.value)) {
             // Filter non-digits from input value.
             this.value = this.value.replace(/\D/g, '');
         }
     });
-    $('input[name="Name"]').keyup(function (e) {
-        var regexp = /[^a-zA-Z]/g;
-        if ($(this).val().match(regexp)) {
-            $(this).val($(this).val().replace(regexp, ''));
-        }
-    });
+    //$('input[name="Name"]').keyup(function (e) {
+    //    var regexp = /[^a-zA-Z]/g;
+    //    if ($(this).val().match(regexp)) {
+    //        $(this).val($(this).val().replace(regexp, ''));
+    //    }
+    //});
 
     $('input[name="Contact"]').keyup(function (e) {
         if (/\D/g.test(this.value)) {
@@ -26,22 +28,6 @@
             $(this).val($(this).val().replace(regexp, ''));
         }
     });
-
-    //$.validator.setDefaults({
-    //    errorClass: "help-block",
-    //    highlight: function (element) {
-    //        $(element)
-    //        .closest(".form-control")
-    //        //.closest('.form-control')
-    //        .addClass("has-error");
-    //    },
-    //    unhighlight: function (element) {
-    //        $(element)
-    //        .closest(".form-control")
-    //        //.closest('.form-control')
-    //        .removeClass("has-error");
-    //    }
-    //});
 
     $("#supplierForm").validate({
         rules: {
@@ -95,12 +81,69 @@
             }
         }
     });
+    var emailError = false;
 
+    $('input[name="Email"]').keyup(function (e) {
+
+        var x = document.getElementById("EmailError");
+        $.ajax({
+            url: "Supplier/UniqueEmail",
+            type: "POST",
+            data: $("#supplierForm").serialize(),
+            //contentType: "application/json; charset=utf-8",
+            //dataType: "json",
+            //data: "{'Email': '" + $("#Email").val() + "'}",
+            dataFilter: function (response) {
+
+                if (response === "True") {
+                    emailError = true;
+                    x.innerHTML = "Email already exist";
+                    x.style.color = "red";
+
+                } else {
+                    emailError = false;
+                    x.innerHTML = "";
+                }
+
+            }
+
+        });
+
+    });
+    var contactError = false;
+    $('input[name="Contact"]').keyup(function (e) {
+
+        var x = document.getElementById("ContactError");
+        $.ajax({
+            url: "Supplier/UniqueContact",
+            type: "POST",
+            data: $("#supplierForm").serialize(),
+            //contentType: "application/json; charset=utf-8",
+            //dataType: "json",
+            //data: "{'contact': '" + $("#Contact").val() + "'}",
+            dataFilter: function (response) {
+
+                if (response === "True") {
+                    contactError = true;
+                    x.innerHTML = "Contact already exist";
+                    x.style.color = "red";
+
+                } else {
+                    contactError = false;
+                    x.innerHTML = "";
+                }
+
+            }
+
+        });
+
+    });
 
     $("#saveButton").click(function () {
         // document.getElementById("saveError").style.display = "none";
 
-        if ($("#supplierForm").valid()) {
+        if ($("#supplierForm").valid() && !emailError && !contactError) {
+            $("#Code").prop("disabled", false);
             $.ajax({
                     type: "POST",
                     url: "/Supplier/Create",
@@ -109,25 +152,21 @@
                 })
                 .done(function (response) {
                     if (response.Success) {
-                        swal({
-                            title: "Saved Successfully",
-                            //text: "Once deleted, you will not be able to recover this imaginary file!",
-                            icon: "warning",
-                            buttons: true,
-                            dangerMode: true
-
-                        })
-                        .then((willDelete) => {
-                            if (willDelete) {
+                        Swal.fire({
+                            title: 'Saved SuccessFully',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.value) {
                                 window.location.reload();
                             }
                         });
-                    } else {
-                        $("#saveError").html(response.Message);
-                    }
+                    } 
 
                 })
-                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                .fail(function (xmlHttpRequest, textStatus, errorThrown) {
                     alert("Fail");
                 });
         };
@@ -135,8 +174,9 @@
     });
 
     $("#updateButton").click(function () {
-        // document.getElementById("saveError").style.display = "none";
-        if ($("#supplierForm").valid()) {
+       
+        if ($("#supplierForm").valid() && !emailError && !contactError) {
+            $("#Code").prop("disabled", false);
             $.ajax({
                     type: "POST",
                     url: "/Supplier/Edit",
@@ -145,25 +185,33 @@
             })
             .done(function (response) {
                 if (response.Success) {
-                    swal({
-                            title: "Updated Successfully",
-                            //text: "Once deleted, you will not be able to recover this imaginary file!",
-                            icon: "warning",
-                            buttons: true,
-                            dangerMode: true
-
-                        })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                window.location.reload();
-                            }
-                        });
+                    Swal.fire({
+                        title: 'Updated SuccessFully',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location.reload();
+                        }
+                    });
                 } else {
-                    $("#saveError").html(response.Message);
+                    Swal.fire({
+                        title: 'Updated SuccessFully',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location.reload();
+                        }
+                    });
                 }
 
             })
-            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            .fail(function (xmlHttpRequest, textStatus, errorThrown) {
                 alert("Fail");
             });
         };

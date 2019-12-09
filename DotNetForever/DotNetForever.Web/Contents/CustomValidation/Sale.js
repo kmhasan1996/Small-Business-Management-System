@@ -1,5 +1,8 @@
-$(function() {
+$(function () {
 
+    $("#discountPercentage").prop("disabled", true);
+    $("#Code").prop("disabled", true);
+    var discountPercentage;
 //customer change
     $("#customerId").on("change",
         function() {
@@ -18,6 +21,11 @@ $(function() {
                         if (response != null) {
                             //set the values to input field by id
                             $("#loyaltyPoint").val(response.loyaltyPoint);
+
+                            var loyaltyPoint = $("#loyaltyPoint").val();
+                            discountPercentage = parseInt(parseInt(loyaltyPoint) / 10);
+
+                            $("#discountPercentage").val(discountPercentage);
 
                         }
                     }
@@ -84,9 +92,9 @@ $(function() {
 
             if ($("#customerId").valid() /*&& val !== ""*/) {
 
-                $("#dateTime").prop("disabled", true);
-                $("#Code").prop("disabled", true);
-                $("#customerId").prop("disabled", true);
+                //$("#dateTime").prop("disabled", true);
+                //$("#Code").prop("disabled", true);
+                //$("#customerId").prop("disabled", true);
 
                 var jsonData = { categoryId: categoryId };
 
@@ -127,6 +135,7 @@ $(function() {
 
 
     var reorderLevel;
+    var afterSellAvailableQty;
 //product changes
     $("#productId").on("change",
         function() {
@@ -206,7 +215,7 @@ $(function() {
 
         var availableQty = $("#availableQty").val();
 
-        var afterSellAvailableQty = availableQty - sellQty;
+        afterSellAvailableQty = availableQty - sellQty;
 
         if (parseInt(availableQty) < parseInt(sellQty)) {
             swal({
@@ -278,6 +287,26 @@ $(function() {
 
         if ($("#saleForm").valid()) {
 
+            //re order level message
+
+            if (parseInt(reorderLevel) > parseInt(afterSellAvailableQty)) {
+                swal.fire({
+                    title: "Reorder level reached ",
+                    html: 'Please, purchase product ! ' +
+                        '<br/>Reorder Level set at ' +
+                        reorderLevel +
+                        '<br/> After sold available quantity will be ' +
+                        afterSellAvailableQty,
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true
+
+                })
+                .then((willDelete) => {
+
+                });
+            }
+
 
             //grand total calculation
 
@@ -285,11 +314,11 @@ $(function() {
             grandTotalTk = grandTotalTk + parseInt(totalPrice);
             $("#grandTotal").val(grandTotalTk);
 
-            var loyaltyPoint = $("#loyaltyPoint").val();
+            //var loyaltyPoint = $("#loyaltyPoint").val();
 
-            var discountPercentage = parseInt(loyaltyPoint) / 10;
+            //var discountPercentage = parseInt(loyaltyPoint) / 10;
 
-            $("#discountPercentage").val(discountPercentage);
+            //$("#discountPercentage").val(discountPercentage);
 
             var discountAmount = parseInt(grandTotalTk) * parseInt(discountPercentage) / 100;
             $("#discountAmount").val(discountAmount);
@@ -321,6 +350,7 @@ $(function() {
         }
 
     });
+
 //initially disable the submit button
     if (index <= 0) {
         $("#submitButton").prop("disabled", true);
@@ -363,57 +393,103 @@ $(function() {
         var slCell = "<td class='text-success'>" + (++sl) + "</td>";
 
         var productIdCell = productIdHidden;
-        var productNameCell = "<td class='text-success'>" + result.ProductName + "</td>";
-        var quantityCell = "<td class='text-success'>" + quantityHidden + result.Quantity + "</td>";
-        var mrpCell = "<td class='text-success'>" + mrpHidden + result.MRP + "</td>";
-        var totalPriceCell = "<td class='text-success'>" + totalPriceHidden + result.TotalPrice + "</td>";
+        var productNameCell = "<td >" + result.ProductName + "</td>";
+        var quantityCell = "<td >" + quantityHidden + result.Quantity + "</td>";
+        var mrpCell = "<td >" + mrpHidden + result.MRP + "</td>";
+        var totalPriceCell = "<td >" + totalPriceHidden + result.TotalPrice + "</td>";
+        //var actionCell = "<td class='info'>" + " <button  type='button' class='deleteButton btn btn-danger'><i class='fas fa-trash-alt mr-2'></i>Delete</button>" + "</td>";
+
 
         var endTr = "</tr>";
 
-        return (startTr + slCell + productIdCell + productNameCell + quantityCell + mrpCell + totalPriceCell + endTr);
+        return (startTr + slCell + productIdCell + productNameCell + quantityCell + mrpCell + totalPriceCell /*+actionCell*/ + endTr);
 
     }
-
-
-    var saleDetails = $("#SaleDetails[2]").val();
+   
+    //$(".deleteButton").click(function () { //
+    //    alert("Do you want to delete this purchase?");
+    //    $(this).closest('tr').remove();
+    //    return false;
+    //});
 
     $("#submitButton").click(function() {
 
-        $("#dateTime").prop("disabled", false);
+        //$("#dateTime").prop("disabled", false);
         $("#Code").prop("disabled", false);
-        $("#customerId").prop("disabled", false);
+        //$("#customerId").prop("disabled", false);
 
         //if ($("#PurchaseForm").valid()) {
+
+        //loyalty point calculation
+        var loyaltyPoint = $("#loyaltyPoint").val();
+        var resetLoyaltyPoint = parseInt(loyaltyPoint) - parseInt(discountPercentage);
+        var grandTotal = $("#grandTotal").val();
+        var loyaltyPointOnSales = parseInt(grandTotal) / 1000;
+
+        var newLoyaltyPoint = parseInt(resetLoyaltyPoint) + parseInt(loyaltyPointOnSales);
+
+        //alert(newLoyaltyPoint);
+
+        //$("#updatedLoyaltyPoint").val(newLoyaltyPoint);
+
+        var customerId = $("#customerId").val();
+        var jsonData = { customerId: customerId, loyaltyPoint: newLoyaltyPoint };
+        //update loyalty point
+        $.ajax({
+            type: "POST",
+            url: "/Customer/UpdateLoyaltyPoint",
+            data: JSON.stringify(jsonData),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            
+        });
+
+        $("#discountPercentage").prop("disabled", false);
+        //save submit data
         $.ajax({
                 type: "POST",
                 url: "/Sale/Create",
                 data: $("#saleForm").serialize()
 
-            })
-            .done(function(response) {
-                //if (response.Success) {
-                swal({
-                        title: "Saved Successfully",
-                        //text: "Once deleted, you will not be able to recover this imaginary file!",
-                        icon: "success",
-                        buttons: true,
-                        dangerMode: true
+        })
+        .done(function (response) {
+            //if (response.Success) {
+            Swal.fire({
+                title: 'Sale SuccessFully',
+                icon: 'success',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire({
+                        icon: 'question',
+                        title: 'Want to sale more?',
+                        //text: "You won't be able to revert this!",
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        cancelButtonText: 'No, Show Sales!',
+                        confirmButtonText: 'Yes!'
+                    }).then((result) => {
+                        if (result.value) {
 
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                           window.location.reload();
-                    }
-                });
-
-                //} else {
-                //    alert("failed");
-                //}
-
-            })
-            .fail(function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("Fail");
+                        } else {
+                            window.location.href = 'Index';
+                        }
+                    });
+                }
             });
+
+
+            //} else {
+            //    alert("failed");
+            //}
+
+        })
+        .fail(function(xmlHttpRequest, textStatus, errorThrown) {
+            alert("Fail");
+        });
         //};
 
     });

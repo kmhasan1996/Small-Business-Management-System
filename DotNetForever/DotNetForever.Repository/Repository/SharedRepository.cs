@@ -60,13 +60,7 @@ namespace DotNetForever.Repository.Repository
             return purchaseReportViewModels;
 
         }
-        //public List<PurchaseReportViewModel> SearchPurchaseReportByDate(string startDate, string endDate)
-        //{
-
-
-        //}
-
-
+       
         public List<SaleReport> GetSalesReport(DateTime startDate, DateTime endDate)
         {
             List<SaleReport> saleReports = new List<SaleReport>();
@@ -108,12 +102,6 @@ namespace DotNetForever.Repository.Repository
 
             return saleReports;
         }
-
-        //public List<SalesReportViewModel> SearchSalesReportByDate(string startDate, string endDate)
-        //{
-
-
-        //}
 
 
         public List<Stock> GetStockReport(int? categoryId,int? productId, DateTime startDate, DateTime endDate)
