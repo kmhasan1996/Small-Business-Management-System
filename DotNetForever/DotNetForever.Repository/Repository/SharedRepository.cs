@@ -24,7 +24,7 @@ namespace DotNetForever.Repository.Repository
 
             using (var context = new SMSDbContext())
             {
-                var allProduct = context.Products.Include(x => x.Category).ToList();
+                var allProduct = context.Products.Include(x => x.Category).OrderBy(x=>x.Category.Name).ThenBy(x=>x.Name).ToList();
 
                 foreach (var product in allProduct)
                 {
@@ -67,7 +67,7 @@ namespace DotNetForever.Repository.Repository
 
             using (var context = new SMSDbContext())
             {
-                var allProduct = context.Products.Include(x => x.Category).ToList();
+                var allProduct = context.Products.Include(x => x.Category).OrderBy(x => x.Category.Name).ThenBy(x => x.Name).ToList();
 
                 foreach (var product in allProduct)
                 {
@@ -112,7 +112,7 @@ namespace DotNetForever.Repository.Repository
             {
                 var allProduct = (dynamic)null;
 
-                allProduct = context.Products.Include(x => x.Category).ToList();
+                allProduct = context.Products.Include(x => x.Category).OrderBy(x => x.Category.Name).ThenBy(x => x.Name).ToList();
                 if (categoryId.HasValue)
                 {
                     allProduct = context.Products.Include(x => x.Category).Where(x=>x.CategoryId==categoryId).ToList();

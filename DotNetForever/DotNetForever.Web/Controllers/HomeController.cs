@@ -49,5 +49,10 @@ namespace DotNetForever.Model.Controllers
             model.SupplierCount = _supplierManager.GetCount();
             return PartialView("_SideMenu", model);
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
     }
 }

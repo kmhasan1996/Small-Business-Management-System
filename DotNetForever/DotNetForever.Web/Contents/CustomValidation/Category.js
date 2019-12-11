@@ -17,7 +17,7 @@
 
     var nameError = false;
     $('input[name="Name"]').keyup(function (e) {
-        $("#Code").prop("disabled", false);
+        //$("#Code").prop("disabled", false);
         var x = document.getElementById("NameError");
         $.ajax({
             url: "Category/UniqueName",

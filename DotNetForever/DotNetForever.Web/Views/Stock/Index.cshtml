@@ -64,7 +64,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Start Date</label>
                         <div class="col-sm-8">
-                            <input  class="form-control" id="startDate" name="startDate">
+                            <input class="form-control" id="startDate" name="startDate">
                             <span id="startDateError"></span>
                         </div>
                     </div>
@@ -72,13 +72,13 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">End Date</label>
                         <div class="col-sm-8">
-                            <input  class="form-control" id="endDate" name="endDate">
+                            <input class="form-control" id="endDate" name="endDate">
                             <span id="endDateError"></span>
                         </div>
                     </div>
-
+                    @*@Html.ActionLink("Convert View To PDF", "PrintViewToPdf")*@
                     <a href="@Url.Action("Index","Stock")" class="btn btn-primary float-right ml-4"><i class="fas fa-redo-alt mr-2"></i>Reset</a>
-                    <button id="searchButton" type="button" class="btn btn-primary float-right "><i class="fas fa-search mr-2"></i>Search</button>
+                    <button id="searchButton" type="button" class="btn btn-success float-right "><i class="fas fa-search mr-2"></i>Search</button>
                 </div>
 
 

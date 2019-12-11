@@ -109,7 +109,7 @@ namespace DotNetForever.Repository.Repository
         {
             using (var context = new SMSDbContext())
             {
-                return context.Customers.ToList();
+                return context.Customers.OrderBy(x=>x.Name).ThenBy(x=>x.Email).ToList();
             }
         }
         public int GetCount()

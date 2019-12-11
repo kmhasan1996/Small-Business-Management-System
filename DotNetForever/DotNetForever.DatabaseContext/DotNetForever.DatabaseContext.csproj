@@ -51,6 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\SMSDbContext.cs" />
+    <Compile Include="Migrations\201912091910424_AddedDatetype.cs" />
+    <Compile Include="Migrations\201912091910424_AddedDatetype.Designer.cs">
+      <DependentUpon>201912091910424_AddedDatetype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +67,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201912091910424_AddedDatetype.resx">
+      <DependentUpon>201912091910424_AddedDatetype.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

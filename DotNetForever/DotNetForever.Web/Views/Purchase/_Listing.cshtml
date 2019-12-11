@@ -34,7 +34,7 @@
 
                             <td>
                                 <button type="button" class="detailsButton btn btn-primary" data-id="@purchase.Id" data-toggle="modal" data-target="#detailModal"><i class="fas fa-file-alt mr-2"></i>Details</button>
-
+                                <a href="@Url.Action("PurchaseDetailsReport", new { purchaseId = @purchase.Id })" class="btn btn-success" ><i class="fas fa-download mr-2"></i>Pdf</a>
                             </td>
 
                         </tr>

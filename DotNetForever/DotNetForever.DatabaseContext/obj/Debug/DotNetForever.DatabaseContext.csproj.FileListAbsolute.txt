@@ -56,3 +56,5 @@ E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\De
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.CopyComplete
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.dll
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.pdb
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.Migrations.AddedDatetype.resources
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Debug\DotNetForever.DatabaseContext.csproj.GenerateResource.cache

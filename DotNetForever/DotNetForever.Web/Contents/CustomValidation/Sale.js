@@ -414,7 +414,7 @@ $(document).ready(function () {
         //var grandTotal = grandTotal + result.TotalPrice;
 
         var startTr = "<tr>";
-        var slCell = "<td class='text-success'>" + (++sl) + "</td>";
+        var slCell = "<td class='text-dark'>" + (++sl) + "</td>";
 
         var productIdCell = productIdHidden;
         var productNameCell = "<td >" + result.ProductName + "</td>";

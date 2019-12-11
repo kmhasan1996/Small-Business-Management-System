@@ -30,7 +30,9 @@
                             <td>@sale.DateTime.ToShortDateString()</td>
 
                             <td>
+                                @*@Html.ActionLink("Print Details View To PDF", "SaleDetailsToPdf", new { saleId = @sale.Id })*@
                                 <button type="button" class="detailsButton btn btn-primary" data-id="@sale.Id" data-toggle="modal" data-target="#detailsModal"><i class="fas fa-file-alt mr-2"></i>Details</button>
+                                <a href="@Url.Action("SaleDetailsToPdf", new { saleId = @sale.Id })" class="btn btn-success" ><i class="fas fa-download mr-2"></i>Pdf</a>
 
                             </td>
 

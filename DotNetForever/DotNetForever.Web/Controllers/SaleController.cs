@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using DotNetForever.Manager.Manager;
 using DotNetForever.Model.Model;
 using DotNetForever.Web.ViewModels;
+using Rotativa;
 
 namespace DotNetForever.Model.Controllers
 {
@@ -117,6 +118,21 @@ namespace DotNetForever.Model.Controllers
             model.DiscountAmount = model.SubTotal * model.DiscountPercentage/100;
             model.PayaableAmount = model.SubTotal - model.DiscountAmount;
             return PartialView("_SaleDetails", model);
+        }
+
+        public ActionResult SaleDetailsToPdf(int saleId)
+        {
+
+            SaleInfoModalViewModel model = new SaleInfoModalViewModel();
+            model.SaleDetails = _saleDetailsManager.GetAllSaleDetailBySaleId(saleId);
+            model.Sale = _saleManager.GetAll().FirstOrDefault(x => x.Id == saleId);
+            model.SubTotal = model.SaleDetails.Select(x => x.TotalPrice).DefaultIfEmpty(0).Sum();
+            model.DiscountPercentage =
+                _saleManager.GetAll().Where(x => x.Id == saleId).Select(x => x.DiscountPercentage).FirstOrDefault();
+            model.DiscountAmount = model.SubTotal * model.DiscountPercentage / 100;
+            model.PayaableAmount = model.SubTotal - model.DiscountAmount;
+            var report = new PartialViewAsPdf("~/Views/Sale/_SaleDetailsToPdf.cshtml", model);
+            return report;
         }
 
     }

@@ -12,11 +12,10 @@ namespace DotNetForever.Model.Model
         [Required]
         public int ProductId { get; set; }
         [Required]
-        [DataType(DataType.Date)]
+        [Column(TypeName = "Date")]
         public DateTime ManufacturedDateTime { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
         [Column(TypeName = "Date")]
         public DateTime ExpireDate { get; set; }
         [Required]

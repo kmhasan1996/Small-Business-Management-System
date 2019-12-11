@@ -38,6 +38,8 @@ E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Re
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\EntityFramework.xml
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\bin\Release\EntityFramework.SqlServer.xml
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.csprojAssemblyReference.cache
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.Migrations.AddedDatetype.resources
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.csproj.GenerateResource.cache
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.csproj.CoreCompileInputs.cache
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.csproj.CopyComplete
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.DatabaseContext\obj\Release\DotNetForever.DatabaseContext.dll

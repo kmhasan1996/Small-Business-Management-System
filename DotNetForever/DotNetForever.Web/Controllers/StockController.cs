@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using DotNetForever.Manager.Manager;
+using Rotativa;
 
 
 namespace DotNetForever.Model.Controllers
@@ -13,7 +14,13 @@ namespace DotNetForever.Model.Controllers
         CategoryManager _categoryManager=new CategoryManager();
         SharedManager _sharedManager=new SharedManager();
 
-      
+
+        //public ActionResult PrintViewToPdf()
+        //{
+        //    var report = new ActionAsPdf("Search");
+        //    return report;
+        //}
+
         [HttpGet]
         public ActionResult Index(DateTime? startDate, DateTime? endDate)
         {

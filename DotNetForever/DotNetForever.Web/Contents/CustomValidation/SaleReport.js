@@ -75,21 +75,22 @@
 
 
     $("#searchButton").click(function () {
-        $.ajax({
-            type: "POST",
-            url: "/Report/SearchSaleReport",
-            data: $("#saleReportForm").serialize()
+        if (!startDateError && !endDateError) {
+            $.ajax({
+                    type: "POST",
+                    url: "/Report/SearchSaleReport",
+                    data: $("#saleReportForm").serialize()
 
-        })
-        .done(function (response) {
-            //$("#hideList").hide();
-            $("#ShowSaleReportListing").html(response);
-        })
-        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Fail");
-        });
+            })
+            .done(function(response) {
+                //$("#hideList").hide();
+                $("#ShowSaleReportListing").html(response);
+            })
+            .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
 
-
+        }
     });
 
 

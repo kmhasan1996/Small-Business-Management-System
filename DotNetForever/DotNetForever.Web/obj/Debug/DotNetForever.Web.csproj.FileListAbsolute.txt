@@ -247,3 +247,4 @@ E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetFo
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.csproj.CopyComplete
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.dll
 E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\obj\Debug\DotNetForever.Web.pdb
+E:\Project-01(Web)\New folder\DotNetForever\DotNetForever.Web\bin\Rotativa.dll

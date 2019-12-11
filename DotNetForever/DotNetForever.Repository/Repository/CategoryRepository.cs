@@ -80,7 +80,7 @@ namespace DotNetForever.Repository.Repository
         {
             using (var context = new SMSDbContext())
             {
-                return context.Categories.Include(x=>x.Products).ToList();
+                return context.Categories.Include(x=>x.Products).OrderBy(x=>x.Name).ToList();
 
             }
         }

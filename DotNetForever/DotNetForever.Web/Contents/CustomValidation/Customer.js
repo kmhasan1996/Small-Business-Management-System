@@ -28,6 +28,36 @@
         }
 
     });
+    
+    var emailError2 = false;
+    $('input[name="Email"]').keyup(function (e) {
+
+        var email = $("#Email").val();
+        var x = document.getElementById("EmailError2");
+
+        if (email !== "") {
+            //alert(email);
+            if (!validateEmail($("#Email").val())) {
+                emailError2 = true;
+                x.innerHTML = "Invalid email address";
+                x.style.color = "red";
+
+            } else {
+                emailError2 = false;
+                x.innerHTML = "";
+            } 
+        } else {
+            emailError2 = false;
+            x.innerHTML = "";
+        }
+        
+
+    });
+
+    function validateEmail(email){
+        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        return expr.test(email);
+    };
 
 
     $("#customerForm").validate({
@@ -41,8 +71,8 @@
                 required: true
             },
             Email: {
-                required: true,
-                email: true
+                required: true
+                //email: true
                 //remote: function () {
                 //    var r = {
                 //        url: "Customer/CheckEmailAvailability",
@@ -77,8 +107,8 @@
                 required:"Name is required"
             },
             Email: {
-                required: "Email is required",
-                email: "Enter a valid email"
+                required: "Email is required"
+                //email: "Enter a valid email"
                 //remote: "This email address is already registered."
             },
             Contact: {
@@ -95,8 +125,8 @@
         }
     });
 
+   
     var emailError = false;
-
     $('input[name="Email"]').keyup(function (e) {
 
         var x = document.getElementById("EmailError");
@@ -157,7 +187,7 @@
 
     $("#saveButton").click(function() {
 
-        if ($("#customerForm").valid() && !emailError && !contactError) {
+        if ($("#customerForm").valid() && !emailError && !contactError && !emailError2) {
             $("#Code").prop("disabled", false);
             $.ajax({
                     type: "POST",

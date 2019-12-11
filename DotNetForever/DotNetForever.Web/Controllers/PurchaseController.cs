@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using DotNetForever.Manager.Manager;
 using DotNetForever.Model.Model;
 using DotNetForever.Web.ViewModels;
+using Rotativa;
 
 namespace DotNetForever.Model.Controllers
 {
@@ -121,6 +122,16 @@ namespace DotNetForever.Model.Controllers
             model.SubTotal = model.PurchaseDetails.Select(x => x.TotalPrice).DefaultIfEmpty(0).Sum();
 
             return PartialView("_PurchaseDetails", model);
+        }
+
+        public ActionResult PurchaseDetailsReport(int purchaseId)
+        {
+            PurchaseInfoModalViewModel model = new PurchaseInfoModalViewModel();
+            model.PurchaseDetails = _purchaseDetailsManager.GetAllPurchaseDetailByPurchaseId(purchaseId);
+            model.Purchase = _purchaseManager.GetAll().FirstOrDefault(x => x.Id == purchaseId);
+            model.SubTotal = model.PurchaseDetails.Select(x => x.TotalPrice).DefaultIfEmpty(0).Sum();
+            var report = new PartialViewAsPdf("~/Views/Purchase/_PurchaseReportToPdf.cshtml", model);
+            return report;
         }
 
     }

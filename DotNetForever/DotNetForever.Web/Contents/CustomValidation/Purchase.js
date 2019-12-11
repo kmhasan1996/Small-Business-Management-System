@@ -407,7 +407,7 @@
         var remarksHidden = "<input type='hidden' name='PurchaseDetails[" + index + "].Remarks' value='" + result.Remarks + "'></div>";
 
         var startTr = "<tr>";
-        var slCell = "<td class='text-success'>" + (++sl) + "</td>";
+        var slCell = "<td class='text-dark'>" + (++sl) + "</td>";
 
         var productIdCell = productIdHidden;
         var productNameCell = "<td class='text-dark' >" + result.ProductName + "</td>";

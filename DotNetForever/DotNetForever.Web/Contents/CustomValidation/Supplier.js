@@ -15,6 +15,35 @@
     //    }
     //});
 
+    var emailError2 = false;
+    $('input[name="Email"]').keyup(function (e) {
+
+        var email = $("#Email").val();
+        var x = document.getElementById("EmailError2");
+
+        if (email !== "") {
+            //alert(email);
+            if (!validateEmail($("#Email").val())) {
+                emailError2 = true;
+                x.innerHTML = "Invalid email address";
+                x.style.color = "red";
+
+            } else {
+                emailError2 = false;
+                x.innerHTML = "";
+            }
+        } else {
+            emailError2 = false;
+            x.innerHTML = "";
+        }
+
+
+    });
+
+    function validateEmail(email) {
+        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        return expr.test(email);
+    };
     $('input[name="Contact"]').keyup(function (e) {
         if (/\D/g.test(this.value)) {
             // Filter non-digits from input value.
@@ -40,8 +69,7 @@
                 required: true
             },
             Email: {
-                required: true,
-                email: true
+                required: true
             },
             Contact: {
                 required: true,
@@ -65,8 +93,7 @@
                 required: "Name is required"
             },
             Email: {
-                required: "Email is required",
-                email: "Enter a valid email"
+                required: "Email is required"
             },
             Contact: {
                 required: "Contact is required",
@@ -142,7 +169,7 @@
     $("#saveButton").click(function () {
         // document.getElementById("saveError").style.display = "none";
 
-        if ($("#supplierForm").valid() && !emailError && !contactError) {
+        if ($("#supplierForm").valid() && !emailError && !contactError && !emailError2) {
             $("#Code").prop("disabled", false);
             $.ajax({
                     type: "POST",
@@ -175,7 +202,7 @@
 
     $("#updateButton").click(function () {
        
-        if ($("#supplierForm").valid() && !emailError && !contactError) {
+        if ($("#supplierForm").valid() && !emailError && !contactError && !emailError2) {
             $("#Code").prop("disabled", false);
             $.ajax({
                     type: "POST",

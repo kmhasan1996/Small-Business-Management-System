@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DotNetForever.Model.Model
 {
@@ -10,6 +11,7 @@ namespace DotNetForever.Model.Model
         [Required]
         public int CustomerId { get; set; }
         [Required]
+        [Column(TypeName = "Date")]
         public DateTime DateTime { get; set; }
         [Required]
         public string Code { get; set; }

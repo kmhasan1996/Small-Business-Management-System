@@ -15,7 +15,7 @@ namespace DotNetForever.Model.Controllers
             CategoryListViewModel model=new CategoryListViewModel();
            
             if (!String.IsNullOrEmpty(search))
-            {
+            {;
                 model.Categories = _categoryManager.Search(search);
             }
             else

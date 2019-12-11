@@ -96,7 +96,7 @@ namespace DotNetForever.Repository.Repository
         {
             using (var context = new SMSDbContext())
             {
-                return context.Products.Include(x => x.Category).ToList();
+                return context.Products.Include(x => x.Category).OrderBy(x=>x.Category.Name).ThenBy(x=>x.Name).ToList();
 
                 //return context.Products.Where(x=>x.Id>9).Include(x=>x.Category).ToList();
             }

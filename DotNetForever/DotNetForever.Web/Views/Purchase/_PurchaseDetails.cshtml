@@ -89,9 +89,10 @@
 
         </div>
 
-            <div class="modal-footer">
-                <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
-            </div>
+        <div class="modal-footer">
+            <a href="@Url.Action("PurchaseDetailsReport", new { purchaseId = @Model.Purchase.Id })" class="btn btn-success" ><i class="fas fa-download mr-2"></i>Pdf</a>
+            <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
+        </div>
        
     </div>
 }
