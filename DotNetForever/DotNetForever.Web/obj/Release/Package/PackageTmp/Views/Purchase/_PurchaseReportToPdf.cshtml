@@ -1,0 +1,85 @@
+﻿@model DotNetForever.Web.ViewModels.PurchaseInfoModalViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Contents/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<h2 class="text-center">Purchase Report</h2><hr/>
+<table class="table ">
+        
+    <tbody>
+    <tr >
+        <td class="float-left">
+            <label class="font-weight-bold ">Supplier Details:</label><br />
+            <label >@Model.Purchase.Supplier.Name</label><br />
+            <label>@Model.Purchase.Supplier.Contact, @Model.Purchase.Supplier.Email</label><br />
+            <label>@Model.Purchase.Supplier.Address</label>
+        </td>
+        <td class="float-right">
+            <label> <span class="font-weight-bold">Invoice No:</span> @Model.Purchase.InvoiceNo</label><br />
+            <label> <span class="font-weight-bold">Code:</span>@Model.Purchase.Code</label><br />
+            <label><span class="font-weight-bold">Date:</span> @Model.Purchase.DateTime.ToShortDateString()</label><br />
+        </td>
+                        
+    </tr>
+    </tbody>
+</table>
+       
+
+    
+<h5 class="font-weight-bold ">Purchase Info</h5>
+<table class="table table-bordered text-dark">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product</th>
+        <th scope="col">Manuf. Date</th>
+        <th scope="col">Expire Date</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">MRP</th>
+        <th scope="col">Total Price</th>
+        @*<th scope="col">Remarks</th>*@
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        var i = 0;
+        foreach (var productDetail in Model.PurchaseDetails)
+        {
+            i++;
+
+            <tr>
+                <td>@i</td>
+                <td>@productDetail.Product.Name</td>
+                <td>@productDetail.ManufacturedDateTime.ToShortDateString()</td>
+                <td>@productDetail.ExpireDate.ToShortDateString()</td>
+                <td>@productDetail.Quantity</td>
+                <td>@productDetail.UnitPrice</td>
+                <td>@productDetail.MRP</td>
+                <td>@productDetail.TotalPrice</td>
+                @*<td>@productDetail.Remarks</td>*@
+
+            </tr>
+        }
+
+    }
+
+    </tbody>
+    <tfoot>
+    <tr class="table-borderless">
+        <td colspan="5"></td>
+        <th colspan="2">Sub Total</th>
+        <th>@Model.SubTotal</th>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>
+
+   

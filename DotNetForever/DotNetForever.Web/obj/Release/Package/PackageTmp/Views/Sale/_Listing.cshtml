@@ -1,0 +1,111 @@
+﻿@model List<DotNetForever.Model.Model.Sale>
+
+@if (Model != null && Model.Count > 0)
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var i = 0;
+                    foreach (var sale in Model)
+                    {
+                        i++;
+
+                        <tr>
+                            <td>@i</td>
+                            <td>@sale.Code</td>
+                            @*<td>@purchase.Customer.Name</td>*@
+                            <td>
+                                <a class="customerName btn " data-id="@sale.Customer.Id" data-toggle="modal" data-target="#customerDetailModal"><u>@sale.Customer.Name</u></a>
+                            </td>
+                            <td>@sale.DateTime.ToShortDateString()</td>
+
+                            <td>
+                                @*@Html.ActionLink("Print Details View To PDF", "SaleDetailsToPdf", new { saleId = @sale.Id })*@
+                                <button type="button" class="detailsButton btn btn-primary" data-id="@sale.Id" data-toggle="modal" data-target="#detailsModal"><i class="fas fa-file-alt mr-2"></i>Details</button>
+                                <a href="@Url.Action("SaleDetailsToPdf", new { saleId = @sale.Id })" class="btn btn-success" ><i class="fas fa-download mr-2"></i>Pdf</a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+}
+else
+{
+    <hr />
+    <div class="alert alert-warning" role="alert">
+        Sorry! No record found.
+    </div>
+}
+
+<!--Customer detail modal-->
+<div class="modal fade" id="customerDetailModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+
+    </div>
+</div>
+
+<!-- Modal Edit -->
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+
+    </div>
+</div>
+
+<script>
+    $(".detailsButton").click(function () {
+
+        $.ajax({
+            type: "GET",
+            url: "/Sale/SaleDetails",
+            data: {
+                saleId: $(this).attr('data-id')
+            }
+
+        })
+            .done(function (response) {
+                $("#detailsModal .modal-dialog").html(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
+
+    });
+
+    $(".customerName").click(function () {
+        $.ajax({
+            type: "GET",
+            url: "/Customer/CustomerDetails",
+            data: {
+                id: $(this).attr('data-id')
+            }
+
+        })
+            .done(function (response) {
+                $("#customerDetailModal .modal-dialog").html(response);
+            })
+            .fail(function (xmlHttpRequest, textStatus, errorThrown) {
+                alert("Fail");
+            });
+    });
+
+
+</script>
+
+

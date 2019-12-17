@@ -1,0 +1,257 @@
+﻿@model DotNetForever.Web.ViewModels.PurchaseDetailsViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a href="@Url.Action("Index","Purchase")" class="btn btn-success mt-2" type="button"><i class="fas fa-chevron-left mr-2 "></i>Back</a>
+    <h4>Purchase Product</h4>
+    <hr />
+
+<form id="PurchaseForm" method="post">
+        <div class="row col-md-12 bg-white ml-1">
+            <!--Supplier Details -->
+            <div class="col-md-12">
+                <h6>Supplier</h6><hr />
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label form-control-sm">Supplier</label>
+                            <div class="col-sm-9">
+                                <select id="SupplierId" name="SupplierId" class="form-control form-control-sm" size="1">
+                                    <option value="">Select One</option>
+                                    @if (Model.Suppliers != null)
+                                    {
+                                        foreach (var supplier in Model.Suppliers)
+                                        {
+                                            <option value="@supplier.Id">@supplier.Name</option>
+                                        }
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <label class="col-sm-5 col-form-label form-control-sm">Invoice No.</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control form-control-sm" id="InvoiceNo" name="InvoiceNo" placeholder="Enter invoice no.">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label form-control-sm">Code</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-sm" id="Code" name="Code" value="@Model.Code">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        @*<div class="form-group row ml-2">
+                            <label class="col-sm-2 col-form-label">Date</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" id="DateTime" name="DateTime">
+                            </div>
+                        </div>*@
+
+                        <div class="form-group row ml-2">
+                            <label class="col-sm-2 col-form-label">Date</label>
+                            <div class="col-sm-10">
+                                <input @*type="date"*@ class="form-control form-control-sm"  id="dateTime" name="dateTime">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <hr />
+            </div>
+
+            <!--Product Details -->
+            <div class="col-md-12">
+                <h6>Product</h6><hr />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Category</label>
+                            <div class="col-sm-8">
+                                <select id="categoryId" name="categoryId" class="form-control form-control-sm" size="1">
+                                    <option value="">Select One</option>
+                                    @if (Model.Categories != null)
+                                    {
+                                        foreach (var category in Model.Categories)
+                                        {
+                                            <option value="@category.Id">@category.Name</option>
+                                        }
+                                    }
+
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Product</label>
+                            <div class="col-sm-8">
+                                <select id="ProductId" name="ProductId" class="form-control form-control-sm" size="1">
+                                    <option value="">Select One</option>
+                                    @*@if (Model.Products != null)
+                    {
+                        foreach (var product in Model.Products)
+                        {
+                            <option value="@product.Id.">@product.Name</option>
+                        }
+                    }*@
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Code</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control form-control-sm" id="ProductCode" name="ProductCode" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Manuf. Date</label>
+                            <div class="col-sm-8">
+                                <input @*type="date"*@ class="form-control form-control-sm" id="ManufacturedDateTime" name="ManufacturedDateTime">
+                            </div>
+                        </div>
+                       
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Expire Date</label>
+                            <div class="col-sm-8">
+                                <input @*type="date"*@ class="form-control form-control-sm" id="ExpireDate" name="ExpireDate">
+                            </div>
+                        </div>
+                       
+
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Available Qty</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control form-control-sm" id="AvailableQty" name="AvailableQty" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Quantity</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control form-control-sm" id="Quantity" name="Quantity" placeholder="Enter quantity">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Pre. Unit Price</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control form-control-sm" id="PreviousUnitPrice" name="PreviousUnitPrice" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Unit Price(Tk)</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control form-control-sm" id="UnitPrice" name="UnitPrice" placeholder="Enter unit price">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Total Price(Tk)</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control form-control-sm" id="TotalPrice" name="TotalPrice" disabled>
+                                <span id="NameError"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">Pre. MRP(Tk)</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control form-control-sm" id="PreviousMRP" name="PreviousMRP" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label form-control-sm">MRP(Tk)</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control form-control-sm" id="MRP" name="MRP" placeholder="Enter MRP">
+                            </div>
+                        </div>
+                       
+                       
+                      
+                       
+                    </div>
+
+                    <div class="col-md-8">
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label form-control-sm">Remarks</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control form-control-sm" aria-label="With textarea" id="Remarks" name="Remarks"></textarea>
+                               
+                            </div>
+                           
+                        </div> 
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label form-control-sm"></label>
+                            <div class="col-sm-10">
+                                <button id="addButton" type="button" class="btn btn-primary mt-2"><i class="fas fa-plus mr-2"></i>Add</button>
+
+                            </div>
+                           
+                        </div>
+                       
+                    </div>
+
+                    <div class="col-md-3">
+                        @*<button id="addButton" type="button" class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Add</button>*@
+                    </div>
+
+                </div>
+
+                <hr />
+            </div>
+
+        </div>
+   
+
+<div class="card bg-light overflow-auto" >
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product</th>
+                <th scope="col">Manuf. Date</th>
+                <th scope="col">Expire Date</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">MRP (Tk)</th>
+                <th scope="col">Remarks</th>
+                @*<th scope="col">Action</th>*@
+            </tr>
+            </thead>
+            <tbody id="ProductListTable" style="color: white">
+                       
+
+            </tbody>
+        </table>
+    </div>
+           
+</div>
+<div class="col-md-3 mt-2">
+    <button id="submitButton" type="button" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Submit</button>
+</div>
+</form>
+<script src="~/Contents/CustomValidation/Purchase.js"></script>
+

@@ -1,0 +1,71 @@
+﻿@model  DotNetForever.Web.ViewModels.CreateProductViewModel
+
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    
+    <form id="productForm">
+    <div class="modal-body">
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label form-control-sm">Category</label>
+            <div class="col-sm-9">
+                <select id="categorySelect" name="CategoryID" class="form-control form-control-sm" size="1" >
+                  <option value="">--Select Category--</option>
+                    @if (Model.Categories !=null)
+                    {
+                        foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    }
+                   
+
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label form-control-sm">Code</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control form-control-sm" id="Code" name="Code" value="@Model.Product.Code">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label form-control-sm">Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control form-control-sm" id="Name" name="Name" placeholder="Enter name">
+               <span id="NameError"></span>
+            </div>
+        </div>
+      
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label form-control-sm">Reorder Level</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control form-control-sm" name="ReorderLevel" value="10">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label form-control-sm">Description</label>
+            <div class="col-sm-9">
+                <textarea type="text" class="form-control form-control-sm" name="Description"  placeholder="Enter description"></textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button id="saveButton" type="button" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Save</button>
+        <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
+    </div>
+    </form>
+</div>
+
+
+<script src="~/Contents/CustomValidation/Product.js"></script>

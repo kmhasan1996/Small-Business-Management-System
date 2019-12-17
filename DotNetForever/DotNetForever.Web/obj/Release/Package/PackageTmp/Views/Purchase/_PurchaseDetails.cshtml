@@ -1,0 +1,98 @@
+﻿@model  DotNetForever.Web.ViewModels.PurchaseInfoModalViewModel
+
+
+
+@if (Model != null)
+{
+    <div class="modal-content" @*style="width: 900px; margin-right: 900px;"*@>
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Purchase Details</h5>
+          
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+       
+        <div class="modal-body">
+            @*<h5 class="modal-title">Code: @Model.Purchase.Code   InvoiceNo: @Model.Purchase.InvoiceNo </h5>
+            <h5 class="modal-title">Supplier: @Model.Purchase.Supplier.Name   Date: @Model.Purchase.DateTime</h5>*@
+            
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                <tr>
+                    <th >InvoiceNo</th>
+                    <th >Code</th>
+                    <th >Supplier</th>
+                    <th >Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>@Model.Purchase.InvoiceNo</td>
+                    <td>@Model.Purchase.Code</td>
+                    <td> @Model.Purchase.Supplier.Name</td>
+                    <td>@Model.Purchase.DateTime.ToShortDateString()</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Manuf. Date</th>
+                        <th scope="col">Expire Date</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">MRP</th>
+                        <th scope="col">Total Price</th>
+                        @*<th scope="col">Remarks</th>*@
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @{
+                        var i = 0;
+                        foreach (var productDetail in Model.PurchaseDetails)
+                        {
+                            i++;
+
+                            <tr>
+                                <td>@i</td>
+                                <td>@productDetail.Product.Name</td>
+                                <td>@productDetail.ManufacturedDateTime.ToShortDateString()</td>
+                                <td>@productDetail.ExpireDate.ToShortDateString()</td>
+                                <td>@productDetail.Quantity</td>
+                                <td>@productDetail.UnitPrice</td>
+                                <td>@productDetail.MRP</td>
+                                <td>@productDetail.TotalPrice</td>
+                                @*<td>@productDetail.Remarks</td>*@
+                                
+                            </tr>
+                        }
+
+                    }
+
+                    </tbody>
+                    <tfoot>
+                        <tr class="table-borderless">
+                            <td colspan="5"></td>
+                            <th colspan="2">Sub Total</th>
+                            <th>@Model.SubTotal</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            @*<h5>Sub Total: @Model.SubTotal</h5>*@
+
+        </div>
+
+        <div class="modal-footer">
+            <a href="@Url.Action("PurchaseDetailsReport", new { purchaseId = @Model.Purchase.Id })" class="btn btn-success" ><i class="fas fa-download mr-2"></i>Pdf</a>
+            <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
+        </div>
+       
+    </div>
+}

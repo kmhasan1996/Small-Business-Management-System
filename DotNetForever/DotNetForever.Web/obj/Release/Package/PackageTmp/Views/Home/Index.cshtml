@@ -1,0 +1,109 @@
+﻿@model DotNetForever.Web.ViewModels.SideMenuViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>*@
+
+@*<h2 class="text-center mb-5">Stock Management System</h2>*@
+<link href="~/Contents/css/StyleSheet1.css" rel="stylesheet" />
+<div class="row mt-5">
+    <div class="col-md-3">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>@Model.CategoryCount</h3>
+
+                <p>Total Category</p>
+            </div>
+            <div class="icon bg-dark">
+                <i class="fas fa-folder"></i>
+            </div>
+            <a href="@Url.Action("Index", "Category")" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+        @*<div class="card">
+            <div class="card-header text-center bg-primary text-white">
+                No. of Category
+            </div>
+            <div class="card-body bg-secondary text-white text-center ">
+                <p class="card-text  display-1"> @Model.CategoryCount</p>
+
+                <a href="@Url.Action("Index", "Category")" class="btn btn-primary float-right">See Details >></a>
+            </div>
+        </div>*@
+    </div>
+    <div class="col-md-3">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>@Model.ProductCount</h3>
+
+                <p>Types of Product</p>
+            </div>
+            <div class="icon bg-dark">
+                <i class="fas fa-boxes"></i>
+            </div>
+            <a href="@Url.Action("Index", "Product")" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+        @*<div class="card">
+            <div class="card-header">
+                Type of product
+            </div>
+            <div class="card-body text-center ">
+                <p class="card-text display-1"> @Model.ProductCount</p>
+
+                <a href="@Url.Action("Index", "Product")" class="btn btn-primary float-right">See Details >></a>
+            </div>
+        </div>*@
+    </div>
+    <div class="col-md-3">
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3> @Model.CustomerCount</h3>
+
+                <p>Total Customer</p>
+            </div>
+            <div class="icon bg-dark">
+                <i class="fas fa-users"></i>
+            </div>
+            <a href="@Url.Action("Index", "Customer")" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+        @*<div class="card">
+            <div class="card-header">
+                No. of Customer
+            </div>
+            <div class="card-body text-center ">
+                <p class="card-text display-1"> @Model.CustomerCount</p>
+
+                <a href="@Url.Action("Index", "Customer")" class="btn btn-primary float-right">See Details >></a>
+            </div>
+        </div>*@
+    </div>
+    <div class="col-md-3">
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>@Model.SupplierCount</h3>
+
+                <p>Total Supplier</p>
+            </div>
+            <div class="icon bg-dark">
+                <i class="fas fa-users"></i>
+            </div>
+            <a href="@Url.Action("Index", "Supplier")" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+        @*<div class="card">
+            <div class="card-header">
+                No. of Supplier
+            </div>
+            <div class="card-body text-center ">
+                <p class="card-text display-1"> @Model.SupplierCount</p>
+
+                <a href="@Url.Action("Index", "Supplier")" class="btn btn-primary float-right">See Details >></a>
+            </div>
+        </div>*@
+    </div>
+
+</div>
+

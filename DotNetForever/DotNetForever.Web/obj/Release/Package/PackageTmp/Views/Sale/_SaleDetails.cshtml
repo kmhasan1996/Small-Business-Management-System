@@ -1,0 +1,100 @@
+﻿@model  DotNetForever.Web.ViewModels.SaleInfoModalViewModel
+
+@if (Model != null)
+{
+    <div class="modal-content" @*style="width: 900px; margin-right: 900px;"*@>
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sale Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+
+        <div class="modal-body">
+
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Code</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Sale.Code</td>
+                        <td> @Model.Sale.Customer.Name</td>
+                        <td>@Model.Sale.DateTime.ToShortDateString()</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">MRP</th>
+                            <th scope="col">Total MRP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @{
+                        var i = 0;
+                        foreach (var saleDetail in Model.SaleDetails)
+                        {
+                            i++;
+
+                            <tr>
+                                <td>@i</td>
+                                <td>@saleDetail.Product.Name</td>
+                                <td>@saleDetail.Quantity</td>
+                                <td>@saleDetail.MRP</td>
+                                <td>@saleDetail.TotalPrice</td>
+                            </tr>
+                        }
+
+                    }
+
+                    </tbody>
+                    <tfoot >
+                    <tr class="table-borderless">
+                        <td colspan="3"></td>
+                        <th colspan="1" class="float-right">Sub Total</th>
+                        <th>@Model.SubTotal</th>
+
+                    </tr>
+                    <tr class="table-borderless">
+                        <td colspan="3"></td>
+                        <th colspan="1" class="float-right">Discount (%)</th>
+                        <th>@Model.DiscountPercentage</th>
+                       
+                    </tr>
+                    <tr class="table-borderless">
+                        <td colspan="3"></td>
+                        <th colspan="1" class="float-right">Discount Amount</th>
+                        <th>@Model.DiscountAmount</th>
+                       
+                    </tr>
+                    <tr class="table-borderless">
+                        <td colspan="3"></td>
+                        <th colspan="1" class="float-right">Payable Amount</th>
+                        <th>@Model.PayaableAmount</th>
+                       
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <a href="@Url.Action("SaleDetailsToPdf", new { saleId = @Model.Sale.Id })" class="btn btn-success" ><i class="fas fa-download mr-2"></i>Pdf</a>
+            <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Close</button>
+        </div>
+
+    </div>
+}

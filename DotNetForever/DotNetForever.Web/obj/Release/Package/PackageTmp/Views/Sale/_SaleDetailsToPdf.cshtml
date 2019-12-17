@@ -1,0 +1,92 @@
+﻿@model DotNetForever.Web.ViewModels.SaleInfoModalViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Contents/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h2 class="text-center">Sales Report</h2><hr/>
+    <table class="table ">
+        
+        <tbody>
+            <tr >
+                <td class="float-left">
+                    <label class="font-weight-bold ">Customer Details:</label><br />
+                    <label >@Model.Sale.Customer.Name</label><br />
+                    <label>@Model.Sale.Customer.Contact, @Model.Sale.Customer.Email</label><br />
+                    <label>@Model.Sale.Customer.Address</label>
+                </td>
+                <td class="float-right">
+                    <label> <span class="font-weight-bold">Sales Code:</span> @Model.Sale.Code</label><br />
+                    <label><span class="font-weight-bold">Date:</span> @Model.Sale.DateTime.ToShortDateString()</label><br />
+                </td>
+                        
+            </tr>
+        </tbody>
+    </table>
+       
+
+    <h5 class="font-weight-bold ">Sales Info</h5>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">MRP</th>
+                <th scope="col">Total MRP</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var i = 0;
+                foreach (var saleDetail in Model.SaleDetails)
+                {
+                    i++;
+
+                    <tr>
+                        <td>@i</td>
+                        <td>@saleDetail.Product.Name</td>
+                        <td>@saleDetail.Quantity</td>
+                        <td>@saleDetail.MRP</td>
+                        <td>@saleDetail.TotalPrice</td>
+                    </tr>
+                }
+
+            }
+
+        </tbody>
+        <tfoot>
+            <tr class="table-borderless">
+                <td colspan="3"></td>
+                <th colspan="1" class="float-right">Sub Total</th>
+                <th>@Model.SubTotal</th>
+
+            </tr>
+            <tr class="table-borderless">
+                <td colspan="3"></td>
+                <th colspan="1" class="float-right">Discount (%)</th>
+                <th>@Model.DiscountPercentage</th>
+
+            </tr>
+            <tr class="table-borderless">
+                <td colspan="3"></td>
+                <th colspan="1" class="float-right">Discount Amount</th>
+                <th>@Model.DiscountAmount</th>
+
+            </tr>
+            <tr class="table-borderless">
+                <td colspan="3"></td>
+                <th colspan="1" class="float-right">Payable Amount</th>
+                <th>@Model.PayaableAmount</th>
+
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>
+
+

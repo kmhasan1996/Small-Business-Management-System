@@ -1,0 +1,56 @@
+﻿@model List<DotNetForever.Model.Model.Stock>
+
+@if (Model != null)
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Code</th>
+                <th scope="col">Product</th>
+                <th scope="col">Category</th>
+                <th scope="col">Reorder Level</th>
+                <th scope="col">Opening Balance</th>
+                <th scope="col">In</th>
+                <th scope="col">Out</th>
+                <th scope="col">Closing Balance</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if(Model!=null){
+                var i = 0;
+                foreach (var product in Model)
+                {
+               
+                    i++;
+
+                    <tr>
+                        <td>@i</td>
+                        <td>@product.Code</td>
+                        <td>@product.Product</td>
+                        <td>@product.Category</td>
+                        <td>@product.ReorderLevel</td>
+                        <td>@product.OpeningBalance</td>
+                        <td>@product.In</td>
+                        <td>@product.Out</td>
+                        <td>@product.ClosingBalance</td>
+
+                    </tr>
+                }
+
+            }
+            </tbody>
+
+        </table>
+
+    </div>
+
+}
+else
+{
+    <hr/>
+    <div class="alert alert-warning" role="alert">
+        Sorry! No record found.
+    </div>
+}
